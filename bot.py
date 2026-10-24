@@ -25,9 +25,11 @@ import ast
 import json
 import math
 import os
+import re
 import statistics
 import sys
 import time
+import http.client
 import urllib.error
 import urllib.request
 from collections import defaultdict
@@ -156,6 +158,24 @@ P = {
     # Kept for the live field, where rivals do move their prices.
     "use_price_jitter": False,
     "use_herding": True,        # rivals pile onto the night's obvious spot
+    # FINAL RULES. "best" = documented winner-take-all (today's behaviour).
+    # "share" = each customer picks among eligible trucks with probability
+    # value_j / sum(values). salvage = fraction of food cost refunded on
+    # unsold meals.
+    "choice": "best",           # "best" | "share" | "logit"
+    "choice_tau": 3.0,          # logit temperature, fitted on practice: tau~3
+    "salvage": 0.0,
+    # Walk-over: hungry customers from empty spots walk to occupied ones.
+    # Practice showed served spots gaining ~20-60% extra; this inflates every
+    # spot's expected crowd by this fraction. 0.0 = off.
+    "walk_uplift": 0.0,
+    # Geometric walk-over model (replaces walk_uplift when on). Fitted on 38
+    # empty-spot practice days: the share of an empty spot's crowd that walks
+    # to its nearest occupied spot is walk_a * exp(-dist / walk_scale), with
+    # dist in projected-map pixels (rms 7.7 pts).
+    "walk_model": False,
+    "walk_a": 0.55,
+    "walk_scale": 300.0,
     "herd_p": 0.40,
 }
 
@@ -222,12 +242,58 @@ def expected_crowds(state, spots):
     nothing) and the old blind 133-meal default (risk the whole budget).
     """
     exp = ((state.get("forecast") or {}).get("expected_customers")) or {}
-    out = {s: float(exp.get(s) or 0.0) for s in spots}
+    up = 1.0 + float(P["walk_uplift"])
+    out = {s: float(exp.get(s) or 0.0) * up for s in spots}
     if sum(out.values()) > 0:
         return out
     trucks = max(4, len(state.get("trucks") or []) or 4)
     total = 110.0 * trucks
     return {s: total * SHARES.get(s, 1.0 / max(1, len(spots))) for s in spots}
+
+
+# Spot positions on the projected campus map (isometric screen px, approximate).
+SPOT_XY = {"stadium": (325, 900), "thompson": (610, 1105), "oval": (750, 1125),
+           "highst": (1140, 1165), "northres": (1133, 968), "union": (778, 1468)}
+
+
+def _dist(a, b):
+    (x1, y1), (x2, y2) = SPOT_XY[a], SPOT_XY[b]
+    return math.hypot(x1 - x2, y1 - y2)
+
+
+def walk_adjust(expected, rivals, spots):
+    """Crowd at each spot *if we park there*, counting walk-ins.
+
+    A spot A with no truck sends a share of its crowd to the nearest occupied
+    spot. Parking at s collects A's walkers when A is empty and every spot
+    nearer to A than s is empty too. Rival occupancy comes from their parking
+    history (rival_presence), treated as independent across spots.
+    """
+    if not P["walk_model"]:
+        return expected
+    occ = {}
+    for a in spots:
+        empty = 1.0
+        for _, p in rival_presence(rivals, a):
+            empty *= (1.0 - min(1.0, p))
+        occ[a] = 1.0 - empty
+    out = {}
+    for s in spots:
+        if s not in SPOT_XY:
+            out[s] = expected.get(s, 0.0)
+            continue
+        gain = 0.0
+        for a in spots:
+            if a == s or a not in SPOT_XY:
+                continue
+            d = _dist(a, s)
+            p = 1.0 - occ[a]
+            for b in spots:
+                if b not in (a, s) and b in SPOT_XY and _dist(a, b) < d:
+                    p *= (1.0 - occ[b])
+            gain += float(expected.get(a, 0.0)) * p * P["walk_a"] * math.exp(-d / P["walk_scale"])
+        out[s] = float(expected.get(s, 0.0)) + gain
+    return out
 
 
 # ------------------------------------------------------------------ memory
@@ -393,8 +459,58 @@ def beats(a, b):
     return a.price < b.price
 
 
+def allocate_share(cells, trucks, n_customers):
+    """Value-weighted choice: each customer splits over eligible trucks in
+    proportion to value; customers whose pick sold out choose again."""
+    sales = [0.0] * len(trucks)
+    cap = [t.cap for t in trucks]
+    weights = [w * n_customers for (w, _, _) in cells]
+    logit = P["choice"] == "logit"
+    tau = float(P["choice_tau"])
+    for _ in range(6):
+        demand = defaultdict(float)
+        parts = {}
+        for ci, (_, rank, limit) in enumerate(cells):
+            w = weights[ci]
+            if w <= 1e-9:
+                continue
+            el = [(ti, t.value) for ti, t in enumerate(trucks)
+                  if cap[ti] > 1e-9 and t.qrank >= rank and t.price <= limit
+                  and (t.value >= 0 if logit else t.value > 0)]
+            if logit and el:
+                top = max(v for _, v in el)
+                el = [(ti, math.exp((v - top) / tau)) for ti, v in el]
+            tot = sum(v for _, v in el)
+            if tot <= 0:
+                weights[ci] = 0.0
+                continue
+            parts[ci] = [(ti, v / tot) for ti, v in el]
+            for ti, sh in parts[ci]:
+                demand[ti] += w * sh
+        if not demand:
+            break
+        frac = {ti: (1.0 if d <= cap[ti] else cap[ti] / d) for ti, d in demand.items()}
+        for ti, d in demand.items():
+            take = d * frac[ti]
+            sales[ti] += take
+            cap[ti] -= take
+        spill = False
+        for ci in range(len(weights)):
+            if ci not in parts:
+                weights[ci] = 0.0
+                continue
+            weights[ci] *= sum(sh * (1.0 - frac[ti]) for ti, sh in parts[ci])
+            if weights[ci] > 1e-9:
+                spill = True
+        if not spill:
+            break
+    return sales
+
+
 def allocate(cells, trucks, n_customers):
     """Assign customers to trucks, respecting sell-outs. Sales per truck."""
+    if P["choice"] in ("share", "logit"):
+        return allocate_share(cells, trucks, n_customers)
     sales = [0.0] * len(trucks)
     cap = [t.cap for t in trucks]
     weights = [w * n_customers for (w, _, _) in cells]
@@ -463,7 +579,9 @@ def best_inventory(demands, price, cost, hardcap):
     Returns (meals, risk_adjusted_score, expected_profit)."""
     best = (0, -1e18, 0.0)
     for m in meal_grid(demands, hardcap):
-        outcomes = [(min(d, m) * price - m * cost, w) for d, w in demands]
+        sv = P["salvage"] * cost
+        outcomes = [(min(d, m) * price - m * cost + sv * max(0.0, m - d), w)
+                    for d, w in demands]
         mean = sum(p * w for p, w in outcomes)
         score = mean - P["risk_lambda"] * (mean - tail_mean(outcomes, P["risk_tail"]))
         if score > best[1]:
@@ -611,7 +729,17 @@ def magnet_spot(state, spots):
 
 
 def rival_best_per_cell(cells, trucks):
-    """The offer each kind of customer would otherwise take."""
+    """The offer each kind of customer would otherwise take. Under value-
+    weighted choice: the summed value of the rivals they would consider."""
+    if P["choice"] == "logit":
+        tau = float(P["choice_tau"])
+        return [sum(math.exp(t.value / tau) for t in trucks
+                    if t.qrank >= rank and t.price <= limit and t.value >= 0 and t.cap > 1e-9)
+                for (_, rank, limit) in cells]
+    if P["choice"] == "share":
+        return [sum(t.value for t in trucks
+                    if t.qrank >= rank and t.price <= limit and t.value > 0 and t.cap > 1e-9)
+                for (_, rank, limit) in cells]
     arr = []
     for (_, rank, limit) in cells:
         best = None
@@ -627,6 +755,23 @@ def rival_best_per_cell(cells, trucks):
 def fast_demand(cells, rbest, mine, n):
     """Customers who would pick us, ignoring who runs out of food first."""
     d = 0.0
+    if P["choice"] == "logit":
+        if mine.value < 0:
+            return 0.0
+        e = math.exp(mine.value / float(P["choice_tau"]))
+        for ci, (cw, rank, limit) in enumerate(cells):
+            if mine.qrank < rank or mine.price > limit:
+                continue
+            d += cw * n * e / (e + rbest[ci])
+        return d
+    if P["choice"] == "share":
+        if mine.value <= 0:
+            return 0.0
+        for ci, (cw, rank, limit) in enumerate(cells):
+            if mine.qrank < rank or mine.price > limit:
+                continue
+            d += cw * n * mine.value / (mine.value + rbest[ci])
+        return d
     for ci, (cw, rank, limit) in enumerate(cells):
         if mine.qrank < rank or mine.price > limit:
             continue
@@ -682,6 +827,7 @@ def decide(state):
     myrep = (state["you"].get("reputation") or {})
     rivals = predict_rivals(state)
     intruder = strongest_rival(rivals)
+    expected = walk_adjust(expected, rivals, spots)
 
     # order_for_day is null outside a night, and `days` can be missing.
     day_now = int(state.get("order_for_day") or state.get("day") or 1)
@@ -842,13 +988,116 @@ def log(rec):
         pass
 
 
+NET_ERRORS = (urllib.error.URLError, OSError, http.client.HTTPException, ValueError)
+
+
+# --- bad-data guard ---------------------------------------------------------
+# Some practice markets (state.data_quality.bad_data) serve corrupted fields:
+# numbers as None or as "$10.50" strings. Repair them from the last clean state
+# of the same market before anything reads the state. Clean input passes
+# through unchanged (tested on practice_states.jsonl).
+_NUM_RE = re.compile(r'^\s*-?\$?\s*-?[\d,]*\.?\d+\s*%?\s*$')
+
+
+def _is_num(x):
+    return isinstance(x, (int, float)) and not isinstance(x, bool)
+
+
+def _list_key(items):
+    if items and all(isinstance(d, dict) for d in items):
+        for k in ("id", "spot", "key"):
+            if all(isinstance(d.get(k), str) for d in items):
+                return k
+    return None
+
+
+def _fillable(path):
+    # Top-level fields (order_for_day, phase_ends_at, ...) and our own last-day
+    # record legitimately go None; only `version` is worth carrying forward.
+    if path.count(".") == 1:
+        return path == ".version"
+    return not path.startswith(".last_day.you")
+
+
+def _repair(s, prev, path, fixes):
+    if isinstance(s, dict):
+        p = prev if isinstance(prev, dict) else {}
+        return {k: _repair(v, p.get(k), path + "." + k, fixes) for k, v in s.items()}
+    if isinstance(s, list):
+        p = prev if isinstance(prev, list) else []
+        k = _list_key(s)
+        if k and _list_key(p) == k:
+            by = {d[k]: d for d in p}
+            out = [_repair(v, by.get(v[k]), "%s[%s]" % (path, v[k]), fixes) for v in s]
+        else:
+            out = [_repair(v, p[i] if i < len(p) else None, "%s[%d]" % (path, i), fixes)
+                   for i, v in enumerate(s)]
+        if k and _fillable(path + ".x"):
+            # A rival with no history here (it moved spots): borrow the median
+            # of its neighbours rather than leave a None for the model to trip on.
+            for f in {f for d in out for f, v in d.items() if v is None}:
+                nums = sorted(d[f] for d in out if _is_num(d.get(f)))
+                if nums:
+                    med = nums[len(nums) // 2]
+                    for d in out:
+                        if d.get(f) is None:
+                            d[f] = med
+                            fixes.append("%s[%s].%s None->median" % (path, d[k], f))
+        return out
+    if s is None and _is_num(prev) and _fillable(path):
+        fixes.append(path + " None")
+        return prev
+    if isinstance(s, str) and _NUM_RE.match(s) and (_is_num(prev) or "$" in s):
+        try:
+            v = float(s.replace("$", "").replace(",", "").replace("%", "").strip())
+        except ValueError:
+            return s
+        fixes.append("%s %r" % (path, s))
+        return int(v) if isinstance(prev, int) and v.is_integer() else v
+    return s
+
+
+class Sanitizer:
+    def __init__(self):
+        self.prev, self.key = None, None
+
+    def __call__(self, state):
+        try:
+            key = (state.get("mode"), state.get("market"))
+            prev = self.prev if key == self.key else None
+            # Every practice market says market=1: a day running backwards
+            # means a new market, whose numbers must not leak from the last.
+            day, pday = state.get("day"), (prev or {}).get("day")
+            if _is_num(day) and _is_num(pday) and day < pday:
+                prev = None
+            fixes = []
+            clean = _repair(state, prev, "", fixes)
+            self.prev, self.key = clean, key
+            return clean, fixes
+        except Exception as e:  # noqa: BLE001 - never let the guard cost a night
+            return state, ["sanitize failed: %s" % e]
+
+
+def fallback_order(state):
+    """A modest order for a night on which decide() itself blew up."""
+    try:
+        exp = ((state.get("forecast") or {}).get("expected_customers")) or {}
+        spot = max(exp, key=lambda s: float(exp[s] or 0)) if exp else "highst"
+    except Exception:  # noqa: BLE001
+        spot = "highst"
+    if spot not in SPOTS:
+        spot = "highst"
+    return {"spot": spot, "price": 10.5, "quality": "premium", "meals": 50}
+
+
 def play(base, quiet=False, history=None):
     version, ordered_for, backoff, hangups, errors = 0, None, 0.25, 0, 0
+    sanitize, last_good = Sanitizer(), {}
     seen_days = set()
     while True:
         try:
             status, state = call("GET", base + "/state?since=%d" % version)
-        except (urllib.error.URLError, OSError) as e:
+        except NET_ERRORS as e:
             # Reconnect immediately on a hang-up: in the final each night is
             # only open for 2 seconds, so backing off would cost us the day.
             if is_hangup(e):
@@ -878,6 +1127,9 @@ def play(base, quiet=False, history=None):
                 sys.exit(1)
             time.sleep(3)
             continue
+        state, fixes = sanitize(state)
+        if fixes:
+            print("  sanitized %d field(s): %s" % (len(fixes), "; ".join(fixes[:4])))
         version = state["version"]
         day_done = (state.get("last_day") or {}).get("day")
         if day_done and day_done not in seen_days:
@@ -886,7 +1138,7 @@ def play(base, quiet=False, history=None):
             if history is not None:
                 row = dict(mine)
                 row["day"] = day_done
-                row["cash"] = state["you"]["cash"]
+                row["cash"] = (state.get("you") or {}).get("cash")
                 history.append(row)
             # Sitting out is almost always a fault, not a choice: say so
             # loudly rather than letting a silent zero slide past.
@@ -897,25 +1149,49 @@ def play(base, quiet=False, history=None):
         key = (state.get("mode"), state.get("market"), state.get("order_for_day"))
         if state["phase"] == "night" and state.get("orders_open") and key != ordered_for:
             if not quiet:
-                report(state)
+                try:
+                    report(state)
+                except Exception:  # noqa: BLE001
+                    pass
             t0 = time.time()
-            order = decide(state)
+            mkey = (state.get("mode"), state.get("market"))
+            try:
+                order = decide(state)
+                last_good[mkey] = dict(order)
+            except Exception as e:  # noqa: BLE001 - a model bug must not cost a night
+                prev_order = last_good.get(mkey)
+                print("!! decide() failed (%s: %s) - sending %s"
+                      % (type(e).__name__, e, "last good order" if prev_order else "fallback order"))
+                order = dict(prev_order) if prev_order else fallback_order(state)
             took = time.time() - t0
-            status, res = call("POST", base + "/orders", order)
+            try:
+                # A reply after ~2s is too late in the final anyway.
+                status, res = call("POST", base + "/orders", order, timeout=5)
+            except NET_ERRORS as e:
+                status, res = 0, {"error": "%s: %s" % (type(e).__name__, e)}
             if status == 200:
                 ordered_for = key
                 if not quiet:
                     print("  -> %s %s $%.2f x%d  (%.2fs)" % (
                         order["spot"], order["quality"], order["price"], order["meals"], took))
-                log({"mode": state.get("mode"), "market": state.get("market"),
-                     "day": state.get("order_for_day"), "order": order,
-                     "cash": state["you"]["cash"], "decide_s": round(took, 3),
-                     "last": (state.get("last_day") or {}).get("you")})
+                try:
+                    log({"mode": state.get("mode"), "market": state.get("market"),
+                         "day": state.get("order_for_day"), "order": order,
+                         "cash": (state.get("you") or {}).get("cash"), "decide_s": round(took, 3),
+                         "last": (state.get("last_day") or {}).get("you")})
+                except Exception:  # noqa: BLE001
+                    pass
                 if "state" in res:
                     version = 0
             else:
                 print("  order rejected (%d): %s" % (status, res.get("error")))
-                time.sleep(1)
+                if status == 0 or status == 429 or status >= 500:
+                    # Transient. Re-read now and retry while the night is
+                    # open; waiting on `version` sleeps through the window.
+                    version = 0
+                    time.sleep(0.2)
+                else:
+                    time.sleep(1)
 
 
 def report(state):
