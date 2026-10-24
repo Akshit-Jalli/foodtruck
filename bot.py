@@ -224,8 +224,38 @@ def cells_for(spot, n_cells):
     return out
 
 
+# Meals a truck can serve in a day, if the server imposes a limit ("each truck
+# serves 50 meals a day"). None = no limit beyond the budget. Set per night by
+# decide() from the state, so a rule that comes and goes is followed exactly.
+SERVE_CAP = None
+
+
+def cap_meals(n):
+    return int(n) if SERVE_CAP is None else int(min(n, SERVE_CAP))
+
+
 def budget_max(quality, budget=500.0):
-    return int(budget // QCOST[quality])
+    return cap_meals(budget // QCOST[quality])
+
+
+def detect_serve_cap(state):
+    """Meals we can serve tonight: our staff capacity (employees x
+    meals_per_employee), as the server reports it. None when the staff rule
+    is off or not reported. NOTE: '50 meals a day' is PER EMPLOYEE, not per
+    truck; the default 4 staff serve 200, which never binds a $500 budget
+    except at cheap quality."""
+    try:
+        if (state.get("features") or {}).get("staff") is False:
+            return None
+        staff = (state.get("you") or {}).get("staff") or {}
+        cap = staff.get("capacity")
+        if not _is_num(cap):
+            cap = ((state.get("last_day") or {}).get("you") or {}).get("capacity")
+        if _is_num(cap) and cap > 0:
+            return int(cap)
+    except Exception:  # noqa: BLE001
+        pass
+    return None
 
 
 # Each spot's share of the crowd on an ordinary clear day, from the docs.
@@ -791,7 +821,7 @@ def best_at_rep(spot, cells, rbest_modal, n_modal, rep, budget, pmin, pmax):
     for quality in QUALITIES:
         qv = QVALUE[quality] * repfactor(rep)
         cost = QCOST[quality]
-        hardcap = int(budget // cost)
+        hardcap = cap_meals(budget // cost)
         price = max(pmin, 5.0)
         top = min(pmax, qv)
         while price <= top + 1e-9:
@@ -805,7 +835,55 @@ def best_at_rep(spot, cells, rbest_modal, n_modal, rep, budget, pmin, pmax):
     return best
 
 
+# Each new-rule flag only applies when the server says that rule is on. If a
+# market reports a rule as off (features.<rule> == false), the matching flag
+# falls back to the documented behaviour for that night, so a wrong guess
+# about which rules the final uses cannot cost us anything.
+_FEATURE_FLAGS = (("salvage", "salvage", 0.0),
+                  ("fair_choice", "choice", "best"),
+                  ("walk_over", "walk_model", False))
+
+
 def decide(state):
+    global SERVE_CAP
+    SERVE_CAP = detect_serve_cap(state) if isinstance(state, dict) else None
+    feats = state.get("features") if isinstance(state, dict) else None
+    saved = {}
+    if isinstance(feats, dict):
+        for feat, key, off in _FEATURE_FLAGS:
+            if feats.get(feat) is False:
+                saved[key] = P[key]
+                P[key] = off
+        # The refund rate is announced in text ("...sold back for 25% of their
+        # food cost"). If the server ever changes it, follow the announcement.
+        if feats.get("salvage") and P["salvage"] > 0:
+            pct = _announced_salvage(state)
+            if pct is not None:
+                saved.setdefault("salvage", P["salvage"])
+                P["salvage"] = pct
+    try:
+        return _decide_core(state)
+    finally:
+        P.update(saved)
+
+
+def _announced_salvage(state):
+    try:
+        latest = None
+        for rc in state.get("rule_changes") or []:
+            if rc.get("name") == "salvage" and rc.get("on"):
+                if latest is None or str(rc.get("at", "")) > str(latest.get("at", "")):
+                    latest = rc
+        if latest:
+            m = re.search(r"(\d+(?:\.\d+)?)\s*%", latest.get("text") or "")
+            if m and 0 < float(m.group(1)) < 100:
+                return float(m.group(1)) / 100.0
+    except Exception:  # noqa: BLE001
+        pass
+    return None
+
+
+def _decide_core(state):
     """Pick tomorrow's spot, price, quality and meal count.
 
     Runs to a deadline. Measured cost is ~0.2s even against 40 rivals, but in
@@ -858,7 +936,7 @@ def decide(state):
         for quality in QUALITIES:
             qv = QVALUE[quality] * rf
             cost = QCOST[quality]
-            hardcap = int(budget // cost)
+            hardcap = cap_meals(budget // cost)
             price = max(pmin, 4.0)
             top = min(pmax, qv)
             while price <= top + 1e-9:
@@ -919,7 +997,7 @@ def decide(state):
         rep = float(myrep.get(spot, 50.0))
         myv = QVALUE[quality] * repfactor(rep) - price
         cost = QCOST[quality]
-        hardcap = int(budget // cost)
+        hardcap = cap_meals(budget // cost)
 
         demands = []
         for mult, w, extra, ds, hd in scen:
@@ -1016,6 +1094,8 @@ def _fillable(path):
     # record legitimately go None; only `version` is worth carrying forward.
     if path.count(".") == 1:
         return path == ".version"
+    if path.startswith(".politics") or path.startswith(".labor"):
+        return False
     return not path.startswith(".last_day.you")
 
 
