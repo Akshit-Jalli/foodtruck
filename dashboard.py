@@ -144,9 +144,13 @@ tr.me td{color:var(--gold);font-weight:600}
 .pos{color:var(--green)}.neg{color:var(--red)}
 .bar{height:6px;background:var(--line);border-radius:3px;overflow:hidden}.bar i{display:block;height:100%;background:var(--blue)}
 .ins{margin:0;padding-left:18px}.ins li{margin:4px 0}
-.stack{display:grid;gap:14px;align-content:start}
+.stack{display:grid;gap:14px;align-content:start;min-width:0}.panel{min-width:0}
 canvas{width:100%;height:240px;display:block}
 .small{font-size:12px;color:var(--mute)}
+.tag{display:inline-block;font-size:11px;padding:1px 7px;border-radius:9px;margin:1px 3px 1px 0;border:1px solid var(--line)}
+.t-under{color:#d9675b;border-color:#5a2c27}.t-camp{color:#c9a96e;border-color:#5a4a2c}.t-chase{color:#e08ad6;border-color:#55304f}
+.t-roam{color:#6c9bd2;border-color:#2b3f57}.t-waste{color:#8a8f98}.t-here{color:#0d0f12;background:#d9675b;border-color:#d9675b}
+.scroll{overflow-x:auto}
 </style></head><body>
 <header>
   <h1>Truck Command</h1>
@@ -161,12 +165,14 @@ canvas{width:100%;height:240px;display:block}
 <main>
   <div class="stack">
     <div class="panel"><h2>Campus: last day results <span class="small">· number/solid = customers · red arc = share left hungry · dashed = tomorrow's forecast</span></h2><div id="map"></div></div>
+    <div class="panel"><h2>Rival intel <span class="small">· labels update from all days since the dashboard started</span></h2><div id="intel"></div></div>
     <div class="panel"><h2>Cash over time</h2><canvas id="chart" width="1000" height="240"></canvas></div>
     <div class="panel"><h2>Our day log</h2><div id="log"></div></div>
   </div>
   <div class="stack">
     <div class="panel"><h2>Standings</h2><div id="stand"></div></div>
     <div class="panel"><h2>Opportunities</h2><ul class="ins" id="ins"></ul></div>
+    <div class="panel"><h2>Spot economics <span class="small">· averages per day</span></h2><div id="econ"></div></div>
     <div class="panel"><h2>Tomorrow</h2><div id="fc"></div></div>
     <div class="panel"><h2>News</h2><ul class="ins" id="news"></ul></div>
   </div>
@@ -181,8 +187,8 @@ const esc=s=>String(s==null?"":s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;"
 const money=v=>(v<0?"-$":"$")+Math.abs(v||0).toLocaleString(undefined,{maximumFractionDigits:0});
 const safeColor=c=>/^#[0-9a-fA-F]{3,8}$/.test(c||"")?c:"#888";
 
-async function tick(){try{const r=await fetch("/api/state");S=await r.json();render();}catch(e){document.getElementById("err").textContent="dashboard server not reachable";}}
-async function tickH(){try{const r=await fetch("/api/history");H=await r.json();chart();log();}catch(e){}}
+async function tick(){try{const r=await fetch("/api/state");S=await r.json();render();if(H.length){intel();econ();log();chart();}}catch(e){document.getElementById("err").textContent="dashboard server not reachable";}}
+async function tickH(){try{const r=await fetch("/api/history");H=await r.json();chart();log();intel();econ();}catch(e){console.error(e)}}
 function clock(){
   if(!S||!S.phase_ends_at){return}
   const off=S.server_time&&S._fetched_ms?Date.parse(S.server_time)-S._fetched_ms:0;
@@ -277,6 +283,53 @@ function log(){
   rows.forEach(d=>{const y=d.you;h+=`<tr><td>${d.day}</td><td>${esc(d.weather)}</td><td>${esc((SPOTS[y.spot]||{}).n||y.spot)}</td><td>${esc(y.quality)}</td><td class="r">$${(+y.price).toFixed(2)}</td><td class="r">${y.sold}/${y.meals}</td><td class="r ${y.profit>=0?"pos":"neg"}">${money(y.profit)}</td></tr>`});
   document.getElementById("log").innerHTML=h+"</table>";
 }
+
+function curDays(){return S?H.filter(d=>d.mode===S.mode&&d.market===S.market):[]}
+function intel(){
+  const el=document.getElementById("intel");if(!S)return;const days=curDays();const me=(S.you||{}).id;
+  if(!days.length){el.innerHTML='<div class="small">Collecting data. Labels appear after the first recorded day.</div>';return}
+  const TM=truckMap(),R={};let mySpotPrev=null;const tomorrowRivals={};
+  days.forEach((d,di)=>{
+    let mySpot=null;const all=[];
+    for(const s in d.spots){(d.spots[s].trucks||[]).forEach(t=>{all.push(t.price);if(t.id===me)mySpot=s})}
+    const sorted=all.slice().sort((a,b)=>a-b),med=sorted.length?sorted[Math.floor(sorted.length/2)]:0;
+    for(const s in d.spots){const ts=d.spots[s].trucks||[];
+      ts.forEach(t=>{if(t.id===me)return;const r=R[t.id]||(R[t.id]={id:t.id,name:t.name,days:0,spots:{},seq:[],prices:[],quals:{},cheapest:0,shared:0,sold:0,meals:0,profit:0,chase:0,belowMed:0});
+        r.days++;r.spots[s]=(r.spots[s]||0)+1;r.seq.push(s);r.prices.push(t.price);r.quals[t.quality]=(r.quals[t.quality]||0)+1;
+        r.sold+=t.sold||0;r.meals+=t.meals||0;r.profit+=t.profit||0;if(t.price<=med-0.75)r.belowMed++;
+        if(ts.length>1){r.shared++;if(ts.every(o=>o.id===t.id||t.price<o.price))r.cheapest++}
+        const prevSeq=r.seq.length>1?r.seq[r.seq.length-2]:null;
+        if(mySpotPrev&&s===mySpotPrev&&prevSeq!==s)r.chase++;
+        if(di===days.length-1)tomorrowRivals[t.id]=s;});}
+    mySpotPrev=mySpot||mySpotPrev;});
+  const mySpotNow=((S.last_day||{}).you||{}).spot;
+  const rows=Object.values(R).sort((a,b)=>b.profit-a.profit);
+  let h='<div class="scroll"><table><tr><th>Truck</th><th>Labels</th><th>Home spot</th><th class="r">Avg $</th><th>Quality</th><th class="r">Sell-thru</th><th class="r">Profit/day</th><th class="r">Est. home rep</th><th>Last 5 spots</th></tr>';
+  rows.forEach(r=>{
+    const top=Object.entries(r.spots).sort((a,b)=>b[1]-a[1])[0],stay=top[1]/r.days,avgP=r.prices.reduce((a,b)=>a+b,0)/r.prices.length;
+    const q=Object.entries(r.quals).sort((a,b)=>b[1]-a[1])[0][0],st=r.meals?r.sold/r.meals:0;
+    const ra=(TM[r.id]||{}).reputation_avg;const tags=[];
+    const under=(r.shared>=1&&r.cheapest/r.shared>=0.6)||(r.days>=2&&r.belowMed/r.days>=0.6);
+    if(under)tags.push('<span class="tag t-under">undercutter</span>');
+    if(r.days>=3&&stay>=0.7)tags.push('<span class="tag t-camp">camper</span>');
+    else if(r.days>=3&&Object.keys(r.spots).length>=3)tags.push('<span class="tag t-roam">roamer</span>');
+    if(r.chase>=2)tags.push('<span class="tag t-chase">follows us</span>');
+    if(r.days>=2&&st<0.6)tags.push('<span class="tag t-waste">overcooks</span>');
+    if(mySpotNow&&tomorrowRivals[r.id]===mySpotNow)tags.push('<span class="tag t-here">at our spot</span>');
+    let hr="-";if(ra!=null&&r.days>=3&&stay>=0.7){hr=Math.max(0,Math.min(100,6*ra-250)).toFixed(0)}
+    const col=safeColor((TM[r.id]||{}).color);
+    h+=`<tr><td><span class="dot" style="background:${col}"></span>${esc(r.name)}</td><td>${tags.join("")||'<span class="small">-</span>'}</td><td>${esc((SPOTS[top[0]]||{}).n||top[0])} <span class="small">${Math.round(stay*100)}%</span></td><td class="r">$${avgP.toFixed(2)}</td><td>${esc(q)}</td><td class="r">${Math.round(st*100)}%</td><td class="r ${r.profit>=0?"pos":"neg"}">${money(r.profit/r.days)}</td><td class="r">${hr}</td><td class="small">${r.seq.slice(-5).map(s=>esc(s)).join(" → ")}</td></tr>`});
+  el.innerHTML=h+'</table></div><div class="small" style="margin-top:8px">undercutter = cheapest where it shares a spot, or $0.75+ under the field median · camper = 70%+ of days at one spot · follows us = moved onto our previous spot 2+ times · est. home rep = 6 × avg rep − 250 (campers only)</div>';
+}
+function econ(){
+  const el=document.getElementById("econ");const days=curDays();if(!days.length){el.innerHTML='<div class="small">No data yet.</div>';return}
+  let h='<table><tr><th>Spot</th><th class="r">Crowd</th><th class="r">Hungry</th><th class="r">Trucks</th><th class="r">Profit/truck</th></tr>';
+  ORDER.forEach(s=>{let c=0,hu=0,tk=0,pf=0,pn=0,n=0;days.forEach(d=>{const x=d.spots[s];if(!x)return;n++;c+=x.customers||0;hu+=x.hungry||0;tk+=(x.trucks||[]).length;(x.trucks||[]).forEach(t=>{pf+=t.profit||0;pn++})});
+    if(!n){h+=`<tr><td>${SPOTS[s].n}</td><td class="r" colspan="4">-</td></tr>`;return}
+    h+=`<tr><td>${SPOTS[s].n}</td><td class="r">${Math.round(c/n)}</td><td class="r">${Math.round(hu/n)}</td><td class="r">${(tk/n).toFixed(1)}</td><td class="r ${pn&&pf>=0?"pos":"neg"}">${pn?money(pf/pn):"-"}</td></tr>`});
+  el.innerHTML=h+'</table><div class="small" style="margin-top:6px">High hungry + low trucks = open territory. Negative profit/truck = a price war.</div>';
+}
+
 tick();tickH();setInterval(tick,3000);setInterval(tickH,10000);setInterval(clock,1000);
 </script></body></html>"""
 
