@@ -1,0 +1,5 @@
+recorder started, 0 days already archived -> days.jsonl
+archived day 1 (clear): 6 spots, 469 customers, 293 hungry
+network error (<urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>), retry in 1s
+network error (<urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>), retry in 1s
+recorder started, 1 days already archived -> days.jsonl
