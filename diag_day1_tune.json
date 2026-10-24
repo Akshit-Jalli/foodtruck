@@ -1,0 +1,6490 @@
+[
+ {
+  "seed": "tune-0",
+  "base": "/api/v1/practice/p_93ebb00615",
+  "days": 30,
+  "rivals": 3,
+  "forecast": {
+   "oval": 80,
+   "thompson": 59,
+   "union": 76,
+   "stadium": 32,
+   "highst": 100,
+   "northres": 67
+  },
+  "events": [],
+  "by_priors": {
+   "orig": {
+    "order": {
+     "spot": "highst",
+     "price": 10.25,
+     "quality": "standard",
+     "meals": 52
+    },
+    "trace": {
+     "priors": "orig",
+     "magnet": null,
+     "expected": {
+      "oval": 80.0,
+      "thompson": 59.0,
+      "union": 76.0,
+      "stadium": 32.0,
+      "highst": 100.0,
+      "northres": 67.0
+     },
+     "myrep": {
+      "oval": 50.0,
+      "thompson": 50.0,
+      "union": 50.0,
+      "stadium": 50.0,
+      "highst": 50.0,
+      "northres": 50.0
+     },
+     "rivals": [
+      {
+       "id": "h1",
+       "spot": "highst",
+       "price": 11.0,
+       "quality": "standard",
+       "rep": 50.0
+      },
+      {
+       "id": "h2",
+       "spot": "oval",
+       "price": 11.0,
+       "quality": "standard",
+       "rep": 50.0
+      },
+      {
+       "id": "h3",
+       "spot": "union",
+       "price": 11.0,
+       "quality": "standard",
+       "rep": 50.0
+      }
+     ],
+     "n_screened": 18,
+     "shortlist": [
+      {
+       "stage1_score": 306.306857638889,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.25
+      },
+      {
+       "stage1_score": 305.3177083333334,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.75
+      },
+      {
+       "stage1_score": 303.53385416666674,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.75
+      },
+      {
+       "stage1_score": 296.99869791666674,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.25
+      },
+      {
+       "stage1_score": 294.07986111111114,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.0
+      },
+      {
+       "stage1_score": 294.0312500000001,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.5
+      },
+      {
+       "stage1_score": 290.3663194444445,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.5
+      },
+      {
+       "stage1_score": 282.8906250000001,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.0
+      },
+      {
+       "stage1_score": 271.65277777777794,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 8.5
+      },
+      {
+       "stage1_score": 268.7825520833334,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 8.75
+      },
+      {
+       "stage1_score": 267.65413888888895,
+       "spot": "oval",
+       "quality": "standard",
+       "price": 10.75
+      },
+      {
+       "stage1_score": 265.5852083333334,
+       "spot": "oval",
+       "quality": "standard",
+       "price": 10.25
+      },
+      {
+       "stage1_score": 263.23750000000024,
+       "spot": "highst",
+       "quality": "premium",
+       "price": 11.25
+      },
+      {
+       "stage1_score": 261.1078472222223,
+       "spot": "highst",
+       "quality": "premium",
+       "price": 11.75
+      },
+      {
+       "stage1_score": 260.69133333333343,
+       "spot": "oval",
+       "quality": "standard",
+       "price": 9.75
+      },
+      {
+       "stage1_score": 259.896041666667,
+       "spot": "highst",
+       "quality": "premium",
+       "price": 10.75
+      },
+      {
+       "stage1_score": 257.7668333333334,
+       "spot": "oval",
+       "quality": "standard",
+       "price": 10.5
+      },
+      {
+       "stage1_score": 256.60416666666674,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 8.25
+      }
+     ],
+     "stage2": [
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.25,
+       "meals": 52,
+       "score": 306.306857638889,
+       "mean_profit": 324.11979166666674,
+       "repvalue": 0.0,
+       "demand_mean": 61.84930555555557,
+       "demand_p10": 42.97222222222224,
+       "demand_p90": 82.875
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.75,
+       "meals": 48,
+       "score": 305.3177083333334,
+       "mean_profit": 322.56250000000006,
+       "repvalue": 0.0,
+       "demand_mean": 57.09166666666667,
+       "demand_p10": 39.66666666666668,
+       "demand_p90": 76.5
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.75,
+       "meals": 56,
+       "score": 303.53385416666674,
+       "mean_profit": 321.78125000000006,
+       "repvalue": 0.0,
+       "demand_mean": 66.60694444444445,
+       "demand_p10": 46.2777777777778,
+       "demand_p90": 89.25
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.25,
+       "meals": 60,
+       "score": 296.99869791666674,
+       "mean_profit": 315.54687500000006,
+       "repvalue": 0.0,
+       "demand_mean": 71.36458333333334,
+       "demand_p10": 49.583333333333364,
+       "demand_p90": 95.625
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.0,
+       "meals": 52,
+       "score": 294.07986111111114,
+       "mean_profit": 311.45833333333337,
+       "repvalue": 0.0,
+       "demand_mean": 61.84930555555557,
+       "demand_p10": 42.97222222222224,
+       "demand_p90": 82.875
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.5,
+       "meals": 48,
+       "score": 294.0312500000001,
+       "mean_profit": 310.87500000000006,
+       "repvalue": 0.0,
+       "demand_mean": 57.09166666666667,
+       "demand_p10": 39.66666666666668,
+       "demand_p90": 76.5
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.5,
+       "meals": 56,
+       "score": 290.3663194444445,
+       "mean_profit": 308.14583333333337,
+       "repvalue": 0.0,
+       "demand_mean": 66.60694444444445,
+       "demand_p10": 46.2777777777778,
+       "demand_p90": 89.25
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.0,
+       "meals": 60,
+       "score": 282.8906250000001,
+       "mean_profit": 300.93750000000006,
+       "repvalue": 0.0,
+       "demand_mean": 71.36458333333334,
+       "demand_p10": 49.583333333333364,
+       "demand_p90": 95.625
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 8.5,
+       "meals": 64,
+       "score": 271.65277777777794,
+       "mean_profit": 289.83333333333337,
+       "repvalue": 0.0,
+       "demand_mean": 76.12222222222223,
+       "demand_p10": 52.88888888888893,
+       "demand_p90": 102.0
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 8.75,
+       "meals": 60,
+       "score": 268.7825520833334,
+       "mean_profit": 286.32812500000006,
+       "repvalue": 0.0,
+       "demand_mean": 71.36458333333334,
+       "demand_p10": 49.583333333333364,
+       "demand_p90": 95.625
+      },
+      {
+       "spot": "oval",
+       "quality": "standard",
+       "price": 10.75,
+       "meals": 42,
+       "score": 267.65413888888895,
+       "mean_profit": 282.4616666666667,
+       "repvalue": 0.0,
+       "demand_mean": 50.15111111111111,
+       "demand_p10": 34.84444444444446,
+       "demand_p90": 67.2
+      },
+      {
+       "spot": "oval",
+       "quality": "standard",
+       "price": 10.25,
+       "meals": 45,
+       "score": 265.5852083333334,
+       "mean_profit": 280.71250000000003,
+       "repvalue": 0.0,
+       "demand_mean": 53.733333333333334,
+       "demand_p10": 37.33333333333336,
+       "demand_p90": 72.0
+      },
+      {
+       "spot": "highst",
+       "quality": "premium",
+       "price": 11.25,
+       "meals": 52,
+       "score": 263.23750000000024,
+       "mean_profit": 283.31250000000017,
+       "repvalue": 0.0,
+       "demand_mean": 61.569444444444464,
+       "demand_p10": 42.77777777777781,
+       "demand_p90": 82.5
+      },
+      {
+       "spot": "highst",
+       "quality": "premium",
+       "price": 11.75,
+       "meals": 47,
+       "score": 261.1078472222223,
+       "mean_profit": 279.4541666666667,
+       "repvalue": 0.0,
+       "demand_mean": 55.97222222222225,
+       "demand_p10": 38.88888888888891,
+       "demand_p90": 75.0
+      },
+      {
+       "spot": "oval",
+       "quality": "standard",
+       "price": 9.75,
+       "meals": 48,
+       "score": 260.69133333333343,
+       "mean_profit": 276.0400000000001,
+       "repvalue": 0.0,
+       "demand_mean": 57.315555555555555,
+       "demand_p10": 39.822222222222244,
+       "demand_p90": 76.80000000000001
+      },
+      {
+       "spot": "highst",
+       "quality": "premium",
+       "price": 10.75,
+       "meals": 57,
+       "score": 259.896041666667,
+       "mean_profit": 281.8708333333335,
+       "repvalue": 0.0,
+       "demand_mean": 67.16666666666667,
+       "demand_p10": 46.66666666666671,
+       "demand_p90": 90.0
+      },
+      {
+       "spot": "oval",
+       "quality": "standard",
+       "price": 10.5,
+       "meals": 42,
+       "score": 257.7668333333334,
+       "mean_profit": 272.2300000000001,
+       "repvalue": 0.0,
+       "demand_mean": 50.15111111111111,
+       "demand_p10": 34.84444444444446,
+       "demand_p90": 67.2
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 8.25,
+       "meals": 64,
+       "score": 256.60416666666674,
+       "mean_profit": 274.25000000000006,
+       "repvalue": 0.0,
+       "demand_mean": 76.12222222222223,
+       "demand_p10": 52.88888888888893,
+       "demand_p90": 102.0
+      }
+     ],
+     "chosen": {
+      "spot": "highst",
+      "quality": "standard",
+      "price": 10.25,
+      "meals": 52,
+      "mean_profit": 324.11979166666674,
+      "sat_out": false
+     },
+     "n_stage2": 18,
+     "order": {
+      "spot": "highst",
+      "price": 10.25,
+      "quality": "standard",
+      "meals": 52
+     }
+    }
+   },
+   "rmse": {
+    "order": {
+     "spot": "highst",
+     "price": 10.5,
+     "quality": "standard",
+     "meals": 50
+    },
+    "trace": {
+     "priors": "rmse",
+     "magnet": null,
+     "expected": {
+      "oval": 80.0,
+      "thompson": 59.0,
+      "union": 76.0,
+      "stadium": 32.0,
+      "highst": 100.0,
+      "northres": 67.0
+     },
+     "myrep": {
+      "oval": 50.0,
+      "thompson": 50.0,
+      "union": 50.0,
+      "stadium": 50.0,
+      "highst": 50.0,
+      "northres": 50.0
+     },
+     "rivals": [
+      {
+       "id": "h1",
+       "spot": "highst",
+       "price": 11.0,
+       "quality": "standard",
+       "rep": 50.0
+      },
+      {
+       "id": "h2",
+       "spot": "oval",
+       "price": 11.0,
+       "quality": "standard",
+       "rep": 50.0
+      },
+      {
+       "id": "h3",
+       "spot": "union",
+       "price": 11.0,
+       "quality": "standard",
+       "rep": 50.0
+      }
+     ],
+     "n_screened": 18,
+     "shortlist": [
+      {
+       "stage1_score": 306.7720416666667,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.5
+      },
+      {
+       "stage1_score": 295.00365972222227,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.25
+      },
+      {
+       "stage1_score": 293.5268333333334,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.75
+      },
+      {
+       "stage1_score": 292.75829166666676,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.75
+      },
+      {
+       "stage1_score": 286.7907291666668,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.25
+      },
+      {
+       "stage1_score": 283.2352777777778,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.0
+      },
+      {
+       "stage1_score": 280.0593611111112,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.5
+      },
+      {
+       "stage1_score": 273.1612500000001,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.0
+      },
+      {
+       "stage1_score": 271.94812499999995,
+       "spot": "oval",
+       "quality": "standard",
+       "price": 10.75
+      },
+      {
+       "stage1_score": 269.83874999999995,
+       "spot": "oval",
+       "quality": "standard",
+       "price": 10.25
+      },
+      {
+       "stage1_score": 267.43916666666684,
+       "spot": "highst",
+       "quality": "premium",
+       "price": 10.5
+      },
+      {
+       "stage1_score": 264.87187499999993,
+       "spot": "oval",
+       "quality": "standard",
+       "price": 9.75
+      },
+      {
+       "stage1_score": 263.23750000000024,
+       "spot": "highst",
+       "quality": "premium",
+       "price": 11.25
+      },
+      {
+       "stage1_score": 262.4030555555558,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 8.5
+      },
+      {
+       "stage1_score": 261.87375,
+       "spot": "oval",
+       "quality": "standard",
+       "price": 10.5
+      },
+      {
+       "stage1_score": 261.1078472222223,
+       "spot": "highst",
+       "quality": "premium",
+       "price": 11.75
+      },
+      {
+       "stage1_score": 259.91166666666646,
+       "spot": "union",
+       "quality": "premium",
+       "price": 11.0
+      },
+      {
+       "stage1_score": 259.896041666667,
+       "spot": "highst",
+       "quality": "premium",
+       "price": 10.75
+      }
+     ],
+     "stage2": [
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.5,
+       "meals": 50,
+       "score": 306.7720416666667,
+       "mean_profit": 324.0425,
+       "repvalue": 0.0,
+       "demand_mean": 59.66638888888891,
+       "demand_p10": 41.45555555555556,
+       "demand_p90": 79.95000000000003
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.25,
+       "meals": 50,
+       "score": 295.00365972222227,
+       "mean_profit": 311.8629166666667,
+       "repvalue": 0.0,
+       "demand_mean": 59.66638888888891,
+       "demand_p10": 41.45555555555556,
+       "demand_p90": 79.95000000000003
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.75,
+       "meals": 46,
+       "score": 293.5268333333334,
+       "mean_profit": 309.53000000000003,
+       "repvalue": 0.0,
+       "demand_mean": 55.076666666666675,
+       "demand_p10": 38.26666666666667,
+       "demand_p90": 73.80000000000001
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.75,
+       "meals": 54,
+       "score": 292.75829166666676,
+       "mean_profit": 310.31750000000005,
+       "repvalue": 0.0,
+       "demand_mean": 64.25611111111114,
+       "demand_p10": 44.64444444444446,
+       "demand_p90": 86.10000000000005
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.25,
+       "meals": 58,
+       "score": 286.7907291666668,
+       "mean_profit": 304.89375000000007,
+       "repvalue": 0.0,
+       "demand_mean": 68.84583333333336,
+       "demand_p10": 47.83333333333336,
+       "demand_p90": 92.25000000000006
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.0,
+       "meals": 50,
+       "score": 283.2352777777778,
+       "mean_profit": 299.6833333333334,
+       "repvalue": 0.0,
+       "demand_mean": 59.66638888888891,
+       "demand_p10": 41.45555555555556,
+       "demand_p90": 79.95000000000003
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.5,
+       "meals": 54,
+       "score": 280.0593611111112,
+       "mean_profit": 297.1683333333334,
+       "repvalue": 0.0,
+       "demand_mean": 64.25611111111114,
+       "demand_p10": 44.64444444444446,
+       "demand_p90": 86.10000000000005
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.0,
+       "meals": 58,
+       "score": 273.1612500000001,
+       "mean_profit": 290.77500000000003,
+       "repvalue": 0.0,
+       "demand_mean": 68.84583333333336,
+       "demand_p10": 47.83333333333336,
+       "demand_p90": 92.25000000000006
+      },
+      {
+       "spot": "oval",
+       "quality": "standard",
+       "price": 10.75,
+       "meals": 43,
+       "score": 278.36622919010586,
+       "mean_profit": 288.2075,
+       "repvalue": 6.418104190105907,
+       "demand_mean": 50.778000000000006,
+       "demand_p10": 35.279999999999994,
+       "demand_p90": 68.04000000000002
+      },
+      {
+       "spot": "oval",
+       "quality": "standard",
+       "price": 10.25,
+       "meals": 46,
+       "score": 276.25685419010586,
+       "mean_profit": 286.1875,
+       "repvalue": 6.418104190105907,
+       "demand_mean": 54.405,
+       "demand_p10": 37.79999999999999,
+       "demand_p90": 72.90000000000002
+      },
+      {
+       "spot": "highst",
+       "quality": "premium",
+       "price": 10.5,
+       "meals": 61,
+       "score": 267.43916666666684,
+       "mean_profit": 288.5500000000001,
+       "repvalue": 0.0,
+       "demand_mean": 72.76388888888891,
+       "demand_p10": 50.5555555555556,
+       "demand_p90": 97.49999999999996
+      },
+      {
+       "spot": "oval",
+       "quality": "standard",
+       "price": 9.75,
+       "meals": 49,
+       "score": 271.28997919010584,
+       "mean_profit": 281.22749999999996,
+       "repvalue": 6.418104190105907,
+       "demand_mean": 58.032000000000004,
+       "demand_p10": 40.319999999999986,
+       "demand_p90": 77.76
+      },
+      {
+       "spot": "highst",
+       "quality": "premium",
+       "price": 11.25,
+       "meals": 52,
+       "score": 263.23750000000024,
+       "mean_profit": 283.31250000000017,
+       "repvalue": 0.0,
+       "demand_mean": 61.56944444444446,
+       "demand_p10": 42.77777777777781,
+       "demand_p90": 82.49999999999993
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 8.5,
+       "meals": 62,
+       "score": 262.4030555555558,
+       "mean_profit": 280.4277777777779,
+       "repvalue": 0.0,
+       "demand_mean": 73.43555555555558,
+       "demand_p10": 51.022222222222254,
+       "demand_p90": 98.40000000000008
+      },
+      {
+       "spot": "oval",
+       "quality": "standard",
+       "price": 10.5,
+       "meals": 43,
+       "score": 268.2918541901059,
+       "mean_profit": 277.755,
+       "repvalue": 6.418104190105907,
+       "demand_mean": 50.778000000000006,
+       "demand_p10": 35.279999999999994,
+       "demand_p90": 68.04000000000002
+      },
+      {
+       "spot": "highst",
+       "quality": "premium",
+       "price": 11.75,
+       "meals": 47,
+       "score": 261.1078472222223,
+       "mean_profit": 279.4541666666667,
+       "repvalue": 0.0,
+       "demand_mean": 55.97222222222222,
+       "demand_p10": 38.88888888888891,
+       "demand_p90": 74.99999999999994
+      },
+      {
+       "spot": "union",
+       "quality": "premium",
+       "price": 11.0,
+       "meals": 54,
+       "score": 259.91166666666646,
+       "mean_profit": 280.6833333333332,
+       "repvalue": 0.0,
+       "demand_mean": 63.808333333333316,
+       "demand_p10": 44.333333333333336,
+       "demand_p90": 85.49999999999999
+      },
+      {
+       "spot": "highst",
+       "quality": "premium",
+       "price": 10.75,
+       "meals": 57,
+       "score": 259.896041666667,
+       "mean_profit": 281.8708333333335,
+       "repvalue": 0.0,
+       "demand_mean": 67.16666666666669,
+       "demand_p10": 46.66666666666671,
+       "demand_p90": 89.99999999999994
+      }
+     ],
+     "chosen": {
+      "spot": "highst",
+      "quality": "standard",
+      "price": 10.5,
+      "meals": 50,
+      "mean_profit": 324.0425,
+      "sat_out": false
+     },
+     "n_stage2": 18,
+     "order": {
+      "spot": "highst",
+      "price": 10.5,
+      "quality": "standard",
+      "meals": 50
+     }
+    }
+   }
+  },
+  "diff": [
+   "price",
+   "meals"
+  ]
+ },
+ {
+  "seed": "tune-1",
+  "base": "/api/v1/practice/p_aea13fb2ad",
+  "days": 30,
+  "rivals": 3,
+  "forecast": {
+   "oval": 78,
+   "thompson": 58,
+   "union": 75,
+   "stadium": 31,
+   "highst": 98,
+   "northres": 66
+  },
+  "events": [],
+  "by_priors": {
+   "orig": {
+    "order": {
+     "spot": "highst",
+     "price": 10.25,
+     "quality": "standard",
+     "meals": 51
+    },
+    "trace": {
+     "priors": "orig",
+     "magnet": null,
+     "expected": {
+      "oval": 78.0,
+      "thompson": 58.0,
+      "union": 75.0,
+      "stadium": 31.0,
+      "highst": 98.0,
+      "northres": 66.0
+     },
+     "myrep": {
+      "oval": 50.0,
+      "thompson": 50.0,
+      "union": 50.0,
+      "stadium": 50.0,
+      "highst": 50.0,
+      "northres": 50.0
+     },
+     "rivals": [
+      {
+       "id": "h1",
+       "spot": "highst",
+       "price": 11.0,
+       "quality": "standard",
+       "rep": 50.0
+      },
+      {
+       "id": "h2",
+       "spot": "oval",
+       "price": 11.0,
+       "quality": "standard",
+       "rep": 50.0
+      },
+      {
+       "id": "h3",
+       "spot": "union",
+       "price": 11.0,
+       "quality": "standard",
+       "rep": 50.0
+      }
+     ],
+     "n_screened": 18,
+     "shortlist": [
+      {
+       "stage1_score": 300.30029548611105,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.25
+      },
+      {
+       "stage1_score": 299.0786291666666,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.75
+      },
+      {
+       "stage1_score": 297.7824520833332,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.75
+      },
+      {
+       "stage1_score": 291.5250989583332,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.25
+      },
+      {
+       "stage1_score": 288.31126388888885,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.0
+      },
+      {
+       "stage1_score": 288.02447499999994,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.5
+      },
+      {
+       "stage1_score": 284.85854305555546,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.5
+      },
+      {
+       "stage1_score": 277.6663124999999,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.0
+      },
+      {
+       "stage1_score": 266.5415277777777,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 8.5
+      },
+      {
+       "stage1_score": 263.80752604166656,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 8.75
+      },
+      {
+       "stage1_score": 261.1286916666666,
+       "spot": "oval",
+       "quality": "standard",
+       "price": 10.75
+      },
+      {
+       "stage1_score": 259.31924999999995,
+       "spot": "oval",
+       "quality": "standard",
+       "price": 10.25
+      },
+      {
+       "stage1_score": 257.88437500000003,
+       "spot": "highst",
+       "quality": "premium",
+       "price": 11.25
+      },
+      {
+       "stage1_score": 255.75215277777772,
+       "spot": "highst",
+       "quality": "premium",
+       "price": 11.75
+      },
+      {
+       "stage1_score": 254.70617499999997,
+       "spot": "oval",
+       "quality": "standard",
+       "price": 9.75
+      },
+      {
+       "stage1_score": 254.36833333333328,
+       "spot": "highst",
+       "quality": "premium",
+       "price": 10.75
+      },
+      {
+       "stage1_score": 251.75354166666656,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 8.25
+      },
+      {
+       "stage1_score": 251.48034999999993,
+       "spot": "oval",
+       "quality": "standard",
+       "price": 10.5
+      }
+     ],
+     "stage2": [
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.25,
+       "meals": 51,
+       "score": 300.30029548611105,
+       "mean_profit": 317.8358958333333,
+       "repvalue": 0.0,
+       "demand_mean": 60.61231944444446,
+       "demand_p10": 42.11277777777776,
+       "demand_p90": 81.21750000000002
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.75,
+       "meals": 47,
+       "score": 299.0786291666666,
+       "mean_profit": 315.89575,
+       "repvalue": 0.0,
+       "demand_mean": 55.949833333333345,
+       "demand_p10": 38.87333333333332,
+       "demand_p90": 74.97
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.75,
+       "meals": 55,
+       "score": 297.7824520833332,
+       "mean_profit": 315.89012499999995,
+       "repvalue": 0.0,
+       "demand_mean": 65.27480555555557,
+       "demand_p10": 45.35222222222219,
+       "demand_p90": 87.46500000000003
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.25,
+       "meals": 59,
+       "score": 291.5250989583332,
+       "mean_profit": 310.05843749999997,
+       "repvalue": 0.0,
+       "demand_mean": 69.93729166666668,
+       "demand_p10": 48.591666666666626,
+       "demand_p90": 93.71250000000003
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.0,
+       "meals": 51,
+       "score": 288.31126388888885,
+       "mean_profit": 305.4191666666667,
+       "repvalue": 0.0,
+       "demand_mean": 60.61231944444446,
+       "demand_p10": 42.11277777777776,
+       "demand_p90": 81.21750000000002
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.5,
+       "meals": 47,
+       "score": 288.02447499999994,
+       "mean_profit": 304.4505,
+       "repvalue": 0.0,
+       "demand_mean": 55.949833333333345,
+       "demand_p10": 38.87333333333332,
+       "demand_p90": 74.97
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.5,
+       "meals": 55,
+       "score": 284.85854305555546,
+       "mean_profit": 302.50191666666666,
+       "repvalue": 0.0,
+       "demand_mean": 65.27480555555557,
+       "demand_p10": 45.35222222222219,
+       "demand_p90": 87.46500000000003
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.0,
+       "meals": 59,
+       "score": 277.6663124999999,
+       "mean_profit": 295.69874999999996,
+       "repvalue": 0.0,
+       "demand_mean": 69.93729166666668,
+       "demand_p10": 48.591666666666626,
+       "demand_p90": 93.71250000000003
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 8.5,
+       "meals": 63,
+       "score": 266.5415277777777,
+       "mean_profit": 284.90388888888884,
+       "repvalue": 0.0,
+       "demand_mean": 74.59977777777779,
+       "demand_p10": 51.83111111111106,
+       "demand_p90": 99.96000000000005
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 8.75,
+       "meals": 59,
+       "score": 263.80752604166656,
+       "mean_profit": 281.33906249999995,
+       "repvalue": 0.0,
+       "demand_mean": 69.93729166666668,
+       "demand_p10": 48.591666666666626,
+       "demand_p90": 93.71250000000003
+      },
+      {
+       "spot": "oval",
+       "quality": "standard",
+       "price": 10.75,
+       "meals": 41,
+       "score": 263.57368373908855,
+       "mean_profit": 275.66949999999997,
+       "repvalue": 2.4449920724219596,
+       "demand_mean": 48.89733333333333,
+       "demand_p10": 33.97333333333332,
+       "demand_p90": 65.51999999999997
+      },
+      {
+       "spot": "oval",
+       "quality": "standard",
+       "price": 10.25,
+       "meals": 44,
+       "score": 261.7642420724219,
+       "mean_profit": 274.315,
+       "repvalue": 2.4449920724219596,
+       "demand_mean": 52.38999999999999,
+       "demand_p10": 36.39999999999999,
+       "demand_p90": 70.19999999999996
+      },
+      {
+       "spot": "highst",
+       "quality": "premium",
+       "price": 11.25,
+       "meals": 51,
+       "score": 257.88437500000003,
+       "mean_profit": 277.71875000000006,
+       "repvalue": 0.0,
+       "demand_mean": 60.338055555555584,
+       "demand_p10": 41.9222222222222,
+       "demand_p90": 80.85000000000005
+      },
+      {
+       "spot": "highst",
+       "quality": "premium",
+       "price": 11.75,
+       "meals": 46,
+       "score": 255.75215277777772,
+       "mean_profit": 273.59583333333336,
+       "repvalue": 0.0,
+       "demand_mean": 54.852777777777796,
+       "demand_p10": 38.1111111111111,
+       "demand_p90": 73.50000000000003
+      },
+      {
+       "spot": "oval",
+       "quality": "standard",
+       "price": 9.75,
+       "meals": 47,
+       "score": 257.1511670724219,
+       "mean_profit": 270.04650000000004,
+       "repvalue": 2.4449920724219596,
+       "demand_mean": 55.882666666666665,
+       "demand_p10": 38.826666666666654,
+       "demand_p90": 74.87999999999997
+      },
+      {
+       "spot": "highst",
+       "quality": "premium",
+       "price": 10.75,
+       "meals": 56,
+       "score": 254.36833333333328,
+       "mean_profit": 276.44166666666666,
+       "repvalue": 0.0,
+       "demand_mean": 65.82333333333337,
+       "demand_p10": 45.733333333333306,
+       "demand_p90": 88.20000000000007
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 8.25,
+       "meals": 63,
+       "score": 251.75354166666656,
+       "mean_profit": 269.5758333333333,
+       "repvalue": 0.0,
+       "demand_mean": 74.59977777777779,
+       "demand_p10": 51.83111111111106,
+       "demand_p90": 99.96000000000005
+      },
+      {
+       "spot": "oval",
+       "quality": "standard",
+       "price": 10.5,
+       "meals": 41,
+       "score": 253.9253420724219,
+       "mean_profit": 265.683,
+       "repvalue": 2.4449920724219596,
+       "demand_mean": 48.89733333333333,
+       "demand_p10": 33.97333333333332,
+       "demand_p90": 65.51999999999997
+      }
+     ],
+     "chosen": {
+      "spot": "highst",
+      "quality": "standard",
+      "price": 10.25,
+      "meals": 51,
+      "mean_profit": 317.8358958333333,
+      "sat_out": false
+     },
+     "n_stage2": 18,
+     "order": {
+      "spot": "highst",
+      "price": 10.25,
+      "quality": "standard",
+      "meals": 51
+     }
+    }
+   },
+   "rmse": {
+    "order": {
+     "spot": "highst",
+     "price": 10.5,
+     "quality": "standard",
+     "meals": 49
+    },
+    "trace": {
+     "priors": "rmse",
+     "magnet": null,
+     "expected": {
+      "oval": 78.0,
+      "thompson": 58.0,
+      "union": 75.0,
+      "stadium": 31.0,
+      "highst": 98.0,
+      "northres": 66.0
+     },
+     "myrep": {
+      "oval": 50.0,
+      "thompson": 50.0,
+      "union": 50.0,
+      "stadium": 50.0,
+      "highst": 50.0,
+      "northres": 50.0
+     },
+     "rivals": [
+      {
+       "id": "h1",
+       "spot": "highst",
+       "price": 11.0,
+       "quality": "standard",
+       "rep": 50.0
+      },
+      {
+       "id": "h2",
+       "spot": "oval",
+       "price": 11.0,
+       "quality": "standard",
+       "rep": 50.0
+      },
+      {
+       "id": "h3",
+       "spot": "union",
+       "price": 11.0,
+       "quality": "standard",
+       "rep": 50.0
+      }
+     ],
+     "n_screened": 18,
+     "shortlist": [
+      {
+       "stage1_score": 300.6366008333334,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.5
+      },
+      {
+       "stage1_score": 289.1035865277778,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.25
+      },
+      {
+       "stage1_score": 288.8935833333335,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.75
+      },
+      {
+       "stage1_score": 287.11597583333344,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.75
+      },
+      {
+       "stage1_score": 281.1635416666669,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.25
+      },
+      {
+       "stage1_score": 277.57057222222227,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.0
+      },
+      {
+       "stage1_score": 274.65787388888896,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.5
+      },
+      {
+       "stage1_score": 267.7875000000003,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.0
+      },
+      {
+       "stage1_score": 265.10400000000004,
+       "spot": "oval",
+       "quality": "standard",
+       "price": 10.75
+      },
+      {
+       "stage1_score": 262.98,
+       "spot": "oval",
+       "quality": "standard",
+       "price": 10.25
+      },
+      {
+       "stage1_score": 262.3992083333334,
+       "spot": "highst",
+       "quality": "premium",
+       "price": 10.5
+      },
+      {
+       "stage1_score": 258.04800000000006,
+       "spot": "oval",
+       "quality": "standard",
+       "price": 9.75
+      },
+      {
+       "stage1_score": 257.884375,
+       "spot": "highst",
+       "quality": "premium",
+       "price": 11.25
+      },
+      {
+       "stage1_score": 256.8516944444447,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 8.5
+      },
+      {
+       "stage1_score": 256.65062500000005,
+       "spot": "union",
+       "quality": "premium",
+       "price": 11.0
+      },
+      {
+       "stage1_score": 255.75215277777772,
+       "spot": "highst",
+       "quality": "premium",
+       "price": 11.75
+      },
+      {
+       "stage1_score": 255.276,
+       "spot": "oval",
+       "quality": "standard",
+       "price": 10.5
+      },
+      {
+       "stage1_score": 254.96963541666665,
+       "spot": "union",
+       "quality": "premium",
+       "price": 11.75
+      }
+     ],
+     "stage2": [
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.5,
+       "meals": 49,
+       "score": 300.6366008333334,
+       "mean_profit": 317.56165000000004,
+       "repvalue": 0.0,
+       "demand_mean": 58.47306111111114,
+       "demand_p10": 40.62644444444446,
+       "demand_p90": 78.35100000000004
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.25,
+       "meals": 49,
+       "score": 289.1035865277778,
+       "mean_profit": 305.6256583333334,
+       "repvalue": 0.0,
+       "demand_mean": 58.47306111111114,
+       "demand_p10": 40.62644444444446,
+       "demand_p90": 78.35100000000004
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.75,
+       "meals": 46,
+       "score": 288.8935833333335,
+       "mean_profit": 307.30116666666675,
+       "repvalue": 0.0,
+       "demand_mean": 53.97513333333336,
+       "demand_p10": 37.50133333333334,
+       "demand_p90": 72.32400000000004
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.75,
+       "meals": 53,
+       "score": 287.11597583333344,
+       "mean_profit": 304.47415000000007,
+       "repvalue": 0.0,
+       "demand_mean": 62.97098888888892,
+       "demand_p10": 43.751555555555576,
+       "demand_p90": 84.37800000000004
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.25,
+       "meals": 57,
+       "score": 281.1635416666669,
+       "mean_profit": 299.30895833333346,
+       "repvalue": 0.0,
+       "demand_mean": 67.4689166666667,
+       "demand_p10": 46.8766666666667,
+       "demand_p90": 90.40500000000004
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.0,
+       "meals": 49,
+       "score": 277.57057222222227,
+       "mean_profit": 293.6896666666667,
+       "repvalue": 0.0,
+       "demand_mean": 58.47306111111114,
+       "demand_p10": 40.62644444444446,
+       "demand_p90": 78.35100000000004
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.5,
+       "meals": 53,
+       "score": 274.65787388888896,
+       "mean_profit": 291.5709666666667,
+       "repvalue": 0.0,
+       "demand_mean": 62.97098888888892,
+       "demand_p10": 43.751555555555576,
+       "demand_p90": 84.37800000000004
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.0,
+       "meals": 57,
+       "score": 267.7875000000003,
+       "mean_profit": 285.44250000000017,
+       "repvalue": 0.0,
+       "demand_mean": 67.4689166666667,
+       "demand_p10": 46.8766666666667,
+       "demand_p90": 90.40500000000004
+      },
+      {
+       "spot": "oval",
+       "quality": "standard",
+       "price": 10.75,
+       "meals": 42,
+       "score": 265.10400000000004,
+       "mean_profit": 281.24512500000003,
+       "repvalue": 0.0,
+       "demand_mean": 49.50854999999999,
+       "demand_p10": 34.397999999999996,
+       "demand_p90": 66.33900000000001
+      },
+      {
+       "spot": "oval",
+       "quality": "standard",
+       "price": 10.25,
+       "meals": 45,
+       "score": 262.98,
+       "mean_profit": 279.4696875,
+       "repvalue": 0.0,
+       "demand_mean": 53.044875,
+       "demand_p10": 36.855,
+       "demand_p90": 71.07750000000003
+      },
+      {
+       "spot": "highst",
+       "quality": "premium",
+       "price": 10.5,
+       "meals": 60,
+       "score": 262.3992083333334,
+       "mean_profit": 283.5325,
+       "repvalue": 0.0,
+       "demand_mean": 71.30861111111112,
+       "demand_p10": 49.54444444444446,
+       "demand_p90": 95.54999999999995
+      },
+      {
+       "spot": "oval",
+       "quality": "standard",
+       "price": 9.75,
+       "meals": 48,
+       "score": 258.04800000000006,
+       "mean_profit": 274.77900000000005,
+       "repvalue": 0.0,
+       "demand_mean": 56.581199999999995,
+       "demand_p10": 39.312000000000005,
+       "demand_p90": 75.81600000000005
+      },
+      {
+       "spot": "highst",
+       "quality": "premium",
+       "price": 11.25,
+       "meals": 51,
+       "score": 257.884375,
+       "mean_profit": 277.71875,
+       "repvalue": 0.0,
+       "demand_mean": 60.33805555555555,
+       "demand_p10": 41.92222222222222,
+       "demand_p90": 80.84999999999997
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 8.5,
+       "meals": 61,
+       "score": 256.8516944444447,
+       "mean_profit": 275.24522222222237,
+       "repvalue": 0.0,
+       "demand_mean": 71.96684444444448,
+       "demand_p10": 50.00177777777782,
+       "demand_p90": 96.43200000000004
+      },
+      {
+       "spot": "union",
+       "quality": "premium",
+       "price": 11.0,
+       "meals": 53,
+       "score": 256.65062500000005,
+       "mean_profit": 276.23750000000007,
+       "repvalue": 0.0,
+       "demand_mean": 62.968750000000014,
+       "demand_p10": 43.750000000000014,
+       "demand_p90": 84.37500000000004
+      },
+      {
+       "spot": "highst",
+       "quality": "premium",
+       "price": 11.75,
+       "meals": 46,
+       "score": 255.75215277777772,
+       "mean_profit": 273.59583333333336,
+       "repvalue": 0.0,
+       "demand_mean": 54.85277777777778,
+       "demand_p10": 38.1111111111111,
+       "demand_p90": 73.49999999999999
+      },
+      {
+       "spot": "oval",
+       "quality": "standard",
+       "price": 10.5,
+       "meals": 42,
+       "score": 255.276,
+       "mean_profit": 271.04175000000004,
+       "repvalue": 0.0,
+       "demand_mean": 49.50854999999999,
+       "demand_p10": 34.397999999999996,
+       "demand_p90": 66.33900000000001
+      },
+      {
+       "spot": "union",
+       "quality": "premium",
+       "price": 11.75,
+       "meals": 46,
+       "score": 254.96963541666665,
+       "mean_profit": 273.253125,
+       "repvalue": 0.0,
+       "demand_mean": 54.572916666666664,
+       "demand_p10": 37.916666666666664,
+       "demand_p90": 73.125
+      }
+     ],
+     "chosen": {
+      "spot": "highst",
+      "quality": "standard",
+      "price": 10.5,
+      "meals": 49,
+      "mean_profit": 317.56165000000004,
+      "sat_out": false
+     },
+     "n_stage2": 18,
+     "order": {
+      "spot": "highst",
+      "price": 10.5,
+      "quality": "standard",
+      "meals": 49
+     }
+    }
+   }
+  },
+  "diff": [
+   "price",
+   "meals"
+  ]
+ },
+ {
+  "seed": "tune-2",
+  "base": "/api/v1/practice/p_474d498913",
+  "days": 30,
+  "rivals": 3,
+  "forecast": {
+   "oval": 79,
+   "thompson": 59,
+   "union": 76,
+   "stadium": 32,
+   "highst": 99,
+   "northres": 67
+  },
+  "events": [],
+  "by_priors": {
+   "orig": {
+    "order": {
+     "spot": "highst",
+     "price": 10.25,
+     "quality": "standard",
+     "meals": 52
+    },
+    "trace": {
+     "priors": "orig",
+     "magnet": null,
+     "expected": {
+      "oval": 79.0,
+      "thompson": 59.0,
+      "union": 76.0,
+      "stadium": 32.0,
+      "highst": 99.0,
+      "northres": 67.0
+     },
+     "myrep": {
+      "oval": 50.0,
+      "thompson": 50.0,
+      "union": 50.0,
+      "stadium": 50.0,
+      "highst": 50.0,
+      "northres": 50.0
+     },
+     "rivals": [
+      {
+       "id": "h1",
+       "spot": "highst",
+       "price": 11.0,
+       "quality": "standard",
+       "rep": 50.0
+      },
+      {
+       "id": "h2",
+       "spot": "oval",
+       "price": 11.0,
+       "quality": "standard",
+       "rep": 50.0
+      },
+      {
+       "id": "h3",
+       "spot": "union",
+       "price": 11.0,
+       "quality": "standard",
+       "rep": 50.0
+      }
+     ],
+     "n_screened": 18,
+     "shortlist": [
+      {
+       "stage1_score": 303.52156249999973,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.25
+      },
+      {
+       "stage1_score": 302.6212499999998,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.75
+      },
+      {
+       "stage1_score": 300.68062499999974,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.75
+      },
+      {
+       "stage1_score": 294.0984374999997,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.25
+      },
+      {
+       "stage1_score": 291.3974999999998,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.5
+      },
+      {
+       "stage1_score": 291.3624999999998,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.0
+      },
+      {
+       "stage1_score": 287.5862499999997,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.5
+      },
+      {
+       "stage1_score": 280.06874999999974,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.0
+      },
+      {
+       "stage1_score": 268.80999999999966,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 8.5
+      },
+      {
+       "stage1_score": 266.03906249999966,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 8.75
+      },
+      {
+       "stage1_score": 265.1959722222222,
+       "spot": "oval",
+       "quality": "standard",
+       "price": 10.75
+      },
+      {
+       "stage1_score": 263.0739583333333,
+       "spot": "oval",
+       "quality": "standard",
+       "price": 10.25
+      },
+      {
+       "stage1_score": 259.92046875,
+       "spot": "highst",
+       "quality": "premium",
+       "price": 11.25
+      },
+      {
+       "stage1_score": 258.470625,
+       "spot": "highst",
+       "quality": "premium",
+       "price": 11.75
+      },
+      {
+       "stage1_score": 258.1433333333333,
+       "spot": "oval",
+       "quality": "standard",
+       "price": 9.75
+      },
+      {
+       "stage1_score": 257.917625,
+       "spot": "highst",
+       "quality": "premium",
+       "price": 10.75
+      },
+      {
+       "stage1_score": 255.36583333333334,
+       "spot": "oval",
+       "quality": "standard",
+       "price": 10.5
+      },
+      {
+       "stage1_score": 254.27749999999997,
+       "spot": "union",
+       "quality": "premium",
+       "price": 11.25
+      }
+     ],
+     "stage2": [
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.25,
+       "meals": 52,
+       "score": 303.52156249999973,
+       "mean_profit": 322.7595312499999,
+       "repvalue": 0.0,
+       "demand_mean": 61.23081249999997,
+       "demand_p10": 42.54249999999998,
+       "demand_p90": 82.04624999999997
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.75,
+       "meals": 48,
+       "score": 302.6212499999998,
+       "mean_profit": 321.2456249999999,
+       "repvalue": 0.0,
+       "demand_mean": 56.52074999999998,
+       "demand_p10": 39.26999999999999,
+       "demand_p90": 75.73499999999999
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.75,
+       "meals": 56,
+       "score": 300.68062499999974,
+       "mean_profit": 320.3878124999999,
+       "repvalue": 0.0,
+       "demand_mean": 65.94087499999998,
+       "demand_p10": 45.81499999999997,
+       "demand_p90": 88.35749999999996
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.25,
+       "meals": 60,
+       "score": 294.0984374999997,
+       "mean_profit": 314.13046874999986,
+       "repvalue": 0.0,
+       "demand_mean": 70.65093749999997,
+       "demand_p10": 49.08749999999996,
+       "demand_p90": 94.66874999999995
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.5,
+       "meals": 48,
+       "score": 291.3974999999998,
+       "mean_profit": 309.5887499999999,
+       "repvalue": 0.0,
+       "demand_mean": 56.52074999999998,
+       "demand_p10": 39.26999999999999,
+       "demand_p90": 75.73499999999999
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.0,
+       "meals": 52,
+       "score": 291.3624999999998,
+       "mean_profit": 310.1312499999999,
+       "repvalue": 0.0,
+       "demand_mean": 61.23081249999997,
+       "demand_p10": 42.54249999999998,
+       "demand_p90": 82.04624999999997
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.5,
+       "meals": 56,
+       "score": 287.5862499999997,
+       "mean_profit": 306.78812499999987,
+       "repvalue": 0.0,
+       "demand_mean": 65.94087499999998,
+       "demand_p10": 45.81499999999997,
+       "demand_p90": 88.35749999999996
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.0,
+       "meals": 60,
+       "score": 280.06874999999974,
+       "mean_profit": 299.5593749999999,
+       "repvalue": 0.0,
+       "demand_mean": 70.65093749999997,
+       "demand_p10": 49.08749999999996,
+       "demand_p90": 94.66874999999995
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 8.5,
+       "meals": 64,
+       "score": 268.80999999999966,
+       "mean_profit": 288.4449999999999,
+       "repvalue": 0.0,
+       "demand_mean": 75.36099999999996,
+       "demand_p10": 52.35999999999996,
+       "demand_p90": 100.97999999999992
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 8.75,
+       "meals": 60,
+       "score": 266.03906249999966,
+       "mean_profit": 284.9882812499999,
+       "repvalue": 0.0,
+       "demand_mean": 70.65093749999997,
+       "demand_p10": 49.08749999999996,
+       "demand_p90": 94.66874999999995
+      },
+      {
+       "spot": "oval",
+       "quality": "standard",
+       "price": 10.75,
+       "meals": 42,
+       "score": 265.1959722222222,
+       "mean_profit": 281.29111111111115,
+       "repvalue": 0.0,
+       "demand_mean": 49.524222222222214,
+       "demand_p10": 34.40888888888889,
+       "demand_p90": 66.35999999999999
+      },
+      {
+       "spot": "oval",
+       "quality": "standard",
+       "price": 10.25,
+       "meals": 45,
+       "score": 263.0739583333333,
+       "mean_profit": 279.51666666666665,
+       "repvalue": 0.0,
+       "demand_mean": 53.06166666666665,
+       "demand_p10": 36.86666666666667,
+       "demand_p90": 71.1
+      },
+      {
+       "spot": "highst",
+       "quality": "premium",
+       "price": 11.25,
+       "meals": 51,
+       "score": 259.92046875,
+       "mean_profit": 278.65312500000005,
+       "repvalue": 0.0,
+       "demand_mean": 60.95374999999999,
+       "demand_p10": 42.35,
+       "demand_p90": 81.67499999999995
+      },
+      {
+       "spot": "highst",
+       "quality": "premium",
+       "price": 11.75,
+       "meals": 47,
+       "score": 258.470625,
+       "mean_profit": 278.18125,
+       "repvalue": 0.0,
+       "demand_mean": 55.412499999999994,
+       "demand_p10": 38.50000000000001,
+       "demand_p90": 74.24999999999999
+      },
+      {
+       "spot": "oval",
+       "quality": "standard",
+       "price": 9.75,
+       "meals": 48,
+       "score": 258.1433333333333,
+       "mean_profit": 274.82666666666665,
+       "repvalue": 0.0,
+       "demand_mean": 56.5991111111111,
+       "demand_p10": 39.324444444444445,
+       "demand_p90": 75.84
+      },
+      {
+       "spot": "highst",
+       "quality": "premium",
+       "price": 10.75,
+       "meals": 56,
+       "score": 257.917625,
+       "mean_profit": 278.1975,
+       "repvalue": 0.0,
+       "demand_mean": 66.49499999999999,
+       "demand_p10": 46.199999999999996,
+       "demand_p90": 89.09999999999994
+      },
+      {
+       "spot": "oval",
+       "quality": "standard",
+       "price": 10.5,
+       "meals": 42,
+       "score": 255.36583333333334,
+       "mean_profit": 271.0866666666667,
+       "repvalue": 0.0,
+       "demand_mean": 49.524222222222214,
+       "demand_p10": 34.40888888888889,
+       "demand_p90": 66.35999999999999
+      },
+      {
+       "spot": "union",
+       "quality": "premium",
+       "price": 11.25,
+       "meals": 50,
+       "score": 254.27749999999997,
+       "mean_profit": 272.95000000000005,
+       "repvalue": 0.0,
+       "demand_mean": 59.55444444444443,
+       "demand_p10": 41.37777777777777,
+       "demand_p90": 79.8
+      }
+     ],
+     "chosen": {
+      "spot": "highst",
+      "quality": "standard",
+      "price": 10.25,
+      "meals": 52,
+      "mean_profit": 322.7595312499999,
+      "sat_out": false
+     },
+     "n_stage2": 18,
+     "order": {
+      "spot": "highst",
+      "price": 10.25,
+      "quality": "standard",
+      "meals": 52
+     }
+    }
+   },
+   "rmse": {
+    "order": {
+     "spot": "highst",
+     "price": 10.5,
+     "quality": "standard",
+     "meals": 50
+    },
+    "trace": {
+     "priors": "rmse",
+     "magnet": null,
+     "expected": {
+      "oval": 79.0,
+      "thompson": 59.0,
+      "union": 76.0,
+      "stadium": 32.0,
+      "highst": 99.0,
+      "northres": 67.0
+     },
+     "myrep": {
+      "oval": 50.0,
+      "thompson": 50.0,
+      "union": 50.0,
+      "stadium": 50.0,
+      "highst": 50.0,
+      "northres": 50.0
+     },
+     "rivals": [
+      {
+       "id": "h1",
+       "spot": "highst",
+       "price": 11.0,
+       "quality": "standard",
+       "rep": 50.0
+      },
+      {
+       "id": "h2",
+       "spot": "oval",
+       "price": 11.0,
+       "quality": "standard",
+       "rep": 50.0
+      },
+      {
+       "id": "h3",
+       "spot": "union",
+       "price": 11.0,
+       "quality": "standard",
+       "rep": 50.0
+      }
+     ],
+     "n_screened": 18,
+     "shortlist": [
+      {
+       "stage1_score": 304.65075,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.5
+      },
+      {
+       "stage1_score": 292.932875,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.25
+      },
+      {
+       "stage1_score": 292.1179025,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.75
+      },
+      {
+       "stage1_score": 290.08950000000016,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.75
+      },
+      {
+       "stage1_score": 283.5956250000001,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.25
+      },
+      {
+       "stage1_score": 281.21500000000003,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.0
+      },
+      {
+       "stage1_score": 277.45900000000006,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.5
+      },
+      {
+       "stage1_score": 270.05250000000007,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.0
+      },
+      {
+       "stage1_score": 267.63409312500005,
+       "spot": "oval",
+       "quality": "standard",
+       "price": 10.75
+      },
+      {
+       "stage1_score": 265.5647296875,
+       "spot": "oval",
+       "quality": "standard",
+       "price": 10.25
+      },
+      {
+       "stage1_score": 264.75874999999974,
+       "spot": "highst",
+       "quality": "premium",
+       "price": 10.5
+      },
+      {
+       "stage1_score": 260.670555,
+       "spot": "oval",
+       "quality": "standard",
+       "price": 9.75
+      },
+      {
+       "stage1_score": 259.92046874999994,
+       "spot": "highst",
+       "quality": "premium",
+       "price": 11.25
+      },
+      {
+       "stage1_score": 259.91166666666646,
+       "spot": "union",
+       "quality": "premium",
+       "price": 11.0
+      },
+      {
+       "stage1_score": 259.21681,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 8.5
+      },
+      {
+       "stage1_score": 258.4706249999998,
+       "spot": "highst",
+       "quality": "premium",
+       "price": 11.75
+      },
+      {
+       "stage1_score": 257.91762499999993,
+       "spot": "highst",
+       "quality": "premium",
+       "price": 10.75
+      },
+      {
+       "stage1_score": 257.75256944444425,
+       "spot": "union",
+       "quality": "premium",
+       "price": 11.75
+      }
+     ],
+     "stage2": [
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.5,
+       "meals": 50,
+       "score": 304.65075,
+       "mean_profit": 323.04412500000007,
+       "repvalue": 0.0,
+       "demand_mean": 59.069725000000005,
+       "demand_p10": 41.041,
+       "demand_p90": 79.15050000000001
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.25,
+       "meals": 50,
+       "score": 292.932875,
+       "mean_profit": 310.88831250000004,
+       "repvalue": 0.0,
+       "demand_mean": 59.069725000000005,
+       "demand_p10": 41.041,
+       "demand_p90": 79.15050000000001
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.75,
+       "meals": 46,
+       "score": 292.1179025,
+       "mean_profit": 308.91295,
+       "repvalue": 0.0,
+       "demand_mean": 54.5259,
+       "demand_p10": 37.884,
+       "demand_p90": 73.06199999999998
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.75,
+       "meals": 54,
+       "score": 290.08950000000016,
+       "mean_profit": 309.0191250000001,
+       "repvalue": 0.0,
+       "demand_mean": 63.61355000000001,
+       "demand_p10": 44.198,
+       "demand_p90": 85.23900000000002
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.25,
+       "meals": 58,
+       "score": 283.5956250000001,
+       "mean_profit": 303.30968750000005,
+       "repvalue": 0.0,
+       "demand_mean": 68.15737500000002,
+       "demand_p10": 47.355,
+       "demand_p90": 91.32750000000003
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.0,
+       "meals": 50,
+       "score": 281.21500000000003,
+       "mean_profit": 298.7325000000001,
+       "repvalue": 0.0,
+       "demand_mean": 59.069725000000005,
+       "demand_p10": 41.041,
+       "demand_p90": 79.15050000000001
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.5,
+       "meals": 54,
+       "score": 277.45900000000006,
+       "mean_profit": 295.90325000000007,
+       "repvalue": 0.0,
+       "demand_mean": 63.61355000000001,
+       "demand_p10": 44.198,
+       "demand_p90": 85.23900000000002
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.0,
+       "meals": 58,
+       "score": 270.05250000000007,
+       "mean_profit": 289.23375000000004,
+       "repvalue": 0.0,
+       "demand_mean": 68.15737500000002,
+       "demand_p10": 47.355,
+       "demand_p90": 91.32750000000003
+      },
+      {
+       "spot": "oval",
+       "quality": "standard",
+       "price": 10.75,
+       "meals": 42,
+       "score": 267.63409312500005,
+       "mean_profit": 282.45288750000003,
+       "repvalue": 0.0,
+       "demand_mean": 50.143275,
+       "demand_p10": 34.83900000000001,
+       "demand_p90": 67.1895
+      },
+      {
+       "spot": "oval",
+       "quality": "standard",
+       "price": 10.25,
+       "meals": 45,
+       "score": 265.5647296875,
+       "mean_profit": 280.70353125,
+       "repvalue": 0.0,
+       "demand_mean": 53.72493750000001,
+       "demand_p10": 37.32750000000001,
+       "demand_p90": 71.98875
+      },
+      {
+       "spot": "highst",
+       "quality": "premium",
+       "price": 10.5,
+       "meals": 61,
+       "score": 264.75874999999974,
+       "mean_profit": 287.2812499999999,
+       "repvalue": 0.0,
+       "demand_mean": 72.03624999999997,
+       "demand_p10": 50.04999999999997,
+       "demand_p90": 96.52500000000002
+      },
+      {
+       "spot": "oval",
+       "quality": "standard",
+       "price": 9.75,
+       "meals": 48,
+       "score": 260.670555,
+       "mean_profit": 276.03090000000003,
+       "repvalue": 0.0,
+       "demand_mean": 57.30660000000001,
+       "demand_p10": 39.816,
+       "demand_p90": 76.78799999999998
+      },
+      {
+       "spot": "highst",
+       "quality": "premium",
+       "price": 11.25,
+       "meals": 51,
+       "score": 259.92046874999994,
+       "mean_profit": 278.653125,
+       "repvalue": 0.0,
+       "demand_mean": 60.953749999999985,
+       "demand_p10": 42.34999999999997,
+       "demand_p90": 81.67499999999998
+      },
+      {
+       "spot": "union",
+       "quality": "premium",
+       "price": 11.0,
+       "meals": 54,
+       "score": 259.91166666666646,
+       "mean_profit": 280.6833333333332,
+       "repvalue": 0.0,
+       "demand_mean": 63.808333333333316,
+       "demand_p10": 44.333333333333336,
+       "demand_p90": 85.49999999999999
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 8.5,
+       "meals": 61,
+       "score": 259.21681,
+       "mean_profit": 276.37780000000004,
+       "repvalue": 0.0,
+       "demand_mean": 72.70120000000001,
+       "demand_p10": 50.512,
+       "demand_p90": 97.41600000000005
+      },
+      {
+       "spot": "highst",
+       "quality": "premium",
+       "price": 11.75,
+       "meals": 47,
+       "score": 258.4706249999998,
+       "mean_profit": 278.1812499999999,
+       "repvalue": 0.0,
+       "demand_mean": 55.412499999999994,
+       "demand_p10": 38.49999999999998,
+       "demand_p90": 74.24999999999997
+      },
+      {
+       "spot": "highst",
+       "quality": "premium",
+       "price": 10.75,
+       "meals": 56,
+       "score": 257.91762499999993,
+       "mean_profit": 278.1975,
+       "repvalue": 0.0,
+       "demand_mean": 66.49499999999998,
+       "demand_p10": 46.199999999999974,
+       "demand_p90": 89.1
+      },
+      {
+       "spot": "union",
+       "quality": "premium",
+       "price": 11.75,
+       "meals": 47,
+       "score": 257.75256944444425,
+       "mean_profit": 277.82222222222214,
+       "repvalue": 0.0,
+       "demand_mean": 55.300555555555555,
+       "demand_p10": 38.42222222222221,
+       "demand_p90": 74.10000000000004
+      }
+     ],
+     "chosen": {
+      "spot": "highst",
+      "quality": "standard",
+      "price": 10.5,
+      "meals": 50,
+      "mean_profit": 323.04412500000007,
+      "sat_out": false
+     },
+     "n_stage2": 18,
+     "order": {
+      "spot": "highst",
+      "price": 10.5,
+      "quality": "standard",
+      "meals": 50
+     }
+    }
+   }
+  },
+  "diff": [
+   "price",
+   "meals"
+  ]
+ },
+ {
+  "seed": "tune-3",
+  "base": "/api/v1/practice/p_e09c0e2cec",
+  "days": 30,
+  "rivals": 3,
+  "forecast": {
+   "oval": 73,
+   "thompson": 56,
+   "union": 73,
+   "stadium": 30,
+   "highst": 94,
+   "northres": 64
+  },
+  "events": [],
+  "by_priors": {
+   "orig": {
+    "order": {
+     "spot": "highst",
+     "price": 10.25,
+     "quality": "standard",
+     "meals": 49
+    },
+    "trace": {
+     "priors": "orig",
+     "magnet": null,
+     "expected": {
+      "oval": 73.0,
+      "thompson": 56.0,
+      "union": 73.0,
+      "stadium": 30.0,
+      "highst": 94.0,
+      "northres": 64.0
+     },
+     "myrep": {
+      "oval": 50.0,
+      "thompson": 50.0,
+      "union": 50.0,
+      "stadium": 50.0,
+      "highst": 50.0,
+      "northres": 50.0
+     },
+     "rivals": [
+      {
+       "id": "h1",
+       "spot": "highst",
+       "price": 11.0,
+       "quality": "standard",
+       "rep": 50.0
+      },
+      {
+       "id": "h2",
+       "spot": "oval",
+       "price": 11.0,
+       "quality": "standard",
+       "rep": 50.0
+      },
+      {
+       "id": "h3",
+       "spot": "union",
+       "price": 11.0,
+       "quality": "standard",
+       "rep": 50.0
+      }
+     ],
+     "n_screened": 18,
+     "shortlist": [
+      {
+       "stage1_score": 288.28717118055545,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.25
+      },
+      {
+       "stage1_score": 286.6004708333333,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.75
+      },
+      {
+       "stage1_score": 285.6489583333332,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.75
+      },
+      {
+       "stage1_score": 279.2133333333332,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.25
+      },
+      {
+       "stage1_score": 276.77406944444436,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.0
+      },
+      {
+       "stage1_score": 276.01092499999993,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.5
+      },
+      {
+       "stage1_score": 273.2284722222221,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.5
+      },
+      {
+       "stage1_score": 265.8899999999999,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.0
+      },
+      {
+       "stage1_score": 255.05941111111105,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 8.5
+      },
+      {
+       "stage1_score": 252.56666666666655,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 8.75
+      },
+      {
+       "stage1_score": 247.17812499999977,
+       "spot": "highst",
+       "quality": "premium",
+       "price": 11.25
+      },
+      {
+       "stage1_score": 245.04076388888882,
+       "spot": "highst",
+       "quality": "premium",
+       "price": 11.75
+      },
+      {
+       "stage1_score": 244.9395138888889,
+       "spot": "oval",
+       "quality": "standard",
+       "price": 10.75
+      },
+      {
+       "stage1_score": 244.6222083333332,
+       "spot": "highst",
+       "quality": "premium",
+       "price": 10.75
+      },
+      {
+       "stage1_score": 244.1903125000001,
+       "spot": "union",
+       "quality": "premium",
+       "price": 11.25
+      },
+      {
+       "stage1_score": 242.15966666666665,
+       "spot": "oval",
+       "quality": "standard",
+       "price": 10.25
+      },
+      {
+       "stage1_score": 240.94001666666657,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 8.25
+      },
+      {
+       "stage1_score": 238.41296666666668,
+       "spot": "oval",
+       "quality": "standard",
+       "price": 9.75
+      }
+     ],
+     "stage2": [
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.25,
+       "meals": 49,
+       "score": 288.28717118055545,
+       "mean_profit": 305.26810416666666,
+       "repvalue": 0.0,
+       "demand_mean": 58.13834722222221,
+       "demand_p10": 40.39388888888887,
+       "demand_p90": 77.9025
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.75,
+       "meals": 45,
+       "score": 286.6004708333333,
+       "mean_profit": 302.56225,
+       "repvalue": 0.0,
+       "demand_mean": 53.66616666666665,
+       "demand_p10": 37.28666666666665,
+       "demand_p90": 71.91
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.75,
+       "meals": 53,
+       "score": 285.6489583333332,
+       "mean_profit": 303.7622916666666,
+       "repvalue": 0.0,
+       "demand_mean": 62.61052777777776,
+       "demand_p10": 43.501111111111086,
+       "demand_p90": 83.895
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.25,
+       "meals": 57,
+       "score": 279.2133333333332,
+       "mean_profit": 298.33385416666664,
+       "repvalue": 0.0,
+       "demand_mean": 67.08270833333331,
+       "demand_p10": 46.608333333333306,
+       "demand_p90": 89.8875
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.0,
+       "meals": 49,
+       "score": 276.77406944444436,
+       "mean_profit": 293.3408333333333,
+       "repvalue": 0.0,
+       "demand_mean": 58.13834722222221,
+       "demand_p10": 40.39388888888887,
+       "demand_p90": 77.9025
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.5,
+       "meals": 45,
+       "score": 276.01092499999993,
+       "mean_profit": 291.6015,
+       "repvalue": 0.0,
+       "demand_mean": 53.66616666666665,
+       "demand_p10": 37.28666666666665,
+       "demand_p90": 71.91
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.5,
+       "meals": 53,
+       "score": 273.2284722222221,
+       "mean_profit": 290.8773611111111,
+       "repvalue": 0.0,
+       "demand_mean": 62.61052777777776,
+       "demand_p10": 43.501111111111086,
+       "demand_p90": 83.895
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.0,
+       "meals": 57,
+       "score": 265.8899999999999,
+       "mean_profit": 284.49375,
+       "repvalue": 0.0,
+       "demand_mean": 67.08270833333331,
+       "demand_p10": 46.608333333333306,
+       "demand_p90": 89.8875
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 8.5,
+       "meals": 60,
+       "score": 255.05941111111105,
+       "mean_profit": 271.88733333333334,
+       "repvalue": 0.0,
+       "demand_mean": 71.55488888888888,
+       "demand_p10": 49.715555555555525,
+       "demand_p90": 95.88
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 8.75,
+       "meals": 57,
+       "score": 252.56666666666655,
+       "mean_profit": 270.6536458333333,
+       "repvalue": 0.0,
+       "demand_mean": 67.08270833333331,
+       "demand_p10": 46.608333333333306,
+       "demand_p90": 89.8875
+      },
+      {
+       "spot": "highst",
+       "quality": "premium",
+       "price": 11.25,
+       "meals": 49,
+       "score": 247.17812499999977,
+       "mean_profit": 266.5312499999999,
+       "repvalue": 0.0,
+       "demand_mean": 57.87527777777776,
+       "demand_p10": 40.21111111111108,
+       "demand_p90": 77.55000000000005
+      },
+      {
+       "spot": "highst",
+       "quality": "premium",
+       "price": 11.75,
+       "meals": 44,
+       "score": 245.04076388888882,
+       "mean_profit": 261.87916666666666,
+       "repvalue": 0.0,
+       "demand_mean": 52.613888888888866,
+       "demand_p10": 36.55555555555553,
+       "demand_p90": 70.50000000000003
+      },
+      {
+       "spot": "oval",
+       "quality": "standard",
+       "price": 10.75,
+       "meals": 39,
+       "score": 249.52387402467903,
+       "mean_profit": 260.5419444444445,
+       "repvalue": 4.584360135790131,
+       "demand_mean": 45.762888888888895,
+       "demand_p10": 31.795555555555552,
+       "demand_p90": 61.31999999999997
+      },
+      {
+       "spot": "highst",
+       "quality": "premium",
+       "price": 10.75,
+       "meals": 53,
+       "score": 244.6222083333332,
+       "mean_profit": 263.5225,
+       "repvalue": 0.0,
+       "demand_mean": 63.136666666666656,
+       "demand_p10": 43.86666666666663,
+       "demand_p90": 84.60000000000005
+      },
+      {
+       "spot": "union",
+       "quality": "premium",
+       "price": 11.25,
+       "meals": 48,
+       "score": 244.1903125000001,
+       "mean_profit": 262.0687500000001,
+       "repvalue": 0.0,
+       "demand_mean": 57.20361111111112,
+       "demand_p10": 39.74444444444446,
+       "demand_p90": 76.64999999999998
+      },
+      {
+       "spot": "oval",
+       "quality": "standard",
+       "price": 10.25,
+       "meals": 41,
+       "score": 246.74402680245677,
+       "mean_profit": 255.84000000000003,
+       "repvalue": 4.584360135790131,
+       "demand_mean": 49.031666666666666,
+       "demand_p10": 34.06666666666666,
+       "demand_p90": 65.69999999999996
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 8.25,
+       "meals": 60,
+       "score": 240.94001666666657,
+       "mean_profit": 257.27299999999997,
+       "repvalue": 0.0,
+       "demand_mean": 71.55488888888888,
+       "demand_p10": 49.715555555555525,
+       "demand_p90": 95.88
+      },
+      {
+       "spot": "oval",
+       "quality": "standard",
+       "price": 9.75,
+       "meals": 44,
+       "score": 242.9973268024568,
+       "mean_profit": 252.794,
+       "repvalue": 4.584360135790131,
+       "demand_mean": 52.300444444444445,
+       "demand_p10": 36.337777777777774,
+       "demand_p90": 70.07999999999996
+      }
+     ],
+     "chosen": {
+      "spot": "highst",
+      "quality": "standard",
+      "price": 10.25,
+      "meals": 49,
+      "mean_profit": 305.26810416666666,
+      "sat_out": false
+     },
+     "n_stage2": 18,
+     "order": {
+      "spot": "highst",
+      "price": 10.25,
+      "quality": "standard",
+      "meals": 49
+     }
+    }
+   },
+   "rmse": {
+    "order": {
+     "spot": "highst",
+     "price": 10.5,
+     "quality": "standard",
+     "meals": 47
+    },
+    "trace": {
+     "priors": "rmse",
+     "magnet": null,
+     "expected": {
+      "oval": 73.0,
+      "thompson": 56.0,
+      "union": 73.0,
+      "stadium": 30.0,
+      "highst": 94.0,
+      "northres": 64.0
+     },
+     "myrep": {
+      "oval": 50.0,
+      "thompson": 50.0,
+      "union": 50.0,
+      "stadium": 50.0,
+      "highst": 50.0,
+      "northres": 50.0
+     },
+     "rivals": [
+      {
+       "id": "h1",
+       "spot": "highst",
+       "price": 11.0,
+       "quality": "standard",
+       "rep": 50.0
+      },
+      {
+       "id": "h2",
+       "spot": "oval",
+       "price": 11.0,
+       "quality": "standard",
+       "rep": 50.0
+      },
+      {
+       "id": "h3",
+       "spot": "union",
+       "price": 11.0,
+       "quality": "standard",
+       "rep": 50.0
+      }
+     ],
+     "n_screened": 18,
+     "shortlist": [
+      {
+       "stage1_score": 288.36571916666657,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.5
+      },
+      {
+       "stage1_score": 277.3034401388888,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.25
+      },
+      {
+       "stage1_score": 277.1761666666665,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.75
+      },
+      {
+       "stage1_score": 275.6834583333331,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.75
+      },
+      {
+       "stage1_score": 269.3464583333331,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.25
+      },
+      {
+       "stage1_score": 266.241161111111,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.0
+      },
+      {
+       "stage1_score": 263.7108055555554,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.5
+      },
+      {
+       "stage1_score": 256.4924999999997,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.0
+      },
+      {
+       "stage1_score": 251.19083333333322,
+       "spot": "highst",
+       "quality": "premium",
+       "price": 10.5
+      },
+      {
+       "stage1_score": 249.3516666666668,
+       "spot": "union",
+       "quality": "premium",
+       "price": 11.0
+      },
+      {
+       "stage1_score": 247.93747687499993,
+       "spot": "oval",
+       "quality": "standard",
+       "price": 10.75
+      },
+      {
+       "stage1_score": 247.87673611111123,
+       "spot": "union",
+       "quality": "premium",
+       "price": 11.75
+      },
+      {
+       "stage1_score": 247.178125,
+       "spot": "highst",
+       "quality": "premium",
+       "price": 11.25
+      },
+      {
+       "stage1_score": 246.27363777777757,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 8.5
+      },
+      {
+       "stage1_score": 246.2090624999999,
+       "spot": "oval",
+       "quality": "standard",
+       "price": 10.25
+      },
+      {
+       "stage1_score": 245.04076388888893,
+       "spot": "highst",
+       "quality": "premium",
+       "price": 11.75
+      },
+      {
+       "stage1_score": 244.6222083333333,
+       "spot": "highst",
+       "quality": "premium",
+       "price": 10.75
+      },
+      {
+       "stage1_score": 244.19031249999998,
+       "spot": "union",
+       "quality": "premium",
+       "price": 11.25
+      }
+     ],
+     "stage2": [
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.5,
+       "meals": 47,
+       "score": 288.36571916666657,
+       "mean_profit": 304.59995,
+       "repvalue": 0.0,
+       "demand_mean": 56.086405555555544,
+       "demand_p10": 38.968222222222195,
+       "demand_p90": 75.15299999999999
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.25,
+       "meals": 47,
+       "score": 277.3034401388888,
+       "mean_profit": 293.15114166666666,
+       "repvalue": 0.0,
+       "demand_mean": 56.086405555555544,
+       "demand_p10": 38.968222222222195,
+       "demand_p90": 75.15299999999999
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.75,
+       "meals": 44,
+       "score": 277.1761666666665,
+       "mean_profit": 294.36183333333327,
+       "repvalue": 0.0,
+       "demand_mean": 51.77206666666665,
+       "demand_p10": 35.970666666666645,
+       "demand_p90": 69.37199999999999
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.75,
+       "meals": 51,
+       "score": 275.6834583333331,
+       "mean_profit": 292.7064166666666,
+       "repvalue": 0.0,
+       "demand_mean": 60.40074444444443,
+       "demand_p10": 41.96577777777774,
+       "demand_p90": 80.934
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.25,
+       "meals": 55,
+       "score": 269.3464583333331,
+       "mean_profit": 287.8310416666666,
+       "repvalue": 0.0,
+       "demand_mean": 64.71508333333331,
+       "demand_p10": 44.96333333333328,
+       "demand_p90": 86.71499999999999
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.0,
+       "meals": 47,
+       "score": 266.241161111111,
+       "mean_profit": 281.7023333333333,
+       "repvalue": 0.0,
+       "demand_mean": 56.086405555555544,
+       "demand_p10": 38.968222222222195,
+       "demand_p90": 75.15299999999999
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.5,
+       "meals": 51,
+       "score": 263.7108055555554,
+       "mean_profit": 280.2972777777777,
+       "repvalue": 0.0,
+       "demand_mean": 60.40074444444443,
+       "demand_p10": 41.96577777777774,
+       "demand_p90": 80.934
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.0,
+       "meals": 55,
+       "score": 256.4924999999997,
+       "mean_profit": 274.4774999999999,
+       "repvalue": 0.0,
+       "demand_mean": 64.71508333333331,
+       "demand_p10": 44.96333333333328,
+       "demand_p90": 86.71499999999999
+      },
+      {
+       "spot": "highst",
+       "quality": "premium",
+       "price": 10.5,
+       "meals": 58,
+       "score": 251.19083333333322,
+       "mean_profit": 272.8791666666666,
+       "repvalue": 0.0,
+       "demand_mean": 68.39805555555556,
+       "demand_p10": 47.52222222222221,
+       "demand_p90": 91.65000000000006
+      },
+      {
+       "spot": "union",
+       "quality": "premium",
+       "price": 11.0,
+       "meals": 52,
+       "score": 249.3516666666668,
+       "mean_profit": 269.82083333333344,
+       "repvalue": 0.0,
+       "demand_mean": 61.28958333333333,
+       "demand_p10": 42.583333333333336,
+       "demand_p90": 82.12499999999993
+      },
+      {
+       "spot": "oval",
+       "quality": "standard",
+       "price": 10.75,
+       "meals": 39,
+       "score": 247.93747687499993,
+       "mean_profit": 262.0237125,
+       "repvalue": 0.0,
+       "demand_mean": 46.334925,
+       "demand_p10": 32.192999999999984,
+       "demand_p90": 62.086500000000015
+      },
+      {
+       "spot": "union",
+       "quality": "premium",
+       "price": 11.75,
+       "meals": 45,
+       "score": 247.87673611111123,
+       "mean_profit": 266.5461805555556,
+       "repvalue": 0.0,
+       "demand_mean": 53.11763888888889,
+       "demand_p10": 36.905555555555544,
+       "demand_p90": 71.17499999999994
+      },
+      {
+       "spot": "highst",
+       "quality": "premium",
+       "price": 11.25,
+       "meals": 49,
+       "score": 247.178125,
+       "mean_profit": 266.53125,
+       "repvalue": 0.0,
+       "demand_mean": 57.875277777777775,
+       "demand_p10": 40.211111111111116,
+       "demand_p90": 77.55000000000005
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 8.5,
+       "meals": 58,
+       "score": 246.27363777777757,
+       "mean_profit": 262.70013333333327,
+       "repvalue": 0.0,
+       "demand_mean": 69.02942222222221,
+       "demand_p10": 47.960888888888825,
+       "demand_p90": 92.49599999999998
+      },
+      {
+       "spot": "oval",
+       "quality": "standard",
+       "price": 10.25,
+       "meals": 42,
+       "score": 246.2090624999999,
+       "mean_profit": 261.21890625,
+       "repvalue": 0.0,
+       "demand_mean": 49.6445625,
+       "demand_p10": 34.492499999999986,
+       "demand_p90": 66.52125000000001
+      },
+      {
+       "spot": "highst",
+       "quality": "premium",
+       "price": 11.75,
+       "meals": 44,
+       "score": 245.04076388888893,
+       "mean_profit": 261.8791666666667,
+       "repvalue": 0.0,
+       "demand_mean": 52.61388888888889,
+       "demand_p10": 36.555555555555564,
+       "demand_p90": 70.50000000000001
+      },
+      {
+       "spot": "highst",
+       "quality": "premium",
+       "price": 10.75,
+       "meals": 53,
+       "score": 244.6222083333333,
+       "mean_profit": 263.52250000000004,
+       "repvalue": 0.0,
+       "demand_mean": 63.13666666666666,
+       "demand_p10": 43.86666666666666,
+       "demand_p90": 84.60000000000005
+      },
+      {
+       "spot": "union",
+       "quality": "premium",
+       "price": 11.25,
+       "meals": 48,
+       "score": 244.19031249999998,
+       "mean_profit": 262.06875,
+       "repvalue": 0.0,
+       "demand_mean": 57.203611111111115,
+       "demand_p10": 39.74444444444444,
+       "demand_p90": 76.64999999999993
+      }
+     ],
+     "chosen": {
+      "spot": "highst",
+      "quality": "standard",
+      "price": 10.5,
+      "meals": 47,
+      "mean_profit": 304.59995,
+      "sat_out": false
+     },
+     "n_stage2": 18,
+     "order": {
+      "spot": "highst",
+      "price": 10.5,
+      "quality": "standard",
+      "meals": 47
+     }
+    }
+   }
+  },
+  "diff": [
+   "price",
+   "meals"
+  ]
+ },
+ {
+  "seed": "tune-4",
+  "base": "/api/v1/practice/p_10302ef511",
+  "days": 30,
+  "rivals": 3,
+  "forecast": {
+   "oval": 73,
+   "thompson": 56,
+   "union": 73,
+   "stadium": 30,
+   "highst": 95,
+   "northres": 64
+  },
+  "events": [],
+  "by_priors": {
+   "orig": {
+    "order": {
+     "spot": "highst",
+     "price": 10.25,
+     "quality": "standard",
+     "meals": 50
+    },
+    "trace": {
+     "priors": "orig",
+     "magnet": null,
+     "expected": {
+      "oval": 73.0,
+      "thompson": 56.0,
+      "union": 73.0,
+      "stadium": 30.0,
+      "highst": 95.0,
+      "northres": 64.0
+     },
+     "myrep": {
+      "oval": 50.0,
+      "thompson": 50.0,
+      "union": 50.0,
+      "stadium": 50.0,
+      "highst": 50.0,
+      "northres": 50.0
+     },
+     "rivals": [
+      {
+       "id": "h1",
+       "spot": "highst",
+       "price": 11.0,
+       "quality": "standard",
+       "rep": 50.0
+      },
+      {
+       "id": "h2",
+       "spot": "oval",
+       "price": 11.0,
+       "quality": "standard",
+       "rep": 50.0
+      },
+      {
+       "id": "h3",
+       "spot": "union",
+       "price": 11.0,
+       "quality": "standard",
+       "rep": 50.0
+      }
+     ],
+     "n_screened": 18,
+     "shortlist": [
+      {
+       "stage1_score": 291.18211805555563,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.25
+      },
+      {
+       "stage1_score": 290.43083333333334,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.75
+      },
+      {
+       "stage1_score": 287.8250364583333,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.75
+      },
+      {
+       "stage1_score": 282.1487630208333,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.25
+      },
+      {
+       "stage1_score": 279.665,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.5
+      },
+      {
+       "stage1_score": 279.5069444444445,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.0
+      },
+      {
+       "stage1_score": 275.3487534722222,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.5
+      },
+      {
+       "stage1_score": 268.7460937499999,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.0
+      },
+      {
+       "stage1_score": 258.4378888888888,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 8.5
+      },
+      {
+       "stage1_score": 255.34342447916663,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 8.75
+      },
+      {
+       "stage1_score": 249.53359374999997,
+       "spot": "highst",
+       "quality": "premium",
+       "price": 11.25
+      },
+      {
+       "stage1_score": 248.23576388888884,
+       "spot": "highst",
+       "quality": "premium",
+       "price": 11.75
+      },
+      {
+       "stage1_score": 247.25458333333333,
+       "spot": "highst",
+       "quality": "premium",
+       "price": 10.75
+      },
+      {
+       "stage1_score": 244.9395138888889,
+       "spot": "oval",
+       "quality": "standard",
+       "price": 10.75
+      },
+      {
+       "stage1_score": 244.1903125000001,
+       "spot": "union",
+       "quality": "premium",
+       "price": 11.25
+      },
+      {
+       "stage1_score": 244.10883333333328,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 8.25
+      },
+      {
+       "stage1_score": 242.15966666666665,
+       "spot": "oval",
+       "quality": "standard",
+       "price": 10.25
+      },
+      {
+       "stage1_score": 240.49126736111106,
+       "spot": "highst",
+       "quality": "premium",
+       "price": 10.25
+      }
+     ],
+     "stage2": [
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.25,
+       "meals": 50,
+       "score": 291.18211805555563,
+       "mean_profit": 310.0129340277778,
+       "repvalue": 0.0,
+       "demand_mean": 58.75684027777779,
+       "demand_p10": 40.82361111111109,
+       "demand_p90": 78.73125000000002
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.75,
+       "meals": 46,
+       "score": 290.43083333333334,
+       "mean_profit": 308.06979166666673,
+       "repvalue": 0.0,
+       "demand_mean": 54.237083333333345,
+       "demand_p10": 37.683333333333316,
+       "demand_p90": 72.67500000000001
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.75,
+       "meals": 53,
+       "score": 287.8250364583333,
+       "mean_profit": 304.78468749999996,
+       "repvalue": 0.0,
+       "demand_mean": 63.276597222222236,
+       "demand_p10": 43.96388888888887,
+       "demand_p90": 84.78750000000004
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.25,
+       "meals": 57,
+       "score": 282.1487630208333,
+       "mean_profit": 299.76953125,
+       "repvalue": 0.0,
+       "demand_mean": 67.79635416666669,
+       "demand_p10": 47.10416666666664,
+       "demand_p90": 90.84375000000006
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.5,
+       "meals": 46,
+       "score": 279.665,
+       "mean_profit": 296.89375000000007,
+       "repvalue": 0.0,
+       "demand_mean": 54.237083333333345,
+       "demand_p10": 37.683333333333316,
+       "demand_p90": 72.67500000000001
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.0,
+       "meals": 50,
+       "score": 279.5069444444445,
+       "mean_profit": 297.8784722222223,
+       "repvalue": 0.0,
+       "demand_mean": 58.75684027777779,
+       "demand_p10": 40.82361111111109,
+       "demand_p90": 78.73125000000002
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.5,
+       "meals": 53,
+       "score": 275.3487534722222,
+       "mean_profit": 291.87354166666665,
+       "repvalue": 0.0,
+       "demand_mean": 63.276597222222236,
+       "demand_p10": 43.96388888888887,
+       "demand_p90": 84.78750000000004
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.0,
+       "meals": 57,
+       "score": 268.7460937499999,
+       "mean_profit": 285.890625,
+       "repvalue": 0.0,
+       "demand_mean": 67.79635416666669,
+       "demand_p10": 47.10416666666664,
+       "demand_p90": 90.84375000000006
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 8.5,
+       "meals": 61,
+       "score": 258.4378888888888,
+       "mean_profit": 276.03666666666663,
+       "repvalue": 0.0,
+       "demand_mean": 72.31611111111113,
+       "demand_p10": 50.24444444444442,
+       "demand_p90": 96.90000000000008
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 8.75,
+       "meals": 57,
+       "score": 255.34342447916663,
+       "mean_profit": 272.01171875,
+       "repvalue": 0.0,
+       "demand_mean": 67.79635416666669,
+       "demand_p10": 47.10416666666664,
+       "demand_p90": 90.84375000000006
+      },
+      {
+       "spot": "highst",
+       "quality": "premium",
+       "price": 11.25,
+       "meals": 49,
+       "score": 249.53359374999997,
+       "mean_profit": 267.640625,
+       "repvalue": 0.0,
+       "demand_mean": 58.49097222222221,
+       "demand_p10": 40.63888888888888,
+       "demand_p90": 78.37499999999993
+      },
+      {
+       "spot": "highst",
+       "quality": "premium",
+       "price": 11.75,
+       "meals": 45,
+       "score": 248.23576388888884,
+       "mean_profit": 266.72569444444446,
+       "repvalue": 0.0,
+       "demand_mean": 53.17361111111111,
+       "demand_p10": 36.94444444444443,
+       "demand_p90": 71.24999999999996
+      },
+      {
+       "spot": "highst",
+       "quality": "premium",
+       "price": 10.75,
+       "meals": 54,
+       "score": 247.25458333333333,
+       "mean_profit": 267.5541666666667,
+       "repvalue": 0.0,
+       "demand_mean": 63.80833333333332,
+       "demand_p10": 44.33333333333332,
+       "demand_p90": 85.49999999999994
+      },
+      {
+       "spot": "oval",
+       "quality": "standard",
+       "price": 10.75,
+       "meals": 39,
+       "score": 249.52387402467903,
+       "mean_profit": 260.5419444444445,
+       "repvalue": 4.584360135790131,
+       "demand_mean": 45.762888888888895,
+       "demand_p10": 31.795555555555552,
+       "demand_p90": 61.31999999999997
+      },
+      {
+       "spot": "union",
+       "quality": "premium",
+       "price": 11.25,
+       "meals": 48,
+       "score": 244.1903125000001,
+       "mean_profit": 262.0687500000001,
+       "repvalue": 0.0,
+       "demand_mean": 57.20361111111112,
+       "demand_p10": 39.74444444444446,
+       "demand_p90": 76.64999999999998
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 8.25,
+       "meals": 61,
+       "score": 244.10883333333328,
+       "mean_profit": 261.19,
+       "repvalue": 0.0,
+       "demand_mean": 72.31611111111113,
+       "demand_p10": 50.24444444444442,
+       "demand_p90": 96.90000000000008
+      },
+      {
+       "spot": "oval",
+       "quality": "standard",
+       "price": 10.25,
+       "meals": 41,
+       "score": 246.74402680245677,
+       "mean_profit": 255.84000000000003,
+       "repvalue": 4.584360135790131,
+       "demand_mean": 49.031666666666666,
+       "demand_p10": 34.06666666666666,
+       "demand_p90": 65.69999999999996
+      },
+      {
+       "spot": "highst",
+       "quality": "premium",
+       "price": 10.25,
+       "meals": 58,
+       "score": 240.49126736111106,
+       "mean_profit": 260.16770833333334,
+       "repvalue": 0.0,
+       "demand_mean": 69.12569444444443,
+       "demand_p10": 48.027777777777764,
+       "demand_p90": 92.62499999999994
+      }
+     ],
+     "chosen": {
+      "spot": "highst",
+      "quality": "standard",
+      "price": 10.25,
+      "meals": 50,
+      "mean_profit": 310.0129340277778,
+      "sat_out": false
+     },
+     "n_stage2": 18,
+     "order": {
+      "spot": "highst",
+      "price": 10.25,
+      "quality": "standard",
+      "meals": 50
+     }
+    }
+   },
+   "rmse": {
+    "order": {
+     "spot": "highst",
+     "price": 10.5,
+     "quality": "standard",
+     "meals": 48
+    },
+    "trace": {
+     "priors": "rmse",
+     "magnet": null,
+     "expected": {
+      "oval": 73.0,
+      "thompson": 56.0,
+      "union": 73.0,
+      "stadium": 30.0,
+      "highst": 95.0,
+      "northres": 64.0
+     },
+     "myrep": {
+      "oval": 50.0,
+      "thompson": 50.0,
+      "union": 50.0,
+      "stadium": 50.0,
+      "highst": 50.0,
+      "northres": 50.0
+     },
+     "rivals": [
+      {
+       "id": "h1",
+       "spot": "highst",
+       "price": 11.0,
+       "quality": "standard",
+       "rep": 50.0
+      },
+      {
+       "id": "h2",
+       "spot": "oval",
+       "price": 11.0,
+       "quality": "standard",
+       "rep": 50.0
+      },
+      {
+       "id": "h3",
+       "spot": "union",
+       "price": 11.0,
+       "quality": "standard",
+       "rep": 50.0
+      }
+     ],
+     "n_screened": 18,
+     "shortlist": [
+      {
+       "stage1_score": 292.32791666666657,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.5
+      },
+      {
+       "stage1_score": 281.0820138888888,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.25
+      },
+      {
+       "stage1_score": 279.8459291666666,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.75
+      },
+      {
+       "stage1_score": 278.20541666666657,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.75
+      },
+      {
+       "stage1_score": 272.21800520833335,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.25
+      },
+      {
+       "stage1_score": 269.83611111111105,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.0
+      },
+      {
+       "stage1_score": 266.0719444444443,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.5
+      },
+      {
+       "stage1_score": 259.28643750000003,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.0
+      },
+      {
+       "stage1_score": 254.13739583333324,
+       "spot": "highst",
+       "quality": "premium",
+       "price": 10.5
+      },
+      {
+       "stage1_score": 249.53359374999997,
+       "spot": "highst",
+       "quality": "premium",
+       "price": 11.25
+      },
+      {
+       "stage1_score": 249.3516666666668,
+       "spot": "union",
+       "quality": "premium",
+       "price": 11.0
+      },
+      {
+       "stage1_score": 249.15652777777765,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 8.5
+      },
+      {
+       "stage1_score": 248.23576388888873,
+       "spot": "highst",
+       "quality": "premium",
+       "price": 11.75
+      },
+      {
+       "stage1_score": 247.93747687499993,
+       "spot": "oval",
+       "quality": "standard",
+       "price": 10.75
+      },
+      {
+       "stage1_score": 247.87673611111123,
+       "spot": "union",
+       "quality": "premium",
+       "price": 11.75
+      },
+      {
+       "stage1_score": 247.25458333333307,
+       "spot": "highst",
+       "quality": "premium",
+       "price": 10.75
+      },
+      {
+       "stage1_score": 246.3548697916667,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 8.75
+      },
+      {
+       "stage1_score": 246.2090624999999,
+       "spot": "oval",
+       "quality": "standard",
+       "price": 10.25
+      }
+     ],
+     "stage2": [
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.5,
+       "meals": 48,
+       "score": 292.32791666666657,
+       "mean_profit": 310.0539583333333,
+       "repvalue": 0.0,
+       "demand_mean": 56.68306944444445,
+       "demand_p10": 39.382777777777775,
+       "demand_p90": 75.95250000000001
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.25,
+       "meals": 48,
+       "score": 281.0820138888888,
+       "mean_profit": 298.38600694444443,
+       "repvalue": 0.0,
+       "demand_mean": 56.68306944444445,
+       "demand_p10": 39.382777777777775,
+       "demand_p90": 75.95250000000001
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.75,
+       "meals": 44,
+       "score": 279.8459291666666,
+       "mean_profit": 295.66975,
+       "repvalue": 0.0,
+       "demand_mean": 52.322833333333335,
+       "demand_p10": 36.353333333333325,
+       "demand_p90": 70.11000000000001
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.75,
+       "meals": 52,
+       "score": 278.20541666666657,
+       "mean_profit": 297.0039583333333,
+       "repvalue": 0.0,
+       "demand_mean": 61.043305555555555,
+       "demand_p10": 42.41222222222221,
+       "demand_p90": 81.79500000000002
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.25,
+       "meals": 55,
+       "score": 272.21800520833335,
+       "mean_profit": 289.2378125,
+       "repvalue": 0.0,
+       "demand_mean": 65.40354166666667,
+       "demand_p10": 45.44166666666666,
+       "demand_p90": 87.63750000000002
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.0,
+       "meals": 48,
+       "score": 269.83611111111105,
+       "mean_profit": 286.71805555555557,
+       "repvalue": 0.0,
+       "demand_mean": 56.68306944444445,
+       "demand_p10": 39.382777777777775,
+       "demand_p90": 75.95250000000001
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.5,
+       "meals": 52,
+       "score": 266.0719444444443,
+       "mean_profit": 284.38847222222216,
+       "repvalue": 0.0,
+       "demand_mean": 61.043305555555555,
+       "demand_p10": 42.41222222222221,
+       "demand_p90": 81.79500000000002
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.0,
+       "meals": 55,
+       "score": 259.28643750000003,
+       "mean_profit": 275.84625,
+       "repvalue": 0.0,
+       "demand_mean": 65.40354166666667,
+       "demand_p10": 45.44166666666666,
+       "demand_p90": 87.63750000000002
+      },
+      {
+       "spot": "highst",
+       "quality": "premium",
+       "price": 10.5,
+       "meals": 58,
+       "score": 254.13739583333324,
+       "mean_profit": 274.29375,
+       "repvalue": 0.0,
+       "demand_mean": 69.12569444444445,
+       "demand_p10": 48.027777777777764,
+       "demand_p90": 92.625
+      },
+      {
+       "spot": "highst",
+       "quality": "premium",
+       "price": 11.25,
+       "meals": 49,
+       "score": 249.53359374999997,
+       "mean_profit": 267.640625,
+       "repvalue": 0.0,
+       "demand_mean": 58.490972222222226,
+       "demand_p10": 40.63888888888888,
+       "demand_p90": 78.375
+      },
+      {
+       "spot": "union",
+       "quality": "premium",
+       "price": 11.0,
+       "meals": 52,
+       "score": 249.3516666666668,
+       "mean_profit": 269.82083333333344,
+       "repvalue": 0.0,
+       "demand_mean": 61.28958333333333,
+       "demand_p10": 42.583333333333336,
+       "demand_p90": 82.12499999999993
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 8.5,
+       "meals": 59,
+       "score": 249.15652777777765,
+       "mean_profit": 266.58388888888885,
+       "repvalue": 0.0,
+       "demand_mean": 69.76377777777778,
+       "demand_p10": 48.4711111111111,
+       "demand_p90": 93.48000000000002
+      },
+      {
+       "spot": "highst",
+       "quality": "premium",
+       "price": 11.75,
+       "meals": 45,
+       "score": 248.23576388888873,
+       "mean_profit": 266.7256944444444,
+       "repvalue": 0.0,
+       "demand_mean": 53.173611111111114,
+       "demand_p10": 36.944444444444436,
+       "demand_p90": 71.25
+      },
+      {
+       "spot": "oval",
+       "quality": "standard",
+       "price": 10.75,
+       "meals": 39,
+       "score": 247.93747687499993,
+       "mean_profit": 262.0237125,
+       "repvalue": 0.0,
+       "demand_mean": 46.334925,
+       "demand_p10": 32.192999999999984,
+       "demand_p90": 62.086500000000015
+      },
+      {
+       "spot": "union",
+       "quality": "premium",
+       "price": 11.75,
+       "meals": 45,
+       "score": 247.87673611111123,
+       "mean_profit": 266.5461805555556,
+       "repvalue": 0.0,
+       "demand_mean": 53.11763888888889,
+       "demand_p10": 36.905555555555544,
+       "demand_p90": 71.17499999999994
+      },
+      {
+       "spot": "highst",
+       "quality": "premium",
+       "price": 10.75,
+       "meals": 54,
+       "score": 247.25458333333307,
+       "mean_profit": 267.55416666666656,
+       "repvalue": 0.0,
+       "demand_mean": 63.80833333333334,
+       "demand_p10": 44.333333333333314,
+       "demand_p90": 85.5
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 8.75,
+       "meals": 55,
+       "score": 246.3548697916667,
+       "mean_profit": 262.45468750000003,
+       "repvalue": 0.0,
+       "demand_mean": 65.40354166666667,
+       "demand_p10": 45.44166666666666,
+       "demand_p90": 87.63750000000002
+      },
+      {
+       "spot": "oval",
+       "quality": "standard",
+       "price": 10.25,
+       "meals": 42,
+       "score": 246.2090624999999,
+       "mean_profit": 261.21890625,
+       "repvalue": 0.0,
+       "demand_mean": 49.6445625,
+       "demand_p10": 34.492499999999986,
+       "demand_p90": 66.52125000000001
+      }
+     ],
+     "chosen": {
+      "spot": "highst",
+      "quality": "standard",
+      "price": 10.5,
+      "meals": 48,
+      "mean_profit": 310.0539583333333,
+      "sat_out": false
+     },
+     "n_stage2": 18,
+     "order": {
+      "spot": "highst",
+      "price": 10.5,
+      "quality": "standard",
+      "meals": 48
+     }
+    }
+   }
+  },
+  "diff": [
+   "price",
+   "meals"
+  ]
+ },
+ {
+  "seed": "tune-5",
+  "base": "/api/v1/practice/p_0d5de3e920",
+  "days": 30,
+  "rivals": 3,
+  "forecast": {
+   "oval": 78,
+   "thompson": 58,
+   "union": 75,
+   "stadium": 31,
+   "highst": 98,
+   "northres": 66
+  },
+  "events": [],
+  "by_priors": {
+   "orig": {
+    "order": {
+     "spot": "highst",
+     "price": 10.25,
+     "quality": "standard",
+     "meals": 51
+    },
+    "trace": {
+     "priors": "orig",
+     "magnet": null,
+     "expected": {
+      "oval": 78.0,
+      "thompson": 58.0,
+      "union": 75.0,
+      "stadium": 31.0,
+      "highst": 98.0,
+      "northres": 66.0
+     },
+     "myrep": {
+      "oval": 50.0,
+      "thompson": 50.0,
+      "union": 50.0,
+      "stadium": 50.0,
+      "highst": 50.0,
+      "northres": 50.0
+     },
+     "rivals": [
+      {
+       "id": "h1",
+       "spot": "highst",
+       "price": 11.0,
+       "quality": "standard",
+       "rep": 50.0
+      },
+      {
+       "id": "h2",
+       "spot": "oval",
+       "price": 11.0,
+       "quality": "standard",
+       "rep": 50.0
+      },
+      {
+       "id": "h3",
+       "spot": "union",
+       "price": 11.0,
+       "quality": "standard",
+       "rep": 50.0
+      }
+     ],
+     "n_screened": 18,
+     "shortlist": [
+      {
+       "stage1_score": 300.30029548611105,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.25
+      },
+      {
+       "stage1_score": 299.0786291666666,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.75
+      },
+      {
+       "stage1_score": 297.7824520833332,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.75
+      },
+      {
+       "stage1_score": 291.5250989583332,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.25
+      },
+      {
+       "stage1_score": 288.31126388888885,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.0
+      },
+      {
+       "stage1_score": 288.02447499999994,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.5
+      },
+      {
+       "stage1_score": 284.85854305555546,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.5
+      },
+      {
+       "stage1_score": 277.6663124999999,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.0
+      },
+      {
+       "stage1_score": 266.5415277777777,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 8.5
+      },
+      {
+       "stage1_score": 263.80752604166656,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 8.75
+      },
+      {
+       "stage1_score": 261.1286916666666,
+       "spot": "oval",
+       "quality": "standard",
+       "price": 10.75
+      },
+      {
+       "stage1_score": 259.31924999999995,
+       "spot": "oval",
+       "quality": "standard",
+       "price": 10.25
+      },
+      {
+       "stage1_score": 257.88437500000003,
+       "spot": "highst",
+       "quality": "premium",
+       "price": 11.25
+      },
+      {
+       "stage1_score": 255.75215277777772,
+       "spot": "highst",
+       "quality": "premium",
+       "price": 11.75
+      },
+      {
+       "stage1_score": 254.70617499999997,
+       "spot": "oval",
+       "quality": "standard",
+       "price": 9.75
+      },
+      {
+       "stage1_score": 254.36833333333328,
+       "spot": "highst",
+       "quality": "premium",
+       "price": 10.75
+      },
+      {
+       "stage1_score": 251.75354166666656,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 8.25
+      },
+      {
+       "stage1_score": 251.48034999999993,
+       "spot": "oval",
+       "quality": "standard",
+       "price": 10.5
+      }
+     ],
+     "stage2": [
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.25,
+       "meals": 51,
+       "score": 300.30029548611105,
+       "mean_profit": 317.8358958333333,
+       "repvalue": 0.0,
+       "demand_mean": 60.61231944444446,
+       "demand_p10": 42.11277777777776,
+       "demand_p90": 81.21750000000002
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.75,
+       "meals": 47,
+       "score": 299.0786291666666,
+       "mean_profit": 315.89575,
+       "repvalue": 0.0,
+       "demand_mean": 55.949833333333345,
+       "demand_p10": 38.87333333333332,
+       "demand_p90": 74.97
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.75,
+       "meals": 55,
+       "score": 297.7824520833332,
+       "mean_profit": 315.89012499999995,
+       "repvalue": 0.0,
+       "demand_mean": 65.27480555555557,
+       "demand_p10": 45.35222222222219,
+       "demand_p90": 87.46500000000003
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.25,
+       "meals": 59,
+       "score": 291.5250989583332,
+       "mean_profit": 310.05843749999997,
+       "repvalue": 0.0,
+       "demand_mean": 69.93729166666668,
+       "demand_p10": 48.591666666666626,
+       "demand_p90": 93.71250000000003
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.0,
+       "meals": 51,
+       "score": 288.31126388888885,
+       "mean_profit": 305.4191666666667,
+       "repvalue": 0.0,
+       "demand_mean": 60.61231944444446,
+       "demand_p10": 42.11277777777776,
+       "demand_p90": 81.21750000000002
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.5,
+       "meals": 47,
+       "score": 288.02447499999994,
+       "mean_profit": 304.4505,
+       "repvalue": 0.0,
+       "demand_mean": 55.949833333333345,
+       "demand_p10": 38.87333333333332,
+       "demand_p90": 74.97
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.5,
+       "meals": 55,
+       "score": 284.85854305555546,
+       "mean_profit": 302.50191666666666,
+       "repvalue": 0.0,
+       "demand_mean": 65.27480555555557,
+       "demand_p10": 45.35222222222219,
+       "demand_p90": 87.46500000000003
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.0,
+       "meals": 59,
+       "score": 277.6663124999999,
+       "mean_profit": 295.69874999999996,
+       "repvalue": 0.0,
+       "demand_mean": 69.93729166666668,
+       "demand_p10": 48.591666666666626,
+       "demand_p90": 93.71250000000003
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 8.5,
+       "meals": 63,
+       "score": 266.5415277777777,
+       "mean_profit": 284.90388888888884,
+       "repvalue": 0.0,
+       "demand_mean": 74.59977777777779,
+       "demand_p10": 51.83111111111106,
+       "demand_p90": 99.96000000000005
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 8.75,
+       "meals": 59,
+       "score": 263.80752604166656,
+       "mean_profit": 281.33906249999995,
+       "repvalue": 0.0,
+       "demand_mean": 69.93729166666668,
+       "demand_p10": 48.591666666666626,
+       "demand_p90": 93.71250000000003
+      },
+      {
+       "spot": "oval",
+       "quality": "standard",
+       "price": 10.75,
+       "meals": 41,
+       "score": 263.57368373908855,
+       "mean_profit": 275.66949999999997,
+       "repvalue": 2.4449920724219596,
+       "demand_mean": 48.89733333333333,
+       "demand_p10": 33.97333333333332,
+       "demand_p90": 65.51999999999997
+      },
+      {
+       "spot": "oval",
+       "quality": "standard",
+       "price": 10.25,
+       "meals": 44,
+       "score": 261.7642420724219,
+       "mean_profit": 274.315,
+       "repvalue": 2.4449920724219596,
+       "demand_mean": 52.38999999999999,
+       "demand_p10": 36.39999999999999,
+       "demand_p90": 70.19999999999996
+      },
+      {
+       "spot": "highst",
+       "quality": "premium",
+       "price": 11.25,
+       "meals": 51,
+       "score": 257.88437500000003,
+       "mean_profit": 277.71875000000006,
+       "repvalue": 0.0,
+       "demand_mean": 60.338055555555584,
+       "demand_p10": 41.9222222222222,
+       "demand_p90": 80.85000000000005
+      },
+      {
+       "spot": "highst",
+       "quality": "premium",
+       "price": 11.75,
+       "meals": 46,
+       "score": 255.75215277777772,
+       "mean_profit": 273.59583333333336,
+       "repvalue": 0.0,
+       "demand_mean": 54.852777777777796,
+       "demand_p10": 38.1111111111111,
+       "demand_p90": 73.50000000000003
+      },
+      {
+       "spot": "oval",
+       "quality": "standard",
+       "price": 9.75,
+       "meals": 47,
+       "score": 257.1511670724219,
+       "mean_profit": 270.04650000000004,
+       "repvalue": 2.4449920724219596,
+       "demand_mean": 55.882666666666665,
+       "demand_p10": 38.826666666666654,
+       "demand_p90": 74.87999999999997
+      },
+      {
+       "spot": "highst",
+       "quality": "premium",
+       "price": 10.75,
+       "meals": 56,
+       "score": 254.36833333333328,
+       "mean_profit": 276.44166666666666,
+       "repvalue": 0.0,
+       "demand_mean": 65.82333333333337,
+       "demand_p10": 45.733333333333306,
+       "demand_p90": 88.20000000000007
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 8.25,
+       "meals": 63,
+       "score": 251.75354166666656,
+       "mean_profit": 269.5758333333333,
+       "repvalue": 0.0,
+       "demand_mean": 74.59977777777779,
+       "demand_p10": 51.83111111111106,
+       "demand_p90": 99.96000000000005
+      },
+      {
+       "spot": "oval",
+       "quality": "standard",
+       "price": 10.5,
+       "meals": 41,
+       "score": 253.9253420724219,
+       "mean_profit": 265.683,
+       "repvalue": 2.4449920724219596,
+       "demand_mean": 48.89733333333333,
+       "demand_p10": 33.97333333333332,
+       "demand_p90": 65.51999999999997
+      }
+     ],
+     "chosen": {
+      "spot": "highst",
+      "quality": "standard",
+      "price": 10.25,
+      "meals": 51,
+      "mean_profit": 317.8358958333333,
+      "sat_out": false
+     },
+     "n_stage2": 18,
+     "order": {
+      "spot": "highst",
+      "price": 10.25,
+      "quality": "standard",
+      "meals": 51
+     }
+    }
+   },
+   "rmse": {
+    "order": {
+     "spot": "highst",
+     "price": 10.5,
+     "quality": "standard",
+     "meals": 49
+    },
+    "trace": {
+     "priors": "rmse",
+     "magnet": null,
+     "expected": {
+      "oval": 78.0,
+      "thompson": 58.0,
+      "union": 75.0,
+      "stadium": 31.0,
+      "highst": 98.0,
+      "northres": 66.0
+     },
+     "myrep": {
+      "oval": 50.0,
+      "thompson": 50.0,
+      "union": 50.0,
+      "stadium": 50.0,
+      "highst": 50.0,
+      "northres": 50.0
+     },
+     "rivals": [
+      {
+       "id": "h1",
+       "spot": "highst",
+       "price": 11.0,
+       "quality": "standard",
+       "rep": 50.0
+      },
+      {
+       "id": "h2",
+       "spot": "oval",
+       "price": 11.0,
+       "quality": "standard",
+       "rep": 50.0
+      },
+      {
+       "id": "h3",
+       "spot": "union",
+       "price": 11.0,
+       "quality": "standard",
+       "rep": 50.0
+      }
+     ],
+     "n_screened": 18,
+     "shortlist": [
+      {
+       "stage1_score": 300.6366008333334,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.5
+      },
+      {
+       "stage1_score": 289.1035865277778,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.25
+      },
+      {
+       "stage1_score": 288.8935833333335,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.75
+      },
+      {
+       "stage1_score": 287.11597583333344,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.75
+      },
+      {
+       "stage1_score": 281.1635416666669,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.25
+      },
+      {
+       "stage1_score": 277.57057222222227,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.0
+      },
+      {
+       "stage1_score": 274.65787388888896,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.5
+      },
+      {
+       "stage1_score": 267.7875000000003,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.0
+      },
+      {
+       "stage1_score": 265.10400000000004,
+       "spot": "oval",
+       "quality": "standard",
+       "price": 10.75
+      },
+      {
+       "stage1_score": 262.98,
+       "spot": "oval",
+       "quality": "standard",
+       "price": 10.25
+      },
+      {
+       "stage1_score": 262.3992083333334,
+       "spot": "highst",
+       "quality": "premium",
+       "price": 10.5
+      },
+      {
+       "stage1_score": 258.04800000000006,
+       "spot": "oval",
+       "quality": "standard",
+       "price": 9.75
+      },
+      {
+       "stage1_score": 257.884375,
+       "spot": "highst",
+       "quality": "premium",
+       "price": 11.25
+      },
+      {
+       "stage1_score": 256.8516944444447,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 8.5
+      },
+      {
+       "stage1_score": 256.65062500000005,
+       "spot": "union",
+       "quality": "premium",
+       "price": 11.0
+      },
+      {
+       "stage1_score": 255.75215277777772,
+       "spot": "highst",
+       "quality": "premium",
+       "price": 11.75
+      },
+      {
+       "stage1_score": 255.276,
+       "spot": "oval",
+       "quality": "standard",
+       "price": 10.5
+      },
+      {
+       "stage1_score": 254.96963541666665,
+       "spot": "union",
+       "quality": "premium",
+       "price": 11.75
+      }
+     ],
+     "stage2": [
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.5,
+       "meals": 49,
+       "score": 300.6366008333334,
+       "mean_profit": 317.56165000000004,
+       "repvalue": 0.0,
+       "demand_mean": 58.47306111111114,
+       "demand_p10": 40.62644444444446,
+       "demand_p90": 78.35100000000004
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.25,
+       "meals": 49,
+       "score": 289.1035865277778,
+       "mean_profit": 305.6256583333334,
+       "repvalue": 0.0,
+       "demand_mean": 58.47306111111114,
+       "demand_p10": 40.62644444444446,
+       "demand_p90": 78.35100000000004
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.75,
+       "meals": 46,
+       "score": 288.8935833333335,
+       "mean_profit": 307.30116666666675,
+       "repvalue": 0.0,
+       "demand_mean": 53.97513333333336,
+       "demand_p10": 37.50133333333334,
+       "demand_p90": 72.32400000000004
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.75,
+       "meals": 53,
+       "score": 287.11597583333344,
+       "mean_profit": 304.47415000000007,
+       "repvalue": 0.0,
+       "demand_mean": 62.97098888888892,
+       "demand_p10": 43.751555555555576,
+       "demand_p90": 84.37800000000004
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.25,
+       "meals": 57,
+       "score": 281.1635416666669,
+       "mean_profit": 299.30895833333346,
+       "repvalue": 0.0,
+       "demand_mean": 67.4689166666667,
+       "demand_p10": 46.8766666666667,
+       "demand_p90": 90.40500000000004
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.0,
+       "meals": 49,
+       "score": 277.57057222222227,
+       "mean_profit": 293.6896666666667,
+       "repvalue": 0.0,
+       "demand_mean": 58.47306111111114,
+       "demand_p10": 40.62644444444446,
+       "demand_p90": 78.35100000000004
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.5,
+       "meals": 53,
+       "score": 274.65787388888896,
+       "mean_profit": 291.5709666666667,
+       "repvalue": 0.0,
+       "demand_mean": 62.97098888888892,
+       "demand_p10": 43.751555555555576,
+       "demand_p90": 84.37800000000004
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.0,
+       "meals": 57,
+       "score": 267.7875000000003,
+       "mean_profit": 285.44250000000017,
+       "repvalue": 0.0,
+       "demand_mean": 67.4689166666667,
+       "demand_p10": 46.8766666666667,
+       "demand_p90": 90.40500000000004
+      },
+      {
+       "spot": "oval",
+       "quality": "standard",
+       "price": 10.75,
+       "meals": 42,
+       "score": 265.10400000000004,
+       "mean_profit": 281.24512500000003,
+       "repvalue": 0.0,
+       "demand_mean": 49.50854999999999,
+       "demand_p10": 34.397999999999996,
+       "demand_p90": 66.33900000000001
+      },
+      {
+       "spot": "oval",
+       "quality": "standard",
+       "price": 10.25,
+       "meals": 45,
+       "score": 262.98,
+       "mean_profit": 279.4696875,
+       "repvalue": 0.0,
+       "demand_mean": 53.044875,
+       "demand_p10": 36.855,
+       "demand_p90": 71.07750000000003
+      },
+      {
+       "spot": "highst",
+       "quality": "premium",
+       "price": 10.5,
+       "meals": 60,
+       "score": 262.3992083333334,
+       "mean_profit": 283.5325,
+       "repvalue": 0.0,
+       "demand_mean": 71.30861111111112,
+       "demand_p10": 49.54444444444446,
+       "demand_p90": 95.54999999999995
+      },
+      {
+       "spot": "oval",
+       "quality": "standard",
+       "price": 9.75,
+       "meals": 48,
+       "score": 258.04800000000006,
+       "mean_profit": 274.77900000000005,
+       "repvalue": 0.0,
+       "demand_mean": 56.581199999999995,
+       "demand_p10": 39.312000000000005,
+       "demand_p90": 75.81600000000005
+      },
+      {
+       "spot": "highst",
+       "quality": "premium",
+       "price": 11.25,
+       "meals": 51,
+       "score": 257.884375,
+       "mean_profit": 277.71875,
+       "repvalue": 0.0,
+       "demand_mean": 60.33805555555555,
+       "demand_p10": 41.92222222222222,
+       "demand_p90": 80.84999999999997
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 8.5,
+       "meals": 61,
+       "score": 256.8516944444447,
+       "mean_profit": 275.24522222222237,
+       "repvalue": 0.0,
+       "demand_mean": 71.96684444444448,
+       "demand_p10": 50.00177777777782,
+       "demand_p90": 96.43200000000004
+      },
+      {
+       "spot": "union",
+       "quality": "premium",
+       "price": 11.0,
+       "meals": 53,
+       "score": 256.65062500000005,
+       "mean_profit": 276.23750000000007,
+       "repvalue": 0.0,
+       "demand_mean": 62.968750000000014,
+       "demand_p10": 43.750000000000014,
+       "demand_p90": 84.37500000000004
+      },
+      {
+       "spot": "highst",
+       "quality": "premium",
+       "price": 11.75,
+       "meals": 46,
+       "score": 255.75215277777772,
+       "mean_profit": 273.59583333333336,
+       "repvalue": 0.0,
+       "demand_mean": 54.85277777777778,
+       "demand_p10": 38.1111111111111,
+       "demand_p90": 73.49999999999999
+      },
+      {
+       "spot": "oval",
+       "quality": "standard",
+       "price": 10.5,
+       "meals": 42,
+       "score": 255.276,
+       "mean_profit": 271.04175000000004,
+       "repvalue": 0.0,
+       "demand_mean": 49.50854999999999,
+       "demand_p10": 34.397999999999996,
+       "demand_p90": 66.33900000000001
+      },
+      {
+       "spot": "union",
+       "quality": "premium",
+       "price": 11.75,
+       "meals": 46,
+       "score": 254.96963541666665,
+       "mean_profit": 273.253125,
+       "repvalue": 0.0,
+       "demand_mean": 54.572916666666664,
+       "demand_p10": 37.916666666666664,
+       "demand_p90": 73.125
+      }
+     ],
+     "chosen": {
+      "spot": "highst",
+      "quality": "standard",
+      "price": 10.5,
+      "meals": 49,
+      "mean_profit": 317.56165000000004,
+      "sat_out": false
+     },
+     "n_stage2": 18,
+     "order": {
+      "spot": "highst",
+      "price": 10.5,
+      "quality": "standard",
+      "meals": 49
+     }
+    }
+   }
+  },
+  "diff": [
+   "price",
+   "meals"
+  ]
+ },
+ {
+  "seed": "tune-6",
+  "base": "/api/v1/practice/p_d767bc933a",
+  "days": 30,
+  "rivals": 3,
+  "forecast": {
+   "oval": 78,
+   "thompson": 58,
+   "union": 75,
+   "stadium": 31,
+   "highst": 98,
+   "northres": 66
+  },
+  "events": [],
+  "by_priors": {
+   "orig": {
+    "order": {
+     "spot": "highst",
+     "price": 10.25,
+     "quality": "standard",
+     "meals": 51
+    },
+    "trace": {
+     "priors": "orig",
+     "magnet": null,
+     "expected": {
+      "oval": 78.0,
+      "thompson": 58.0,
+      "union": 75.0,
+      "stadium": 31.0,
+      "highst": 98.0,
+      "northres": 66.0
+     },
+     "myrep": {
+      "oval": 50.0,
+      "thompson": 50.0,
+      "union": 50.0,
+      "stadium": 50.0,
+      "highst": 50.0,
+      "northres": 50.0
+     },
+     "rivals": [
+      {
+       "id": "h1",
+       "spot": "highst",
+       "price": 11.0,
+       "quality": "standard",
+       "rep": 50.0
+      },
+      {
+       "id": "h2",
+       "spot": "oval",
+       "price": 11.0,
+       "quality": "standard",
+       "rep": 50.0
+      },
+      {
+       "id": "h3",
+       "spot": "union",
+       "price": 11.0,
+       "quality": "standard",
+       "rep": 50.0
+      }
+     ],
+     "n_screened": 18,
+     "shortlist": [
+      {
+       "stage1_score": 300.30029548611105,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.25
+      },
+      {
+       "stage1_score": 299.0786291666666,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.75
+      },
+      {
+       "stage1_score": 297.7824520833332,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.75
+      },
+      {
+       "stage1_score": 291.5250989583332,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.25
+      },
+      {
+       "stage1_score": 288.31126388888885,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.0
+      },
+      {
+       "stage1_score": 288.02447499999994,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.5
+      },
+      {
+       "stage1_score": 284.85854305555546,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.5
+      },
+      {
+       "stage1_score": 277.6663124999999,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.0
+      },
+      {
+       "stage1_score": 266.5415277777777,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 8.5
+      },
+      {
+       "stage1_score": 263.80752604166656,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 8.75
+      },
+      {
+       "stage1_score": 261.1286916666666,
+       "spot": "oval",
+       "quality": "standard",
+       "price": 10.75
+      },
+      {
+       "stage1_score": 259.31924999999995,
+       "spot": "oval",
+       "quality": "standard",
+       "price": 10.25
+      },
+      {
+       "stage1_score": 257.88437500000003,
+       "spot": "highst",
+       "quality": "premium",
+       "price": 11.25
+      },
+      {
+       "stage1_score": 255.75215277777772,
+       "spot": "highst",
+       "quality": "premium",
+       "price": 11.75
+      },
+      {
+       "stage1_score": 254.70617499999997,
+       "spot": "oval",
+       "quality": "standard",
+       "price": 9.75
+      },
+      {
+       "stage1_score": 254.36833333333328,
+       "spot": "highst",
+       "quality": "premium",
+       "price": 10.75
+      },
+      {
+       "stage1_score": 251.75354166666656,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 8.25
+      },
+      {
+       "stage1_score": 251.48034999999993,
+       "spot": "oval",
+       "quality": "standard",
+       "price": 10.5
+      }
+     ],
+     "stage2": [
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.25,
+       "meals": 51,
+       "score": 300.30029548611105,
+       "mean_profit": 317.8358958333333,
+       "repvalue": 0.0,
+       "demand_mean": 60.61231944444446,
+       "demand_p10": 42.11277777777776,
+       "demand_p90": 81.21750000000002
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.75,
+       "meals": 47,
+       "score": 299.0786291666666,
+       "mean_profit": 315.89575,
+       "repvalue": 0.0,
+       "demand_mean": 55.949833333333345,
+       "demand_p10": 38.87333333333332,
+       "demand_p90": 74.97
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.75,
+       "meals": 55,
+       "score": 297.7824520833332,
+       "mean_profit": 315.89012499999995,
+       "repvalue": 0.0,
+       "demand_mean": 65.27480555555557,
+       "demand_p10": 45.35222222222219,
+       "demand_p90": 87.46500000000003
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.25,
+       "meals": 59,
+       "score": 291.5250989583332,
+       "mean_profit": 310.05843749999997,
+       "repvalue": 0.0,
+       "demand_mean": 69.93729166666668,
+       "demand_p10": 48.591666666666626,
+       "demand_p90": 93.71250000000003
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.0,
+       "meals": 51,
+       "score": 288.31126388888885,
+       "mean_profit": 305.4191666666667,
+       "repvalue": 0.0,
+       "demand_mean": 60.61231944444446,
+       "demand_p10": 42.11277777777776,
+       "demand_p90": 81.21750000000002
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.5,
+       "meals": 47,
+       "score": 288.02447499999994,
+       "mean_profit": 304.4505,
+       "repvalue": 0.0,
+       "demand_mean": 55.949833333333345,
+       "demand_p10": 38.87333333333332,
+       "demand_p90": 74.97
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.5,
+       "meals": 55,
+       "score": 284.85854305555546,
+       "mean_profit": 302.50191666666666,
+       "repvalue": 0.0,
+       "demand_mean": 65.27480555555557,
+       "demand_p10": 45.35222222222219,
+       "demand_p90": 87.46500000000003
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.0,
+       "meals": 59,
+       "score": 277.6663124999999,
+       "mean_profit": 295.69874999999996,
+       "repvalue": 0.0,
+       "demand_mean": 69.93729166666668,
+       "demand_p10": 48.591666666666626,
+       "demand_p90": 93.71250000000003
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 8.5,
+       "meals": 63,
+       "score": 266.5415277777777,
+       "mean_profit": 284.90388888888884,
+       "repvalue": 0.0,
+       "demand_mean": 74.59977777777779,
+       "demand_p10": 51.83111111111106,
+       "demand_p90": 99.96000000000005
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 8.75,
+       "meals": 59,
+       "score": 263.80752604166656,
+       "mean_profit": 281.33906249999995,
+       "repvalue": 0.0,
+       "demand_mean": 69.93729166666668,
+       "demand_p10": 48.591666666666626,
+       "demand_p90": 93.71250000000003
+      },
+      {
+       "spot": "oval",
+       "quality": "standard",
+       "price": 10.75,
+       "meals": 41,
+       "score": 263.57368373908855,
+       "mean_profit": 275.66949999999997,
+       "repvalue": 2.4449920724219596,
+       "demand_mean": 48.89733333333333,
+       "demand_p10": 33.97333333333332,
+       "demand_p90": 65.51999999999997
+      },
+      {
+       "spot": "oval",
+       "quality": "standard",
+       "price": 10.25,
+       "meals": 44,
+       "score": 261.7642420724219,
+       "mean_profit": 274.315,
+       "repvalue": 2.4449920724219596,
+       "demand_mean": 52.38999999999999,
+       "demand_p10": 36.39999999999999,
+       "demand_p90": 70.19999999999996
+      },
+      {
+       "spot": "highst",
+       "quality": "premium",
+       "price": 11.25,
+       "meals": 51,
+       "score": 257.88437500000003,
+       "mean_profit": 277.71875000000006,
+       "repvalue": 0.0,
+       "demand_mean": 60.338055555555584,
+       "demand_p10": 41.9222222222222,
+       "demand_p90": 80.85000000000005
+      },
+      {
+       "spot": "highst",
+       "quality": "premium",
+       "price": 11.75,
+       "meals": 46,
+       "score": 255.75215277777772,
+       "mean_profit": 273.59583333333336,
+       "repvalue": 0.0,
+       "demand_mean": 54.852777777777796,
+       "demand_p10": 38.1111111111111,
+       "demand_p90": 73.50000000000003
+      },
+      {
+       "spot": "oval",
+       "quality": "standard",
+       "price": 9.75,
+       "meals": 47,
+       "score": 257.1511670724219,
+       "mean_profit": 270.04650000000004,
+       "repvalue": 2.4449920724219596,
+       "demand_mean": 55.882666666666665,
+       "demand_p10": 38.826666666666654,
+       "demand_p90": 74.87999999999997
+      },
+      {
+       "spot": "highst",
+       "quality": "premium",
+       "price": 10.75,
+       "meals": 56,
+       "score": 254.36833333333328,
+       "mean_profit": 276.44166666666666,
+       "repvalue": 0.0,
+       "demand_mean": 65.82333333333337,
+       "demand_p10": 45.733333333333306,
+       "demand_p90": 88.20000000000007
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 8.25,
+       "meals": 63,
+       "score": 251.75354166666656,
+       "mean_profit": 269.5758333333333,
+       "repvalue": 0.0,
+       "demand_mean": 74.59977777777779,
+       "demand_p10": 51.83111111111106,
+       "demand_p90": 99.96000000000005
+      },
+      {
+       "spot": "oval",
+       "quality": "standard",
+       "price": 10.5,
+       "meals": 41,
+       "score": 253.9253420724219,
+       "mean_profit": 265.683,
+       "repvalue": 2.4449920724219596,
+       "demand_mean": 48.89733333333333,
+       "demand_p10": 33.97333333333332,
+       "demand_p90": 65.51999999999997
+      }
+     ],
+     "chosen": {
+      "spot": "highst",
+      "quality": "standard",
+      "price": 10.25,
+      "meals": 51,
+      "mean_profit": 317.8358958333333,
+      "sat_out": false
+     },
+     "n_stage2": 18,
+     "order": {
+      "spot": "highst",
+      "price": 10.25,
+      "quality": "standard",
+      "meals": 51
+     }
+    }
+   },
+   "rmse": {
+    "order": {
+     "spot": "highst",
+     "price": 10.5,
+     "quality": "standard",
+     "meals": 49
+    },
+    "trace": {
+     "priors": "rmse",
+     "magnet": null,
+     "expected": {
+      "oval": 78.0,
+      "thompson": 58.0,
+      "union": 75.0,
+      "stadium": 31.0,
+      "highst": 98.0,
+      "northres": 66.0
+     },
+     "myrep": {
+      "oval": 50.0,
+      "thompson": 50.0,
+      "union": 50.0,
+      "stadium": 50.0,
+      "highst": 50.0,
+      "northres": 50.0
+     },
+     "rivals": [
+      {
+       "id": "h1",
+       "spot": "highst",
+       "price": 11.0,
+       "quality": "standard",
+       "rep": 50.0
+      },
+      {
+       "id": "h2",
+       "spot": "oval",
+       "price": 11.0,
+       "quality": "standard",
+       "rep": 50.0
+      },
+      {
+       "id": "h3",
+       "spot": "union",
+       "price": 11.0,
+       "quality": "standard",
+       "rep": 50.0
+      }
+     ],
+     "n_screened": 18,
+     "shortlist": [
+      {
+       "stage1_score": 300.6366008333334,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.5
+      },
+      {
+       "stage1_score": 289.1035865277778,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.25
+      },
+      {
+       "stage1_score": 288.8935833333335,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.75
+      },
+      {
+       "stage1_score": 287.11597583333344,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.75
+      },
+      {
+       "stage1_score": 281.1635416666669,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.25
+      },
+      {
+       "stage1_score": 277.57057222222227,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.0
+      },
+      {
+       "stage1_score": 274.65787388888896,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.5
+      },
+      {
+       "stage1_score": 267.7875000000003,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.0
+      },
+      {
+       "stage1_score": 265.10400000000004,
+       "spot": "oval",
+       "quality": "standard",
+       "price": 10.75
+      },
+      {
+       "stage1_score": 262.98,
+       "spot": "oval",
+       "quality": "standard",
+       "price": 10.25
+      },
+      {
+       "stage1_score": 262.3992083333334,
+       "spot": "highst",
+       "quality": "premium",
+       "price": 10.5
+      },
+      {
+       "stage1_score": 258.04800000000006,
+       "spot": "oval",
+       "quality": "standard",
+       "price": 9.75
+      },
+      {
+       "stage1_score": 257.884375,
+       "spot": "highst",
+       "quality": "premium",
+       "price": 11.25
+      },
+      {
+       "stage1_score": 256.8516944444447,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 8.5
+      },
+      {
+       "stage1_score": 256.65062500000005,
+       "spot": "union",
+       "quality": "premium",
+       "price": 11.0
+      },
+      {
+       "stage1_score": 255.75215277777772,
+       "spot": "highst",
+       "quality": "premium",
+       "price": 11.75
+      },
+      {
+       "stage1_score": 255.276,
+       "spot": "oval",
+       "quality": "standard",
+       "price": 10.5
+      },
+      {
+       "stage1_score": 254.96963541666665,
+       "spot": "union",
+       "quality": "premium",
+       "price": 11.75
+      }
+     ],
+     "stage2": [
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.5,
+       "meals": 49,
+       "score": 300.6366008333334,
+       "mean_profit": 317.56165000000004,
+       "repvalue": 0.0,
+       "demand_mean": 58.47306111111114,
+       "demand_p10": 40.62644444444446,
+       "demand_p90": 78.35100000000004
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.25,
+       "meals": 49,
+       "score": 289.1035865277778,
+       "mean_profit": 305.6256583333334,
+       "repvalue": 0.0,
+       "demand_mean": 58.47306111111114,
+       "demand_p10": 40.62644444444446,
+       "demand_p90": 78.35100000000004
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.75,
+       "meals": 46,
+       "score": 288.8935833333335,
+       "mean_profit": 307.30116666666675,
+       "repvalue": 0.0,
+       "demand_mean": 53.97513333333336,
+       "demand_p10": 37.50133333333334,
+       "demand_p90": 72.32400000000004
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.75,
+       "meals": 53,
+       "score": 287.11597583333344,
+       "mean_profit": 304.47415000000007,
+       "repvalue": 0.0,
+       "demand_mean": 62.97098888888892,
+       "demand_p10": 43.751555555555576,
+       "demand_p90": 84.37800000000004
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.25,
+       "meals": 57,
+       "score": 281.1635416666669,
+       "mean_profit": 299.30895833333346,
+       "repvalue": 0.0,
+       "demand_mean": 67.4689166666667,
+       "demand_p10": 46.8766666666667,
+       "demand_p90": 90.40500000000004
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.0,
+       "meals": 49,
+       "score": 277.57057222222227,
+       "mean_profit": 293.6896666666667,
+       "repvalue": 0.0,
+       "demand_mean": 58.47306111111114,
+       "demand_p10": 40.62644444444446,
+       "demand_p90": 78.35100000000004
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.5,
+       "meals": 53,
+       "score": 274.65787388888896,
+       "mean_profit": 291.5709666666667,
+       "repvalue": 0.0,
+       "demand_mean": 62.97098888888892,
+       "demand_p10": 43.751555555555576,
+       "demand_p90": 84.37800000000004
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.0,
+       "meals": 57,
+       "score": 267.7875000000003,
+       "mean_profit": 285.44250000000017,
+       "repvalue": 0.0,
+       "demand_mean": 67.4689166666667,
+       "demand_p10": 46.8766666666667,
+       "demand_p90": 90.40500000000004
+      },
+      {
+       "spot": "oval",
+       "quality": "standard",
+       "price": 10.75,
+       "meals": 42,
+       "score": 265.10400000000004,
+       "mean_profit": 281.24512500000003,
+       "repvalue": 0.0,
+       "demand_mean": 49.50854999999999,
+       "demand_p10": 34.397999999999996,
+       "demand_p90": 66.33900000000001
+      },
+      {
+       "spot": "oval",
+       "quality": "standard",
+       "price": 10.25,
+       "meals": 45,
+       "score": 262.98,
+       "mean_profit": 279.4696875,
+       "repvalue": 0.0,
+       "demand_mean": 53.044875,
+       "demand_p10": 36.855,
+       "demand_p90": 71.07750000000003
+      },
+      {
+       "spot": "highst",
+       "quality": "premium",
+       "price": 10.5,
+       "meals": 60,
+       "score": 262.3992083333334,
+       "mean_profit": 283.5325,
+       "repvalue": 0.0,
+       "demand_mean": 71.30861111111112,
+       "demand_p10": 49.54444444444446,
+       "demand_p90": 95.54999999999995
+      },
+      {
+       "spot": "oval",
+       "quality": "standard",
+       "price": 9.75,
+       "meals": 48,
+       "score": 258.04800000000006,
+       "mean_profit": 274.77900000000005,
+       "repvalue": 0.0,
+       "demand_mean": 56.581199999999995,
+       "demand_p10": 39.312000000000005,
+       "demand_p90": 75.81600000000005
+      },
+      {
+       "spot": "highst",
+       "quality": "premium",
+       "price": 11.25,
+       "meals": 51,
+       "score": 257.884375,
+       "mean_profit": 277.71875,
+       "repvalue": 0.0,
+       "demand_mean": 60.33805555555555,
+       "demand_p10": 41.92222222222222,
+       "demand_p90": 80.84999999999997
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 8.5,
+       "meals": 61,
+       "score": 256.8516944444447,
+       "mean_profit": 275.24522222222237,
+       "repvalue": 0.0,
+       "demand_mean": 71.96684444444448,
+       "demand_p10": 50.00177777777782,
+       "demand_p90": 96.43200000000004
+      },
+      {
+       "spot": "union",
+       "quality": "premium",
+       "price": 11.0,
+       "meals": 53,
+       "score": 256.65062500000005,
+       "mean_profit": 276.23750000000007,
+       "repvalue": 0.0,
+       "demand_mean": 62.968750000000014,
+       "demand_p10": 43.750000000000014,
+       "demand_p90": 84.37500000000004
+      },
+      {
+       "spot": "highst",
+       "quality": "premium",
+       "price": 11.75,
+       "meals": 46,
+       "score": 255.75215277777772,
+       "mean_profit": 273.59583333333336,
+       "repvalue": 0.0,
+       "demand_mean": 54.85277777777778,
+       "demand_p10": 38.1111111111111,
+       "demand_p90": 73.49999999999999
+      },
+      {
+       "spot": "oval",
+       "quality": "standard",
+       "price": 10.5,
+       "meals": 42,
+       "score": 255.276,
+       "mean_profit": 271.04175000000004,
+       "repvalue": 0.0,
+       "demand_mean": 49.50854999999999,
+       "demand_p10": 34.397999999999996,
+       "demand_p90": 66.33900000000001
+      },
+      {
+       "spot": "union",
+       "quality": "premium",
+       "price": 11.75,
+       "meals": 46,
+       "score": 254.96963541666665,
+       "mean_profit": 273.253125,
+       "repvalue": 0.0,
+       "demand_mean": 54.572916666666664,
+       "demand_p10": 37.916666666666664,
+       "demand_p90": 73.125
+      }
+     ],
+     "chosen": {
+      "spot": "highst",
+      "quality": "standard",
+      "price": 10.5,
+      "meals": 49,
+      "mean_profit": 317.56165000000004,
+      "sat_out": false
+     },
+     "n_stage2": 18,
+     "order": {
+      "spot": "highst",
+      "price": 10.5,
+      "quality": "standard",
+      "meals": 49
+     }
+    }
+   }
+  },
+  "diff": [
+   "price",
+   "meals"
+  ]
+ },
+ {
+  "seed": "tune-7",
+  "base": "/api/v1/practice/p_21ee1f80cd",
+  "days": 30,
+  "rivals": 3,
+  "forecast": {
+   "oval": 78,
+   "thompson": 58,
+   "union": 76,
+   "stadium": 32,
+   "highst": 99,
+   "northres": 66
+  },
+  "events": [],
+  "by_priors": {
+   "orig": {
+    "order": {
+     "spot": "highst",
+     "price": 10.25,
+     "quality": "standard",
+     "meals": 52
+    },
+    "trace": {
+     "priors": "orig",
+     "magnet": null,
+     "expected": {
+      "oval": 78.0,
+      "thompson": 58.0,
+      "union": 76.0,
+      "stadium": 32.0,
+      "highst": 99.0,
+      "northres": 66.0
+     },
+     "myrep": {
+      "oval": 50.0,
+      "thompson": 50.0,
+      "union": 50.0,
+      "stadium": 50.0,
+      "highst": 50.0,
+      "northres": 50.0
+     },
+     "rivals": [
+      {
+       "id": "h1",
+       "spot": "highst",
+       "price": 11.0,
+       "quality": "standard",
+       "rep": 50.0
+      },
+      {
+       "id": "h2",
+       "spot": "oval",
+       "price": 11.0,
+       "quality": "standard",
+       "rep": 50.0
+      },
+      {
+       "id": "h3",
+       "spot": "union",
+       "price": 11.0,
+       "quality": "standard",
+       "rep": 50.0
+      }
+     ],
+     "n_screened": 18,
+     "shortlist": [
+      {
+       "stage1_score": 303.52156249999973,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.25
+      },
+      {
+       "stage1_score": 302.6212499999998,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.75
+      },
+      {
+       "stage1_score": 300.68062499999974,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.75
+      },
+      {
+       "stage1_score": 294.0984374999997,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.25
+      },
+      {
+       "stage1_score": 291.3974999999998,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.5
+      },
+      {
+       "stage1_score": 291.3624999999998,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.0
+      },
+      {
+       "stage1_score": 287.5862499999997,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.5
+      },
+      {
+       "stage1_score": 280.06874999999974,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.0
+      },
+      {
+       "stage1_score": 268.80999999999966,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 8.5
+      },
+      {
+       "stage1_score": 266.03906249999966,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 8.75
+      },
+      {
+       "stage1_score": 261.1286916666666,
+       "spot": "oval",
+       "quality": "standard",
+       "price": 10.75
+      },
+      {
+       "stage1_score": 259.92046875,
+       "spot": "highst",
+       "quality": "premium",
+       "price": 11.25
+      },
+      {
+       "stage1_score": 259.31924999999995,
+       "spot": "oval",
+       "quality": "standard",
+       "price": 10.25
+      },
+      {
+       "stage1_score": 258.470625,
+       "spot": "highst",
+       "quality": "premium",
+       "price": 11.75
+      },
+      {
+       "stage1_score": 257.917625,
+       "spot": "highst",
+       "quality": "premium",
+       "price": 10.75
+      },
+      {
+       "stage1_score": 254.70617499999997,
+       "spot": "oval",
+       "quality": "standard",
+       "price": 9.75
+      },
+      {
+       "stage1_score": 254.27749999999997,
+       "spot": "union",
+       "quality": "premium",
+       "price": 11.25
+      },
+      {
+       "stage1_score": 253.84499999999971,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 8.25
+      }
+     ],
+     "stage2": [
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.25,
+       "meals": 52,
+       "score": 303.52156249999973,
+       "mean_profit": 322.7595312499999,
+       "repvalue": 0.0,
+       "demand_mean": 61.23081249999997,
+       "demand_p10": 42.54249999999998,
+       "demand_p90": 82.04624999999997
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.75,
+       "meals": 48,
+       "score": 302.6212499999998,
+       "mean_profit": 321.2456249999999,
+       "repvalue": 0.0,
+       "demand_mean": 56.52074999999998,
+       "demand_p10": 39.26999999999999,
+       "demand_p90": 75.73499999999999
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.75,
+       "meals": 56,
+       "score": 300.68062499999974,
+       "mean_profit": 320.3878124999999,
+       "repvalue": 0.0,
+       "demand_mean": 65.94087499999998,
+       "demand_p10": 45.81499999999997,
+       "demand_p90": 88.35749999999996
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.25,
+       "meals": 60,
+       "score": 294.0984374999997,
+       "mean_profit": 314.13046874999986,
+       "repvalue": 0.0,
+       "demand_mean": 70.65093749999997,
+       "demand_p10": 49.08749999999996,
+       "demand_p90": 94.66874999999995
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.5,
+       "meals": 48,
+       "score": 291.3974999999998,
+       "mean_profit": 309.5887499999999,
+       "repvalue": 0.0,
+       "demand_mean": 56.52074999999998,
+       "demand_p10": 39.26999999999999,
+       "demand_p90": 75.73499999999999
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.0,
+       "meals": 52,
+       "score": 291.3624999999998,
+       "mean_profit": 310.1312499999999,
+       "repvalue": 0.0,
+       "demand_mean": 61.23081249999997,
+       "demand_p10": 42.54249999999998,
+       "demand_p90": 82.04624999999997
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.5,
+       "meals": 56,
+       "score": 287.5862499999997,
+       "mean_profit": 306.78812499999987,
+       "repvalue": 0.0,
+       "demand_mean": 65.94087499999998,
+       "demand_p10": 45.81499999999997,
+       "demand_p90": 88.35749999999996
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.0,
+       "meals": 60,
+       "score": 280.06874999999974,
+       "mean_profit": 299.5593749999999,
+       "repvalue": 0.0,
+       "demand_mean": 70.65093749999997,
+       "demand_p10": 49.08749999999996,
+       "demand_p90": 94.66874999999995
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 8.5,
+       "meals": 64,
+       "score": 268.80999999999966,
+       "mean_profit": 288.4449999999999,
+       "repvalue": 0.0,
+       "demand_mean": 75.36099999999996,
+       "demand_p10": 52.35999999999996,
+       "demand_p90": 100.97999999999992
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 8.75,
+       "meals": 60,
+       "score": 266.03906249999966,
+       "mean_profit": 284.9882812499999,
+       "repvalue": 0.0,
+       "demand_mean": 70.65093749999997,
+       "demand_p10": 49.08749999999996,
+       "demand_p90": 94.66874999999995
+      },
+      {
+       "spot": "oval",
+       "quality": "standard",
+       "price": 10.75,
+       "meals": 41,
+       "score": 263.57368373908855,
+       "mean_profit": 275.66949999999997,
+       "repvalue": 2.4449920724219596,
+       "demand_mean": 48.89733333333333,
+       "demand_p10": 33.97333333333332,
+       "demand_p90": 65.51999999999997
+      },
+      {
+       "spot": "highst",
+       "quality": "premium",
+       "price": 11.25,
+       "meals": 51,
+       "score": 259.92046875,
+       "mean_profit": 278.65312500000005,
+       "repvalue": 0.0,
+       "demand_mean": 60.95374999999999,
+       "demand_p10": 42.35,
+       "demand_p90": 81.67499999999995
+      },
+      {
+       "spot": "oval",
+       "quality": "standard",
+       "price": 10.25,
+       "meals": 44,
+       "score": 261.7642420724219,
+       "mean_profit": 274.315,
+       "repvalue": 2.4449920724219596,
+       "demand_mean": 52.38999999999999,
+       "demand_p10": 36.39999999999999,
+       "demand_p90": 70.19999999999996
+      },
+      {
+       "spot": "highst",
+       "quality": "premium",
+       "price": 11.75,
+       "meals": 47,
+       "score": 258.470625,
+       "mean_profit": 278.18125,
+       "repvalue": 0.0,
+       "demand_mean": 55.412499999999994,
+       "demand_p10": 38.50000000000001,
+       "demand_p90": 74.24999999999999
+      },
+      {
+       "spot": "highst",
+       "quality": "premium",
+       "price": 10.75,
+       "meals": 56,
+       "score": 257.917625,
+       "mean_profit": 278.1975,
+       "repvalue": 0.0,
+       "demand_mean": 66.49499999999999,
+       "demand_p10": 46.199999999999996,
+       "demand_p90": 89.09999999999994
+      },
+      {
+       "spot": "oval",
+       "quality": "standard",
+       "price": 9.75,
+       "meals": 47,
+       "score": 257.1511670724219,
+       "mean_profit": 270.04650000000004,
+       "repvalue": 2.4449920724219596,
+       "demand_mean": 55.882666666666665,
+       "demand_p10": 38.826666666666654,
+       "demand_p90": 74.87999999999997
+      },
+      {
+       "spot": "union",
+       "quality": "premium",
+       "price": 11.25,
+       "meals": 50,
+       "score": 254.27749999999997,
+       "mean_profit": 272.95000000000005,
+       "repvalue": 0.0,
+       "demand_mean": 59.55444444444443,
+       "demand_p10": 41.37777777777777,
+       "demand_p90": 79.8
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 8.25,
+       "meals": 64,
+       "score": 253.84499999999971,
+       "mean_profit": 272.90249999999986,
+       "repvalue": 0.0,
+       "demand_mean": 75.36099999999996,
+       "demand_p10": 52.35999999999996,
+       "demand_p90": 100.97999999999992
+      }
+     ],
+     "chosen": {
+      "spot": "highst",
+      "quality": "standard",
+      "price": 10.25,
+      "meals": 52,
+      "mean_profit": 322.7595312499999,
+      "sat_out": false
+     },
+     "n_stage2": 18,
+     "order": {
+      "spot": "highst",
+      "price": 10.25,
+      "quality": "standard",
+      "meals": 52
+     }
+    }
+   },
+   "rmse": {
+    "order": {
+     "spot": "highst",
+     "price": 10.5,
+     "quality": "standard",
+     "meals": 50
+    },
+    "trace": {
+     "priors": "rmse",
+     "magnet": null,
+     "expected": {
+      "oval": 78.0,
+      "thompson": 58.0,
+      "union": 76.0,
+      "stadium": 32.0,
+      "highst": 99.0,
+      "northres": 66.0
+     },
+     "myrep": {
+      "oval": 50.0,
+      "thompson": 50.0,
+      "union": 50.0,
+      "stadium": 50.0,
+      "highst": 50.0,
+      "northres": 50.0
+     },
+     "rivals": [
+      {
+       "id": "h1",
+       "spot": "highst",
+       "price": 11.0,
+       "quality": "standard",
+       "rep": 50.0
+      },
+      {
+       "id": "h2",
+       "spot": "oval",
+       "price": 11.0,
+       "quality": "standard",
+       "rep": 50.0
+      },
+      {
+       "id": "h3",
+       "spot": "union",
+       "price": 11.0,
+       "quality": "standard",
+       "rep": 50.0
+      }
+     ],
+     "n_screened": 18,
+     "shortlist": [
+      {
+       "stage1_score": 304.65075,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.5
+      },
+      {
+       "stage1_score": 292.932875,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.25
+      },
+      {
+       "stage1_score": 292.1179025,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.75
+      },
+      {
+       "stage1_score": 290.08950000000016,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.75
+      },
+      {
+       "stage1_score": 283.5956250000001,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.25
+      },
+      {
+       "stage1_score": 281.21500000000003,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.0
+      },
+      {
+       "stage1_score": 277.45900000000006,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.5
+      },
+      {
+       "stage1_score": 270.05250000000007,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.0
+      },
+      {
+       "stage1_score": 265.10400000000004,
+       "spot": "oval",
+       "quality": "standard",
+       "price": 10.75
+      },
+      {
+       "stage1_score": 264.75874999999974,
+       "spot": "highst",
+       "quality": "premium",
+       "price": 10.5
+      },
+      {
+       "stage1_score": 262.98,
+       "spot": "oval",
+       "quality": "standard",
+       "price": 10.25
+      },
+      {
+       "stage1_score": 259.92046874999994,
+       "spot": "highst",
+       "quality": "premium",
+       "price": 11.25
+      },
+      {
+       "stage1_score": 259.91166666666646,
+       "spot": "union",
+       "quality": "premium",
+       "price": 11.0
+      },
+      {
+       "stage1_score": 259.21681,
+       "spot": "highst",
+       "quality": "standard",
+       "price": 8.5
+      },
+      {
+       "stage1_score": 258.4706249999998,
+       "spot": "highst",
+       "quality": "premium",
+       "price": 11.75
+      },
+      {
+       "stage1_score": 258.04800000000006,
+       "spot": "oval",
+       "quality": "standard",
+       "price": 9.75
+      },
+      {
+       "stage1_score": 257.91762499999993,
+       "spot": "highst",
+       "quality": "premium",
+       "price": 10.75
+      },
+      {
+       "stage1_score": 257.75256944444425,
+       "spot": "union",
+       "quality": "premium",
+       "price": 11.75
+      }
+     ],
+     "stage2": [
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.5,
+       "meals": 50,
+       "score": 304.65075,
+       "mean_profit": 323.04412500000007,
+       "repvalue": 0.0,
+       "demand_mean": 59.069725000000005,
+       "demand_p10": 41.041,
+       "demand_p90": 79.15050000000001
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.25,
+       "meals": 50,
+       "score": 292.932875,
+       "mean_profit": 310.88831250000004,
+       "repvalue": 0.0,
+       "demand_mean": 59.069725000000005,
+       "demand_p10": 41.041,
+       "demand_p90": 79.15050000000001
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.75,
+       "meals": 46,
+       "score": 292.1179025,
+       "mean_profit": 308.91295,
+       "repvalue": 0.0,
+       "demand_mean": 54.5259,
+       "demand_p10": 37.884,
+       "demand_p90": 73.06199999999998
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.75,
+       "meals": 54,
+       "score": 290.08950000000016,
+       "mean_profit": 309.0191250000001,
+       "repvalue": 0.0,
+       "demand_mean": 63.61355000000001,
+       "demand_p10": 44.198,
+       "demand_p90": 85.23900000000002
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.25,
+       "meals": 58,
+       "score": 283.5956250000001,
+       "mean_profit": 303.30968750000005,
+       "repvalue": 0.0,
+       "demand_mean": 68.15737500000002,
+       "demand_p10": 47.355,
+       "demand_p90": 91.32750000000003
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 10.0,
+       "meals": 50,
+       "score": 281.21500000000003,
+       "mean_profit": 298.7325000000001,
+       "repvalue": 0.0,
+       "demand_mean": 59.069725000000005,
+       "demand_p10": 41.041,
+       "demand_p90": 79.15050000000001
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.5,
+       "meals": 54,
+       "score": 277.45900000000006,
+       "mean_profit": 295.90325000000007,
+       "repvalue": 0.0,
+       "demand_mean": 63.61355000000001,
+       "demand_p10": 44.198,
+       "demand_p90": 85.23900000000002
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 9.0,
+       "meals": 58,
+       "score": 270.05250000000007,
+       "mean_profit": 289.23375000000004,
+       "repvalue": 0.0,
+       "demand_mean": 68.15737500000002,
+       "demand_p10": 47.355,
+       "demand_p90": 91.32750000000003
+      },
+      {
+       "spot": "oval",
+       "quality": "standard",
+       "price": 10.75,
+       "meals": 42,
+       "score": 265.10400000000004,
+       "mean_profit": 281.24512500000003,
+       "repvalue": 0.0,
+       "demand_mean": 49.50854999999999,
+       "demand_p10": 34.397999999999996,
+       "demand_p90": 66.33900000000001
+      },
+      {
+       "spot": "highst",
+       "quality": "premium",
+       "price": 10.5,
+       "meals": 61,
+       "score": 264.75874999999974,
+       "mean_profit": 287.2812499999999,
+       "repvalue": 0.0,
+       "demand_mean": 72.03624999999997,
+       "demand_p10": 50.04999999999997,
+       "demand_p90": 96.52500000000002
+      },
+      {
+       "spot": "oval",
+       "quality": "standard",
+       "price": 10.25,
+       "meals": 45,
+       "score": 262.98,
+       "mean_profit": 279.4696875,
+       "repvalue": 0.0,
+       "demand_mean": 53.044875,
+       "demand_p10": 36.855,
+       "demand_p90": 71.07750000000003
+      },
+      {
+       "spot": "highst",
+       "quality": "premium",
+       "price": 11.25,
+       "meals": 51,
+       "score": 259.92046874999994,
+       "mean_profit": 278.653125,
+       "repvalue": 0.0,
+       "demand_mean": 60.953749999999985,
+       "demand_p10": 42.34999999999997,
+       "demand_p90": 81.67499999999998
+      },
+      {
+       "spot": "union",
+       "quality": "premium",
+       "price": 11.0,
+       "meals": 54,
+       "score": 259.91166666666646,
+       "mean_profit": 280.6833333333332,
+       "repvalue": 0.0,
+       "demand_mean": 63.808333333333316,
+       "demand_p10": 44.333333333333336,
+       "demand_p90": 85.49999999999999
+      },
+      {
+       "spot": "highst",
+       "quality": "standard",
+       "price": 8.5,
+       "meals": 61,
+       "score": 259.21681,
+       "mean_profit": 276.37780000000004,
+       "repvalue": 0.0,
+       "demand_mean": 72.70120000000001,
+       "demand_p10": 50.512,
+       "demand_p90": 97.41600000000005
+      },
+      {
+       "spot": "highst",
+       "quality": "premium",
+       "price": 11.75,
+       "meals": 47,
+       "score": 258.4706249999998,
+       "mean_profit": 278.1812499999999,
+       "repvalue": 0.0,
+       "demand_mean": 55.412499999999994,
+       "demand_p10": 38.49999999999998,
+       "demand_p90": 74.24999999999997
+      },
+      {
+       "spot": "oval",
+       "quality": "standard",
+       "price": 9.75,
+       "meals": 48,
+       "score": 258.04800000000006,
+       "mean_profit": 274.77900000000005,
+       "repvalue": 0.0,
+       "demand_mean": 56.581199999999995,
+       "demand_p10": 39.312000000000005,
+       "demand_p90": 75.81600000000005
+      },
+      {
+       "spot": "highst",
+       "quality": "premium",
+       "price": 10.75,
+       "meals": 56,
+       "score": 257.91762499999993,
+       "mean_profit": 278.1975,
+       "repvalue": 0.0,
+       "demand_mean": 66.49499999999998,
+       "demand_p10": 46.199999999999974,
+       "demand_p90": 89.1
+      },
+      {
+       "spot": "union",
+       "quality": "premium",
+       "price": 11.75,
+       "meals": 47,
+       "score": 257.75256944444425,
+       "mean_profit": 277.82222222222214,
+       "repvalue": 0.0,
+       "demand_mean": 55.300555555555555,
+       "demand_p10": 38.42222222222221,
+       "demand_p90": 74.10000000000004
+      }
+     ],
+     "chosen": {
+      "spot": "highst",
+      "quality": "standard",
+      "price": 10.5,
+      "meals": 50,
+      "mean_profit": 323.04412500000007,
+      "sat_out": false
+     },
+     "n_stage2": 18,
+     "order": {
+      "spot": "highst",
+      "price": 10.5,
+      "quality": "standard",
+      "meals": 50
+     }
+    }
+   }
+  },
+  "diff": [
+   "price",
+   "meals"
+  ]
+ }
+]

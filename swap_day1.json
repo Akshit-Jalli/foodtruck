@@ -1,0 +1,3202 @@
+[
+ {
+  "seed": "tune-0",
+  "variant": "ladder@9.75",
+  "order": {
+   "spot": "highst",
+   "quality": "standard",
+   "price": 9.75,
+   "meals": 52
+  },
+  "profit": 312,
+  "sold": 52,
+  "revenue": 507,
+  "spoiled": 0,
+  "matched_field": true,
+  "rival_day1": [
+   [
+    "highst",
+    "h2",
+    6.5,
+    "cheap",
+    180,
+    25
+   ],
+   [
+    "highst",
+    "t_e2de7d",
+    9.75,
+    "standard",
+    52,
+    52
+   ],
+   [
+    "thompson",
+    "h3",
+    14.5,
+    "premium",
+    60,
+    15
+   ],
+   [
+    "union",
+    "h1",
+    10.5,
+    "standard",
+    110,
+    59
+   ]
+  ],
+  "took_s": 0.87
+ },
+ {
+  "seed": "tune-0",
+  "variant": "ladder@10.00",
+  "order": {
+   "spot": "highst",
+   "quality": "standard",
+   "price": 10.0,
+   "meals": 52
+  },
+  "profit": 325,
+  "sold": 52,
+  "revenue": 520,
+  "spoiled": 0,
+  "matched_field": true,
+  "rival_day1": [
+   [
+    "highst",
+    "h2",
+    6.5,
+    "cheap",
+    180,
+    24
+   ],
+   [
+    "highst",
+    "t_e2de7d",
+    10,
+    "standard",
+    52,
+    52
+   ],
+   [
+    "thompson",
+    "h3",
+    14.5,
+    "premium",
+    60,
+    15
+   ],
+   [
+    "union",
+    "h1",
+    10.5,
+    "standard",
+    110,
+    59
+   ]
+  ],
+  "took_s": 0.77
+ },
+ {
+  "seed": "tune-0",
+  "variant": "A orig (price+meals)",
+  "order": {
+   "spot": "highst",
+   "quality": "standard",
+   "price": 10.25,
+   "meals": 52
+  },
+  "profit": 338,
+  "sold": 52,
+  "revenue": 533,
+  "spoiled": 0,
+  "matched_field": true,
+  "rival_day1": [
+   [
+    "highst",
+    "h2",
+    6.5,
+    "cheap",
+    180,
+    23
+   ],
+   [
+    "highst",
+    "t_e2de7d",
+    10.25,
+    "standard",
+    52,
+    52
+   ],
+   [
+    "thompson",
+    "h3",
+    14.5,
+    "premium",
+    60,
+    15
+   ],
+   [
+    "union",
+    "h1",
+    10.5,
+    "standard",
+    110,
+    59
+   ]
+  ],
+  "took_s": 0.92
+ },
+ {
+  "seed": "tune-0",
+  "variant": "D rmse-price, orig-meals",
+  "order": {
+   "spot": "highst",
+   "quality": "standard",
+   "price": 10.5,
+   "meals": 52
+  },
+  "profit": 36,
+  "sold": 22,
+  "revenue": 231,
+  "spoiled": 30,
+  "matched_field": true,
+  "rival_day1": [
+   [
+    "highst",
+    "h2",
+    6.5,
+    "cheap",
+    180,
+    55
+   ],
+   [
+    "highst",
+    "t_e2de7d",
+    10.5,
+    "standard",
+    52,
+    22
+   ],
+   [
+    "thompson",
+    "h3",
+    14.5,
+    "premium",
+    60,
+    15
+   ],
+   [
+    "union",
+    "h1",
+    10.5,
+    "standard",
+    110,
+    59
+   ]
+  ],
+  "took_s": 0.79
+ },
+ {
+  "seed": "tune-0",
+  "variant": "ladder@10.75",
+  "order": {
+   "spot": "highst",
+   "quality": "standard",
+   "price": 10.75,
+   "meals": 52
+  },
+  "profit": 30.75,
+  "sold": 21,
+  "revenue": 225.75,
+  "spoiled": 31,
+  "matched_field": true,
+  "rival_day1": [
+   [
+    "highst",
+    "h2",
+    6.5,
+    "cheap",
+    180,
+    55
+   ],
+   [
+    "highst",
+    "t_e2de7d",
+    10.75,
+    "standard",
+    52,
+    21
+   ],
+   [
+    "thompson",
+    "h3",
+    14.5,
+    "premium",
+    60,
+    15
+   ],
+   [
+    "union",
+    "h1",
+    10.5,
+    "standard",
+    110,
+    59
+   ]
+  ],
+  "took_s": 0.84
+ },
+ {
+  "seed": "tune-0",
+  "variant": "ladder@11.00",
+  "order": {
+   "spot": "highst",
+   "quality": "standard",
+   "price": 11.0,
+   "meals": 52
+  },
+  "profit": 25,
+  "sold": 20,
+  "revenue": 220,
+  "spoiled": 32,
+  "matched_field": true,
+  "rival_day1": [
+   [
+    "highst",
+    "h2",
+    6.5,
+    "cheap",
+    180,
+    55
+   ],
+   [
+    "highst",
+    "t_e2de7d",
+    11,
+    "standard",
+    52,
+    20
+   ],
+   [
+    "thompson",
+    "h3",
+    14.5,
+    "premium",
+    60,
+    15
+   ],
+   [
+    "union",
+    "h1",
+    10.5,
+    "standard",
+    110,
+    59
+   ]
+  ],
+  "took_s": 0.86
+ },
+ {
+  "seed": "tune-0",
+  "variant": "B rmse (price+meals)",
+  "order": {
+   "spot": "highst",
+   "quality": "standard",
+   "price": 10.5,
+   "meals": 50
+  },
+  "profit": 43.5,
+  "sold": 22,
+  "revenue": 231,
+  "spoiled": 28,
+  "matched_field": true,
+  "rival_day1": [
+   [
+    "highst",
+    "h2",
+    6.5,
+    "cheap",
+    180,
+    55
+   ],
+   [
+    "highst",
+    "t_e2de7d",
+    10.5,
+    "standard",
+    50,
+    22
+   ],
+   [
+    "thompson",
+    "h3",
+    14.5,
+    "premium",
+    60,
+    15
+   ],
+   [
+    "union",
+    "h1",
+    10.5,
+    "standard",
+    110,
+    59
+   ]
+  ],
+  "took_s": 0.92
+ },
+ {
+  "seed": "tune-0",
+  "variant": "C orig-price, rmse-meals",
+  "order": {
+   "spot": "highst",
+   "quality": "standard",
+   "price": 10.25,
+   "meals": 50
+  },
+  "profit": 325,
+  "sold": 50,
+  "revenue": 512.5,
+  "spoiled": 0,
+  "matched_field": true,
+  "rival_day1": [
+   [
+    "highst",
+    "h2",
+    6.5,
+    "cheap",
+    180,
+    24
+   ],
+   [
+    "highst",
+    "t_e2de7d",
+    10.25,
+    "standard",
+    50,
+    50
+   ],
+   [
+    "thompson",
+    "h3",
+    14.5,
+    "premium",
+    60,
+    15
+   ],
+   [
+    "union",
+    "h1",
+    10.5,
+    "standard",
+    110,
+    59
+   ]
+  ],
+  "took_s": 0.77
+ },
+ {
+  "seed": "tune-1",
+  "variant": "ladder@9.75",
+  "order": {
+   "spot": "highst",
+   "quality": "standard",
+   "price": 9.75,
+   "meals": 51
+  },
+  "profit": 306,
+  "sold": 51,
+  "revenue": 497.25,
+  "spoiled": 0,
+  "matched_field": true,
+  "rival_day1": [
+   [
+    "highst",
+    "h2",
+    6.5,
+    "cheap",
+    180,
+    14
+   ],
+   [
+    "highst",
+    "t_e2de7d",
+    9.75,
+    "standard",
+    51,
+    51
+   ],
+   [
+    "thompson",
+    "h3",
+    14.5,
+    "premium",
+    60,
+    7
+   ],
+   [
+    "union",
+    "h1",
+    10.5,
+    "standard",
+    110,
+    52
+   ]
+  ],
+  "took_s": 0.81
+ },
+ {
+  "seed": "tune-1",
+  "variant": "ladder@10.00",
+  "order": {
+   "spot": "highst",
+   "quality": "standard",
+   "price": 10.0,
+   "meals": 51
+  },
+  "profit": 298.75,
+  "sold": 49,
+  "revenue": 490,
+  "spoiled": 2,
+  "matched_field": true,
+  "rival_day1": [
+   [
+    "highst",
+    "h2",
+    6.5,
+    "cheap",
+    180,
+    15
+   ],
+   [
+    "highst",
+    "t_e2de7d",
+    10,
+    "standard",
+    51,
+    49
+   ],
+   [
+    "thompson",
+    "h3",
+    14.5,
+    "premium",
+    60,
+    7
+   ],
+   [
+    "union",
+    "h1",
+    10.5,
+    "standard",
+    110,
+    52
+   ]
+  ],
+  "took_s": 1.11
+ },
+ {
+  "seed": "tune-1",
+  "variant": "A orig (price+meals)",
+  "order": {
+   "spot": "highst",
+   "quality": "standard",
+   "price": 10.25,
+   "meals": 51
+  },
+  "profit": 311,
+  "sold": 49,
+  "revenue": 502.25,
+  "spoiled": 2,
+  "matched_field": true,
+  "rival_day1": [
+   [
+    "highst",
+    "h2",
+    6.5,
+    "cheap",
+    180,
+    15
+   ],
+   [
+    "highst",
+    "t_e2de7d",
+    10.25,
+    "standard",
+    51,
+    49
+   ],
+   [
+    "thompson",
+    "h3",
+    14.5,
+    "premium",
+    60,
+    7
+   ],
+   [
+    "union",
+    "h1",
+    10.5,
+    "standard",
+    110,
+    52
+   ]
+  ],
+  "took_s": 0.84
+ },
+ {
+  "seed": "tune-1",
+  "variant": "D rmse-price, orig-meals",
+  "order": {
+   "spot": "highst",
+   "quality": "standard",
+   "price": 10.5,
+   "meals": 51
+  },
+  "profit": 71.25,
+  "sold": 25,
+  "revenue": 262.5,
+  "spoiled": 26,
+  "matched_field": true,
+  "rival_day1": [
+   [
+    "highst",
+    "h2",
+    6.5,
+    "cheap",
+    180,
+    38
+   ],
+   [
+    "highst",
+    "t_e2de7d",
+    10.5,
+    "standard",
+    51,
+    25
+   ],
+   [
+    "thompson",
+    "h3",
+    14.5,
+    "premium",
+    60,
+    7
+   ],
+   [
+    "union",
+    "h1",
+    10.5,
+    "standard",
+    110,
+    52
+   ]
+  ],
+  "took_s": 1.13
+ },
+ {
+  "seed": "tune-1",
+  "variant": "ladder@10.75",
+  "order": {
+   "spot": "highst",
+   "quality": "standard",
+   "price": 10.75,
+   "meals": 51
+  },
+  "profit": 56,
+  "sold": 23,
+  "revenue": 247.25,
+  "spoiled": 28,
+  "matched_field": true,
+  "rival_day1": [
+   [
+    "highst",
+    "h2",
+    6.5,
+    "cheap",
+    180,
+    38
+   ],
+   [
+    "highst",
+    "t_e2de7d",
+    10.75,
+    "standard",
+    51,
+    23
+   ],
+   [
+    "thompson",
+    "h3",
+    14.5,
+    "premium",
+    60,
+    7
+   ],
+   [
+    "union",
+    "h1",
+    10.5,
+    "standard",
+    110,
+    52
+   ]
+  ],
+  "took_s": 0.77
+ },
+ {
+  "seed": "tune-1",
+  "variant": "ladder@11.00",
+  "order": {
+   "spot": "highst",
+   "quality": "standard",
+   "price": 11.0,
+   "meals": 51
+  },
+  "profit": 50.75,
+  "sold": 22,
+  "revenue": 242,
+  "spoiled": 29,
+  "matched_field": true,
+  "rival_day1": [
+   [
+    "highst",
+    "h2",
+    6.5,
+    "cheap",
+    180,
+    38
+   ],
+   [
+    "highst",
+    "t_e2de7d",
+    11,
+    "standard",
+    51,
+    22
+   ],
+   [
+    "thompson",
+    "h3",
+    14.5,
+    "premium",
+    60,
+    7
+   ],
+   [
+    "union",
+    "h1",
+    10.5,
+    "standard",
+    110,
+    52
+   ]
+  ],
+  "took_s": 0.84
+ },
+ {
+  "seed": "tune-1",
+  "variant": "B rmse (price+meals)",
+  "order": {
+   "spot": "highst",
+   "quality": "standard",
+   "price": 10.5,
+   "meals": 49
+  },
+  "profit": 78.75,
+  "sold": 25,
+  "revenue": 262.5,
+  "spoiled": 24,
+  "matched_field": true,
+  "rival_day1": [
+   [
+    "highst",
+    "h2",
+    6.5,
+    "cheap",
+    180,
+    38
+   ],
+   [
+    "highst",
+    "t_e2de7d",
+    10.5,
+    "standard",
+    49,
+    25
+   ],
+   [
+    "thompson",
+    "h3",
+    14.5,
+    "premium",
+    60,
+    7
+   ],
+   [
+    "union",
+    "h1",
+    10.5,
+    "standard",
+    110,
+    52
+   ]
+  ],
+  "took_s": 0.85
+ },
+ {
+  "seed": "tune-1",
+  "variant": "C orig-price, rmse-meals",
+  "order": {
+   "spot": "highst",
+   "quality": "standard",
+   "price": 10.25,
+   "meals": 49
+  },
+  "profit": 318.5,
+  "sold": 49,
+  "revenue": 502.25,
+  "spoiled": 0,
+  "matched_field": true,
+  "rival_day1": [
+   [
+    "highst",
+    "h2",
+    6.5,
+    "cheap",
+    180,
+    15
+   ],
+   [
+    "highst",
+    "t_e2de7d",
+    10.25,
+    "standard",
+    49,
+    49
+   ],
+   [
+    "thompson",
+    "h3",
+    14.5,
+    "premium",
+    60,
+    7
+   ],
+   [
+    "union",
+    "h1",
+    10.5,
+    "standard",
+    110,
+    52
+   ]
+  ],
+  "took_s": 0.8
+ },
+ {
+  "seed": "tune-2",
+  "variant": "ladder@9.75",
+  "order": {
+   "spot": "highst",
+   "quality": "standard",
+   "price": 9.75,
+   "meals": 52
+  },
+  "profit": 312,
+  "sold": 52,
+  "revenue": 507,
+  "spoiled": 0,
+  "matched_field": true,
+  "rival_day1": [
+   [
+    "highst",
+    "h2",
+    6.5,
+    "cheap",
+    180,
+    19
+   ],
+   [
+    "highst",
+    "t_e2de7d",
+    9.75,
+    "standard",
+    52,
+    52
+   ],
+   [
+    "thompson",
+    "h3",
+    14.5,
+    "premium",
+    60,
+    8
+   ],
+   [
+    "union",
+    "h1",
+    10.5,
+    "standard",
+    110,
+    48
+   ]
+  ],
+  "took_s": 0.83
+ },
+ {
+  "seed": "tune-2",
+  "variant": "ladder@10.00",
+  "order": {
+   "spot": "highst",
+   "quality": "standard",
+   "price": 10.0,
+   "meals": 52
+  },
+  "profit": 325,
+  "sold": 52,
+  "revenue": 520,
+  "spoiled": 0,
+  "matched_field": true,
+  "rival_day1": [
+   [
+    "highst",
+    "h2",
+    6.5,
+    "cheap",
+    180,
+    19
+   ],
+   [
+    "highst",
+    "t_e2de7d",
+    10,
+    "standard",
+    52,
+    52
+   ],
+   [
+    "thompson",
+    "h3",
+    14.5,
+    "premium",
+    60,
+    8
+   ],
+   [
+    "union",
+    "h1",
+    10.5,
+    "standard",
+    110,
+    48
+   ]
+  ],
+  "took_s": 1.2
+ },
+ {
+  "seed": "tune-2",
+  "variant": "A orig (price+meals)",
+  "order": {
+   "spot": "highst",
+   "quality": "standard",
+   "price": 10.25,
+   "meals": 52
+  },
+  "profit": 338,
+  "sold": 52,
+  "revenue": 533,
+  "spoiled": 0,
+  "matched_field": true,
+  "rival_day1": [
+   [
+    "highst",
+    "h2",
+    6.5,
+    "cheap",
+    180,
+    19
+   ],
+   [
+    "highst",
+    "t_e2de7d",
+    10.25,
+    "standard",
+    52,
+    52
+   ],
+   [
+    "thompson",
+    "h3",
+    14.5,
+    "premium",
+    60,
+    8
+   ],
+   [
+    "union",
+    "h1",
+    10.5,
+    "standard",
+    110,
+    48
+   ]
+  ],
+  "took_s": 0.9
+ },
+ {
+  "seed": "tune-2",
+  "variant": "D rmse-price, orig-meals",
+  "order": {
+   "spot": "highst",
+   "quality": "standard",
+   "price": 10.5,
+   "meals": 52
+  },
+  "profit": 25.5,
+  "sold": 21,
+  "revenue": 220.5,
+  "spoiled": 31,
+  "matched_field": true,
+  "rival_day1": [
+   [
+    "highst",
+    "h2",
+    6.5,
+    "cheap",
+    180,
+    49
+   ],
+   [
+    "highst",
+    "t_e2de7d",
+    10.5,
+    "standard",
+    52,
+    21
+   ],
+   [
+    "thompson",
+    "h3",
+    14.5,
+    "premium",
+    60,
+    8
+   ],
+   [
+    "union",
+    "h1",
+    10.5,
+    "standard",
+    110,
+    48
+   ]
+  ],
+  "took_s": 0.85
+ },
+ {
+  "seed": "tune-2",
+  "variant": "ladder@10.75",
+  "order": {
+   "spot": "highst",
+   "quality": "standard",
+   "price": 10.75,
+   "meals": 52
+  },
+  "profit": 20,
+  "sold": 20,
+  "revenue": 215,
+  "spoiled": 32,
+  "matched_field": true,
+  "rival_day1": [
+   [
+    "highst",
+    "h2",
+    6.5,
+    "cheap",
+    180,
+    49
+   ],
+   [
+    "highst",
+    "t_e2de7d",
+    10.75,
+    "standard",
+    52,
+    20
+   ],
+   [
+    "thompson",
+    "h3",
+    14.5,
+    "premium",
+    60,
+    8
+   ],
+   [
+    "union",
+    "h1",
+    10.5,
+    "standard",
+    110,
+    48
+   ]
+  ],
+  "took_s": 0.89
+ },
+ {
+  "seed": "tune-2",
+  "variant": "ladder@11.00",
+  "order": {
+   "spot": "highst",
+   "quality": "standard",
+   "price": 11.0,
+   "meals": 52
+  },
+  "profit": 14,
+  "sold": 19,
+  "revenue": 209,
+  "spoiled": 33,
+  "matched_field": true,
+  "rival_day1": [
+   [
+    "highst",
+    "h2",
+    6.5,
+    "cheap",
+    180,
+    49
+   ],
+   [
+    "highst",
+    "t_e2de7d",
+    11,
+    "standard",
+    52,
+    19
+   ],
+   [
+    "thompson",
+    "h3",
+    14.5,
+    "premium",
+    60,
+    8
+   ],
+   [
+    "union",
+    "h1",
+    10.5,
+    "standard",
+    110,
+    48
+   ]
+  ],
+  "took_s": 1.36
+ },
+ {
+  "seed": "tune-2",
+  "variant": "B rmse (price+meals)",
+  "order": {
+   "spot": "highst",
+   "quality": "standard",
+   "price": 10.5,
+   "meals": 50
+  },
+  "profit": 33,
+  "sold": 21,
+  "revenue": 220.5,
+  "spoiled": 29,
+  "matched_field": true,
+  "rival_day1": [
+   [
+    "highst",
+    "h2",
+    6.5,
+    "cheap",
+    180,
+    49
+   ],
+   [
+    "highst",
+    "t_e2de7d",
+    10.5,
+    "standard",
+    50,
+    21
+   ],
+   [
+    "thompson",
+    "h3",
+    14.5,
+    "premium",
+    60,
+    8
+   ],
+   [
+    "union",
+    "h1",
+    10.5,
+    "standard",
+    110,
+    48
+   ]
+  ],
+  "took_s": 0.79
+ },
+ {
+  "seed": "tune-2",
+  "variant": "C orig-price, rmse-meals",
+  "order": {
+   "spot": "highst",
+   "quality": "standard",
+   "price": 10.25,
+   "meals": 50
+  },
+  "profit": 325,
+  "sold": 50,
+  "revenue": 512.5,
+  "spoiled": 0,
+  "matched_field": true,
+  "rival_day1": [
+   [
+    "highst",
+    "h2",
+    6.5,
+    "cheap",
+    180,
+    21
+   ],
+   [
+    "highst",
+    "t_e2de7d",
+    10.25,
+    "standard",
+    50,
+    50
+   ],
+   [
+    "thompson",
+    "h3",
+    14.5,
+    "premium",
+    60,
+    8
+   ],
+   [
+    "union",
+    "h1",
+    10.5,
+    "standard",
+    110,
+    48
+   ]
+  ],
+  "took_s": 0.81
+ },
+ {
+  "seed": "tune-3",
+  "variant": "ladder@9.75",
+  "order": {
+   "spot": "highst",
+   "quality": "standard",
+   "price": 9.75,
+   "meals": 49
+  },
+  "profit": 294,
+  "sold": 49,
+  "revenue": 477.75,
+  "spoiled": 0,
+  "matched_field": true,
+  "rival_day1": [
+   [
+    "highst",
+    "h2",
+    6.5,
+    "cheap",
+    180,
+    24
+   ],
+   [
+    "highst",
+    "t_e2de7d",
+    9.75,
+    "standard",
+    49,
+    49
+   ],
+   [
+    "thompson",
+    "h3",
+    14.5,
+    "premium",
+    60,
+    6
+   ],
+   [
+    "union",
+    "h1",
+    10.5,
+    "standard",
+    110,
+    50
+   ]
+  ],
+  "took_s": 0.89
+ },
+ {
+  "seed": "tune-3",
+  "variant": "ladder@10.00",
+  "order": {
+   "spot": "highst",
+   "quality": "standard",
+   "price": 10.0,
+   "meals": 49
+  },
+  "profit": 306.25,
+  "sold": 49,
+  "revenue": 490,
+  "spoiled": 0,
+  "matched_field": true,
+  "rival_day1": [
+   [
+    "highst",
+    "h2",
+    6.5,
+    "cheap",
+    180,
+    23
+   ],
+   [
+    "highst",
+    "t_e2de7d",
+    10,
+    "standard",
+    49,
+    49
+   ],
+   [
+    "thompson",
+    "h3",
+    14.5,
+    "premium",
+    60,
+    6
+   ],
+   [
+    "union",
+    "h1",
+    10.5,
+    "standard",
+    110,
+    50
+   ]
+  ],
+  "took_s": 0.97
+ },
+ {
+  "seed": "tune-3",
+  "variant": "A orig (price+meals)",
+  "order": {
+   "spot": "highst",
+   "quality": "standard",
+   "price": 10.25,
+   "meals": 49
+  },
+  "profit": 318.5,
+  "sold": 49,
+  "revenue": 502.25,
+  "spoiled": 0,
+  "matched_field": true,
+  "rival_day1": [
+   [
+    "highst",
+    "h2",
+    6.5,
+    "cheap",
+    180,
+    24
+   ],
+   [
+    "highst",
+    "t_e2de7d",
+    10.25,
+    "standard",
+    49,
+    49
+   ],
+   [
+    "thompson",
+    "h3",
+    14.5,
+    "premium",
+    60,
+    6
+   ],
+   [
+    "union",
+    "h1",
+    10.5,
+    "standard",
+    110,
+    50
+   ]
+  ],
+  "took_s": 1.0
+ },
+ {
+  "seed": "tune-3",
+  "variant": "D rmse-price, orig-meals",
+  "order": {
+   "spot": "highst",
+   "quality": "standard",
+   "price": 10.5,
+   "meals": 49
+  },
+  "profit": 110.25,
+  "sold": 28,
+  "revenue": 294,
+  "spoiled": 21,
+  "matched_field": true,
+  "rival_day1": [
+   [
+    "highst",
+    "h2",
+    6.5,
+    "cheap",
+    180,
+    50
+   ],
+   [
+    "highst",
+    "t_e2de7d",
+    10.5,
+    "standard",
+    49,
+    28
+   ],
+   [
+    "thompson",
+    "h3",
+    14.5,
+    "premium",
+    60,
+    6
+   ],
+   [
+    "union",
+    "h1",
+    10.5,
+    "standard",
+    110,
+    50
+   ]
+  ],
+  "took_s": 0.85
+ },
+ {
+  "seed": "tune-3",
+  "variant": "ladder@10.75",
+  "order": {
+   "spot": "highst",
+   "quality": "standard",
+   "price": 10.75,
+   "meals": 49
+  },
+  "profit": 106.5,
+  "sold": 27,
+  "revenue": 290.25,
+  "spoiled": 22,
+  "matched_field": true,
+  "rival_day1": [
+   [
+    "highst",
+    "h2",
+    6.5,
+    "cheap",
+    180,
+    50
+   ],
+   [
+    "highst",
+    "t_e2de7d",
+    10.75,
+    "standard",
+    49,
+    27
+   ],
+   [
+    "thompson",
+    "h3",
+    14.5,
+    "premium",
+    60,
+    6
+   ],
+   [
+    "union",
+    "h1",
+    10.5,
+    "standard",
+    110,
+    50
+   ]
+  ],
+  "took_s": 1.0
+ },
+ {
+  "seed": "tune-3",
+  "variant": "ladder@11.00",
+  "order": {
+   "spot": "highst",
+   "quality": "standard",
+   "price": 11.0,
+   "meals": 49
+  },
+  "profit": 80.25,
+  "sold": 24,
+  "revenue": 264,
+  "spoiled": 25,
+  "matched_field": true,
+  "rival_day1": [
+   [
+    "highst",
+    "h2",
+    6.5,
+    "cheap",
+    180,
+    50
+   ],
+   [
+    "highst",
+    "t_e2de7d",
+    11,
+    "standard",
+    49,
+    24
+   ],
+   [
+    "thompson",
+    "h3",
+    14.5,
+    "premium",
+    60,
+    6
+   ],
+   [
+    "union",
+    "h1",
+    10.5,
+    "standard",
+    110,
+    50
+   ]
+  ],
+  "took_s": 0.85
+ },
+ {
+  "seed": "tune-3",
+  "variant": "B rmse (price+meals)",
+  "order": {
+   "spot": "highst",
+   "quality": "standard",
+   "price": 10.5,
+   "meals": 47
+  },
+  "profit": 117.75,
+  "sold": 28,
+  "revenue": 294,
+  "spoiled": 19,
+  "matched_field": true,
+  "rival_day1": [
+   [
+    "highst",
+    "h2",
+    6.5,
+    "cheap",
+    180,
+    50
+   ],
+   [
+    "highst",
+    "t_e2de7d",
+    10.5,
+    "standard",
+    47,
+    28
+   ],
+   [
+    "thompson",
+    "h3",
+    14.5,
+    "premium",
+    60,
+    6
+   ],
+   [
+    "union",
+    "h1",
+    10.5,
+    "standard",
+    110,
+    50
+   ]
+  ],
+  "took_s": 0.83
+ },
+ {
+  "seed": "tune-3",
+  "variant": "C orig-price, rmse-meals",
+  "order": {
+   "spot": "highst",
+   "quality": "standard",
+   "price": 10.25,
+   "meals": 47
+  },
+  "profit": 305.5,
+  "sold": 47,
+  "revenue": 481.75,
+  "spoiled": 0,
+  "matched_field": true,
+  "rival_day1": [
+   [
+    "highst",
+    "h2",
+    6.5,
+    "cheap",
+    180,
+    24
+   ],
+   [
+    "highst",
+    "t_e2de7d",
+    10.25,
+    "standard",
+    47,
+    47
+   ],
+   [
+    "thompson",
+    "h3",
+    14.5,
+    "premium",
+    60,
+    6
+   ],
+   [
+    "union",
+    "h1",
+    10.5,
+    "standard",
+    110,
+    50
+   ]
+  ],
+  "took_s": 0.88
+ },
+ {
+  "seed": "tune-4",
+  "variant": "ladder@9.75",
+  "order": {
+   "spot": "highst",
+   "quality": "standard",
+   "price": 9.75,
+   "meals": 50
+  },
+  "profit": 300,
+  "sold": 50,
+  "revenue": 487.5,
+  "spoiled": 0,
+  "matched_field": true,
+  "rival_day1": [
+   [
+    "highst",
+    "h2",
+    6.5,
+    "cheap",
+    180,
+    30
+   ],
+   [
+    "highst",
+    "t_e2de7d",
+    9.75,
+    "standard",
+    50,
+    50
+   ],
+   [
+    "thompson",
+    "h3",
+    14.5,
+    "premium",
+    60,
+    13
+   ],
+   [
+    "union",
+    "h1",
+    10.5,
+    "standard",
+    110,
+    50
+   ]
+  ],
+  "took_s": 0.85
+ },
+ {
+  "seed": "tune-4",
+  "variant": "ladder@10.00",
+  "order": {
+   "spot": "highst",
+   "quality": "standard",
+   "price": 10.0,
+   "meals": 50
+  },
+  "profit": 312.5,
+  "sold": 50,
+  "revenue": 500,
+  "spoiled": 0,
+  "matched_field": true,
+  "rival_day1": [
+   [
+    "highst",
+    "h2",
+    6.5,
+    "cheap",
+    180,
+    31
+   ],
+   [
+    "highst",
+    "t_e2de7d",
+    10,
+    "standard",
+    50,
+    50
+   ],
+   [
+    "thompson",
+    "h3",
+    14.5,
+    "premium",
+    60,
+    13
+   ],
+   [
+    "union",
+    "h1",
+    10.5,
+    "standard",
+    110,
+    50
+   ]
+  ],
+  "took_s": 0.74
+ },
+ {
+  "seed": "tune-4",
+  "variant": "A orig (price+meals)",
+  "order": {
+   "spot": "highst",
+   "quality": "standard",
+   "price": 10.25,
+   "meals": 50
+  },
+  "profit": 325,
+  "sold": 50,
+  "revenue": 512.5,
+  "spoiled": 0,
+  "matched_field": true,
+  "rival_day1": [
+   [
+    "highst",
+    "h2",
+    6.5,
+    "cheap",
+    180,
+    30
+   ],
+   [
+    "highst",
+    "t_e2de7d",
+    10.25,
+    "standard",
+    50,
+    50
+   ],
+   [
+    "thompson",
+    "h3",
+    14.5,
+    "premium",
+    60,
+    13
+   ],
+   [
+    "union",
+    "h1",
+    10.5,
+    "standard",
+    110,
+    50
+   ]
+  ],
+  "took_s": 0.85
+ },
+ {
+  "seed": "tune-4",
+  "variant": "D rmse-price, orig-meals",
+  "order": {
+   "spot": "highst",
+   "quality": "standard",
+   "price": 10.5,
+   "meals": 50
+  },
+  "profit": 222,
+  "sold": 39,
+  "revenue": 409.5,
+  "spoiled": 11,
+  "matched_field": true,
+  "rival_day1": [
+   [
+    "highst",
+    "h2",
+    6.5,
+    "cheap",
+    180,
+    53
+   ],
+   [
+    "highst",
+    "t_e2de7d",
+    10.5,
+    "standard",
+    50,
+    39
+   ],
+   [
+    "thompson",
+    "h3",
+    14.5,
+    "premium",
+    60,
+    13
+   ],
+   [
+    "union",
+    "h1",
+    10.5,
+    "standard",
+    110,
+    50
+   ]
+  ],
+  "took_s": 0.96
+ },
+ {
+  "seed": "tune-4",
+  "variant": "ladder@10.75",
+  "order": {
+   "spot": "highst",
+   "quality": "standard",
+   "price": 10.75,
+   "meals": 50
+  },
+  "profit": 210.25,
+  "sold": 37,
+  "revenue": 397.75,
+  "spoiled": 13,
+  "matched_field": true,
+  "rival_day1": [
+   [
+    "highst",
+    "h2",
+    6.5,
+    "cheap",
+    180,
+    53
+   ],
+   [
+    "highst",
+    "t_e2de7d",
+    10.75,
+    "standard",
+    50,
+    37
+   ],
+   [
+    "thompson",
+    "h3",
+    14.5,
+    "premium",
+    60,
+    13
+   ],
+   [
+    "union",
+    "h1",
+    10.5,
+    "standard",
+    110,
+    50
+   ]
+  ],
+  "took_s": 1.02
+ },
+ {
+  "seed": "tune-4",
+  "variant": "ladder@11.00",
+  "order": {
+   "spot": "highst",
+   "quality": "standard",
+   "price": 11.0,
+   "meals": 50
+  },
+  "profit": 219.5,
+  "sold": 37,
+  "revenue": 407,
+  "spoiled": 13,
+  "matched_field": true,
+  "rival_day1": [
+   [
+    "highst",
+    "h2",
+    6.5,
+    "cheap",
+    180,
+    53
+   ],
+   [
+    "highst",
+    "t_e2de7d",
+    11,
+    "standard",
+    50,
+    37
+   ],
+   [
+    "thompson",
+    "h3",
+    14.5,
+    "premium",
+    60,
+    13
+   ],
+   [
+    "union",
+    "h1",
+    10.5,
+    "standard",
+    110,
+    50
+   ]
+  ],
+  "took_s": 0.82
+ },
+ {
+  "seed": "tune-4",
+  "variant": "B rmse (price+meals)",
+  "order": {
+   "spot": "highst",
+   "quality": "standard",
+   "price": 10.5,
+   "meals": 48
+  },
+  "profit": 229.5,
+  "sold": 39,
+  "revenue": 409.5,
+  "spoiled": 9,
+  "matched_field": true,
+  "rival_day1": [
+   [
+    "highst",
+    "h2",
+    6.5,
+    "cheap",
+    180,
+    53
+   ],
+   [
+    "highst",
+    "t_e2de7d",
+    10.5,
+    "standard",
+    48,
+    39
+   ],
+   [
+    "thompson",
+    "h3",
+    14.5,
+    "premium",
+    60,
+    13
+   ],
+   [
+    "union",
+    "h1",
+    10.5,
+    "standard",
+    110,
+    50
+   ]
+  ],
+  "took_s": 0.8
+ },
+ {
+  "seed": "tune-4",
+  "variant": "C orig-price, rmse-meals",
+  "order": {
+   "spot": "highst",
+   "quality": "standard",
+   "price": 10.25,
+   "meals": 48
+  },
+  "profit": 312,
+  "sold": 48,
+  "revenue": 492,
+  "spoiled": 0,
+  "matched_field": true,
+  "rival_day1": [
+   [
+    "highst",
+    "h2",
+    6.5,
+    "cheap",
+    180,
+    31
+   ],
+   [
+    "highst",
+    "t_e2de7d",
+    10.25,
+    "standard",
+    48,
+    48
+   ],
+   [
+    "thompson",
+    "h3",
+    14.5,
+    "premium",
+    60,
+    13
+   ],
+   [
+    "union",
+    "h1",
+    10.5,
+    "standard",
+    110,
+    50
+   ]
+  ],
+  "took_s": 0.74
+ },
+ {
+  "seed": "tune-5",
+  "variant": "ladder@9.75",
+  "order": {
+   "spot": "highst",
+   "quality": "standard",
+   "price": 9.75,
+   "meals": 51
+  },
+  "profit": 306,
+  "sold": 51,
+  "revenue": 497.25,
+  "spoiled": 0,
+  "matched_field": true,
+  "rival_day1": [
+   [
+    "highst",
+    "h2",
+    6.5,
+    "cheap",
+    180,
+    18
+   ],
+   [
+    "highst",
+    "t_e2de7d",
+    9.75,
+    "standard",
+    51,
+    51
+   ],
+   [
+    "thompson",
+    "h3",
+    14.5,
+    "premium",
+    60,
+    8
+   ],
+   [
+    "union",
+    "h1",
+    10.5,
+    "standard",
+    110,
+    44
+   ]
+  ],
+  "took_s": 0.87
+ },
+ {
+  "seed": "tune-5",
+  "variant": "ladder@10.00",
+  "order": {
+   "spot": "highst",
+   "quality": "standard",
+   "price": 10.0,
+   "meals": 51
+  },
+  "profit": 318.75,
+  "sold": 51,
+  "revenue": 510,
+  "spoiled": 0,
+  "matched_field": true,
+  "rival_day1": [
+   [
+    "highst",
+    "h2",
+    6.5,
+    "cheap",
+    180,
+    19
+   ],
+   [
+    "highst",
+    "t_e2de7d",
+    10,
+    "standard",
+    51,
+    51
+   ],
+   [
+    "thompson",
+    "h3",
+    14.5,
+    "premium",
+    60,
+    8
+   ],
+   [
+    "union",
+    "h1",
+    10.5,
+    "standard",
+    110,
+    44
+   ]
+  ],
+  "took_s": 0.78
+ },
+ {
+  "seed": "tune-5",
+  "variant": "A orig (price+meals)",
+  "order": {
+   "spot": "highst",
+   "quality": "standard",
+   "price": 10.25,
+   "meals": 51
+  },
+  "profit": 331.5,
+  "sold": 51,
+  "revenue": 522.75,
+  "spoiled": 0,
+  "matched_field": true,
+  "rival_day1": [
+   [
+    "highst",
+    "h2",
+    6.5,
+    "cheap",
+    180,
+    20
+   ],
+   [
+    "highst",
+    "t_e2de7d",
+    10.25,
+    "standard",
+    51,
+    51
+   ],
+   [
+    "thompson",
+    "h3",
+    14.5,
+    "premium",
+    60,
+    8
+   ],
+   [
+    "union",
+    "h1",
+    10.5,
+    "standard",
+    110,
+    44
+   ]
+  ],
+  "took_s": 0.87
+ },
+ {
+  "seed": "tune-5",
+  "variant": "D rmse-price, orig-meals",
+  "order": {
+   "spot": "highst",
+   "quality": "standard",
+   "price": 10.5,
+   "meals": 51
+  },
+  "profit": 18.75,
+  "sold": 20,
+  "revenue": 210,
+  "spoiled": 31,
+  "matched_field": true,
+  "rival_day1": [
+   [
+    "highst",
+    "h2",
+    6.5,
+    "cheap",
+    180,
+    51
+   ],
+   [
+    "highst",
+    "t_e2de7d",
+    10.5,
+    "standard",
+    51,
+    20
+   ],
+   [
+    "thompson",
+    "h3",
+    14.5,
+    "premium",
+    60,
+    8
+   ],
+   [
+    "union",
+    "h1",
+    10.5,
+    "standard",
+    110,
+    44
+   ]
+  ],
+  "took_s": 0.79
+ },
+ {
+  "seed": "tune-5",
+  "variant": "ladder@10.75",
+  "order": {
+   "spot": "highst",
+   "quality": "standard",
+   "price": 10.75,
+   "meals": 51
+  },
+  "profit": 23.75,
+  "sold": 20,
+  "revenue": 215,
+  "spoiled": 31,
+  "matched_field": true,
+  "rival_day1": [
+   [
+    "highst",
+    "h2",
+    6.5,
+    "cheap",
+    180,
+    51
+   ],
+   [
+    "highst",
+    "t_e2de7d",
+    10.75,
+    "standard",
+    51,
+    20
+   ],
+   [
+    "thompson",
+    "h3",
+    14.5,
+    "premium",
+    60,
+    8
+   ],
+   [
+    "union",
+    "h1",
+    10.5,
+    "standard",
+    110,
+    44
+   ]
+  ],
+  "took_s": 0.78
+ },
+ {
+  "seed": "tune-5",
+  "variant": "ladder@11.00",
+  "order": {
+   "spot": "highst",
+   "quality": "standard",
+   "price": 11.0,
+   "meals": 51
+  },
+  "profit": 28.75,
+  "sold": 20,
+  "revenue": 220,
+  "spoiled": 31,
+  "matched_field": true,
+  "rival_day1": [
+   [
+    "highst",
+    "h2",
+    6.5,
+    "cheap",
+    180,
+    51
+   ],
+   [
+    "highst",
+    "t_e2de7d",
+    11,
+    "standard",
+    51,
+    20
+   ],
+   [
+    "thompson",
+    "h3",
+    14.5,
+    "premium",
+    60,
+    8
+   ],
+   [
+    "union",
+    "h1",
+    10.5,
+    "standard",
+    110,
+    44
+   ]
+  ],
+  "took_s": 0.84
+ },
+ {
+  "seed": "tune-5",
+  "variant": "B rmse (price+meals)",
+  "order": {
+   "spot": "highst",
+   "quality": "standard",
+   "price": 10.5,
+   "meals": 49
+  },
+  "profit": 26.25,
+  "sold": 20,
+  "revenue": 210,
+  "spoiled": 29,
+  "matched_field": true,
+  "rival_day1": [
+   [
+    "highst",
+    "h2",
+    6.5,
+    "cheap",
+    180,
+    51
+   ],
+   [
+    "highst",
+    "t_e2de7d",
+    10.5,
+    "standard",
+    49,
+    20
+   ],
+   [
+    "thompson",
+    "h3",
+    14.5,
+    "premium",
+    60,
+    8
+   ],
+   [
+    "union",
+    "h1",
+    10.5,
+    "standard",
+    110,
+    44
+   ]
+  ],
+  "took_s": 0.8
+ },
+ {
+  "seed": "tune-5",
+  "variant": "C orig-price, rmse-meals",
+  "order": {
+   "spot": "highst",
+   "quality": "standard",
+   "price": 10.25,
+   "meals": 49
+  },
+  "profit": 318.5,
+  "sold": 49,
+  "revenue": 502.25,
+  "spoiled": 0,
+  "matched_field": true,
+  "rival_day1": [
+   [
+    "highst",
+    "h2",
+    6.5,
+    "cheap",
+    180,
+    20
+   ],
+   [
+    "highst",
+    "t_e2de7d",
+    10.25,
+    "standard",
+    49,
+    49
+   ],
+   [
+    "thompson",
+    "h3",
+    14.5,
+    "premium",
+    60,
+    8
+   ],
+   [
+    "union",
+    "h1",
+    10.5,
+    "standard",
+    110,
+    44
+   ]
+  ],
+  "took_s": 0.75
+ },
+ {
+  "seed": "tune-6",
+  "variant": "ladder@9.75",
+  "order": {
+   "spot": "highst",
+   "quality": "standard",
+   "price": 9.75,
+   "meals": 51
+  },
+  "profit": 306,
+  "sold": 51,
+  "revenue": 497.25,
+  "spoiled": 0,
+  "matched_field": true,
+  "rival_day1": [
+   [
+    "highst",
+    "h2",
+    6.5,
+    "cheap",
+    180,
+    5
+   ],
+   [
+    "highst",
+    "t_e2de7d",
+    9.75,
+    "standard",
+    51,
+    51
+   ],
+   [
+    "thompson",
+    "h3",
+    14.5,
+    "premium",
+    60,
+    11
+   ],
+   [
+    "union",
+    "h1",
+    10.5,
+    "standard",
+    110,
+    48
+   ]
+  ],
+  "took_s": 0.82
+ },
+ {
+  "seed": "tune-6",
+  "variant": "ladder@10.00",
+  "order": {
+   "spot": "highst",
+   "quality": "standard",
+   "price": 10.0,
+   "meals": 51
+  },
+  "profit": 298.75,
+  "sold": 49,
+  "revenue": 490,
+  "spoiled": 2,
+  "matched_field": true,
+  "rival_day1": [
+   [
+    "highst",
+    "h2",
+    6.5,
+    "cheap",
+    180,
+    5
+   ],
+   [
+    "highst",
+    "t_e2de7d",
+    10,
+    "standard",
+    51,
+    49
+   ],
+   [
+    "thompson",
+    "h3",
+    14.5,
+    "premium",
+    60,
+    11
+   ],
+   [
+    "union",
+    "h1",
+    10.5,
+    "standard",
+    110,
+    48
+   ]
+  ],
+  "took_s": 0.79
+ },
+ {
+  "seed": "tune-6",
+  "variant": "A orig (price+meals)",
+  "order": {
+   "spot": "highst",
+   "quality": "standard",
+   "price": 10.25,
+   "meals": 51
+  },
+  "profit": 300.75,
+  "sold": 48,
+  "revenue": 492,
+  "spoiled": 3,
+  "matched_field": true,
+  "rival_day1": [
+   [
+    "highst",
+    "h2",
+    6.5,
+    "cheap",
+    180,
+    6
+   ],
+   [
+    "highst",
+    "t_e2de7d",
+    10.25,
+    "standard",
+    51,
+    48
+   ],
+   [
+    "thompson",
+    "h3",
+    14.5,
+    "premium",
+    60,
+    11
+   ],
+   [
+    "union",
+    "h1",
+    10.5,
+    "standard",
+    110,
+    48
+   ]
+  ],
+  "took_s": 0.81
+ },
+ {
+  "seed": "tune-6",
+  "variant": "D rmse-price, orig-meals",
+  "order": {
+   "spot": "highst",
+   "quality": "standard",
+   "price": 10.5,
+   "meals": 51
+  },
+  "profit": 29.25,
+  "sold": 21,
+  "revenue": 220.5,
+  "spoiled": 30,
+  "matched_field": true,
+  "rival_day1": [
+   [
+    "highst",
+    "h2",
+    6.5,
+    "cheap",
+    180,
+    32
+   ],
+   [
+    "highst",
+    "t_e2de7d",
+    10.5,
+    "standard",
+    51,
+    21
+   ],
+   [
+    "thompson",
+    "h3",
+    14.5,
+    "premium",
+    60,
+    11
+   ],
+   [
+    "union",
+    "h1",
+    10.5,
+    "standard",
+    110,
+    48
+   ]
+  ],
+  "took_s": 0.76
+ },
+ {
+  "seed": "tune-6",
+  "variant": "ladder@10.75",
+  "order": {
+   "spot": "highst",
+   "quality": "standard",
+   "price": 10.75,
+   "meals": 51
+  },
+  "profit": 13,
+  "sold": 19,
+  "revenue": 204.25,
+  "spoiled": 32,
+  "matched_field": true,
+  "rival_day1": [
+   [
+    "highst",
+    "h2",
+    6.5,
+    "cheap",
+    180,
+    32
+   ],
+   [
+    "highst",
+    "t_e2de7d",
+    10.75,
+    "standard",
+    51,
+    19
+   ],
+   [
+    "thompson",
+    "h3",
+    14.5,
+    "premium",
+    60,
+    11
+   ],
+   [
+    "union",
+    "h1",
+    10.5,
+    "standard",
+    110,
+    48
+   ]
+  ],
+  "took_s": 0.71
+ },
+ {
+  "seed": "tune-6",
+  "variant": "ladder@11.00",
+  "order": {
+   "spot": "highst",
+   "quality": "standard",
+   "price": 11.0,
+   "meals": 51
+  },
+  "profit": 17.75,
+  "sold": 19,
+  "revenue": 209,
+  "spoiled": 32,
+  "matched_field": true,
+  "rival_day1": [
+   [
+    "highst",
+    "h2",
+    6.5,
+    "cheap",
+    180,
+    32
+   ],
+   [
+    "highst",
+    "t_e2de7d",
+    11,
+    "standard",
+    51,
+    19
+   ],
+   [
+    "thompson",
+    "h3",
+    14.5,
+    "premium",
+    60,
+    11
+   ],
+   [
+    "union",
+    "h1",
+    10.5,
+    "standard",
+    110,
+    48
+   ]
+  ],
+  "took_s": 0.86
+ },
+ {
+  "seed": "tune-6",
+  "variant": "B rmse (price+meals)",
+  "order": {
+   "spot": "highst",
+   "quality": "standard",
+   "price": 10.5,
+   "meals": 49
+  },
+  "profit": 36.75,
+  "sold": 21,
+  "revenue": 220.5,
+  "spoiled": 28,
+  "matched_field": true,
+  "rival_day1": [
+   [
+    "highst",
+    "h2",
+    6.5,
+    "cheap",
+    180,
+    32
+   ],
+   [
+    "highst",
+    "t_e2de7d",
+    10.5,
+    "standard",
+    49,
+    21
+   ],
+   [
+    "thompson",
+    "h3",
+    14.5,
+    "premium",
+    60,
+    11
+   ],
+   [
+    "union",
+    "h1",
+    10.5,
+    "standard",
+    110,
+    48
+   ]
+  ],
+  "took_s": 0.77
+ },
+ {
+  "seed": "tune-6",
+  "variant": "C orig-price, rmse-meals",
+  "order": {
+   "spot": "highst",
+   "quality": "standard",
+   "price": 10.25,
+   "meals": 49
+  },
+  "profit": 308.25,
+  "sold": 48,
+  "revenue": 492,
+  "spoiled": 1,
+  "matched_field": true,
+  "rival_day1": [
+   [
+    "highst",
+    "h2",
+    6.5,
+    "cheap",
+    180,
+    6
+   ],
+   [
+    "highst",
+    "t_e2de7d",
+    10.25,
+    "standard",
+    49,
+    48
+   ],
+   [
+    "thompson",
+    "h3",
+    14.5,
+    "premium",
+    60,
+    11
+   ],
+   [
+    "union",
+    "h1",
+    10.5,
+    "standard",
+    110,
+    48
+   ]
+  ],
+  "took_s": 0.88
+ },
+ {
+  "seed": "tune-7",
+  "variant": "ladder@9.75",
+  "order": {
+   "spot": "highst",
+   "quality": "standard",
+   "price": 9.75,
+   "meals": 52
+  },
+  "profit": 312,
+  "sold": 52,
+  "revenue": 507,
+  "spoiled": 0,
+  "matched_field": true,
+  "rival_day1": [
+   [
+    "highst",
+    "h2",
+    6.5,
+    "cheap",
+    180,
+    22
+   ],
+   [
+    "highst",
+    "t_e2de7d",
+    9.75,
+    "standard",
+    52,
+    52
+   ],
+   [
+    "thompson",
+    "h3",
+    14.5,
+    "premium",
+    60,
+    15
+   ],
+   [
+    "union",
+    "h1",
+    10.5,
+    "standard",
+    110,
+    38
+   ]
+  ],
+  "took_s": 0.82
+ },
+ {
+  "seed": "tune-7",
+  "variant": "ladder@10.00",
+  "order": {
+   "spot": "highst",
+   "quality": "standard",
+   "price": 10.0,
+   "meals": 52
+  },
+  "profit": 325,
+  "sold": 52,
+  "revenue": 520,
+  "spoiled": 0,
+  "matched_field": true,
+  "rival_day1": [
+   [
+    "highst",
+    "h2",
+    6.5,
+    "cheap",
+    180,
+    22
+   ],
+   [
+    "highst",
+    "t_e2de7d",
+    10,
+    "standard",
+    52,
+    52
+   ],
+   [
+    "thompson",
+    "h3",
+    14.5,
+    "premium",
+    60,
+    15
+   ],
+   [
+    "union",
+    "h1",
+    10.5,
+    "standard",
+    110,
+    38
+   ]
+  ],
+  "took_s": 0.8
+ },
+ {
+  "seed": "tune-7",
+  "variant": "A orig (price+meals)",
+  "order": {
+   "spot": "highst",
+   "quality": "standard",
+   "price": 10.25,
+   "meals": 52
+  },
+  "profit": 338,
+  "sold": 52,
+  "revenue": 533,
+  "spoiled": 0,
+  "matched_field": true,
+  "rival_day1": [
+   [
+    "highst",
+    "h2",
+    6.5,
+    "cheap",
+    180,
+    22
+   ],
+   [
+    "highst",
+    "t_e2de7d",
+    10.25,
+    "standard",
+    52,
+    52
+   ],
+   [
+    "thompson",
+    "h3",
+    14.5,
+    "premium",
+    60,
+    15
+   ],
+   [
+    "union",
+    "h1",
+    10.5,
+    "standard",
+    110,
+    38
+   ]
+  ],
+  "took_s": 0.84
+ },
+ {
+  "seed": "tune-7",
+  "variant": "D rmse-price, orig-meals",
+  "order": {
+   "spot": "highst",
+   "quality": "standard",
+   "price": 10.5,
+   "meals": 52
+  },
+  "profit": 120,
+  "sold": 30,
+  "revenue": 315,
+  "spoiled": 22,
+  "matched_field": true,
+  "rival_day1": [
+   [
+    "highst",
+    "h2",
+    6.5,
+    "cheap",
+    180,
+    52
+   ],
+   [
+    "highst",
+    "t_e2de7d",
+    10.5,
+    "standard",
+    52,
+    30
+   ],
+   [
+    "thompson",
+    "h3",
+    14.5,
+    "premium",
+    60,
+    15
+   ],
+   [
+    "union",
+    "h1",
+    10.5,
+    "standard",
+    110,
+    38
+   ]
+  ],
+  "took_s": 0.85
+ },
+ {
+  "seed": "tune-7",
+  "variant": "ladder@10.75",
+  "order": {
+   "spot": "highst",
+   "quality": "standard",
+   "price": 10.75,
+   "meals": 52
+  },
+  "profit": 127.5,
+  "sold": 30,
+  "revenue": 322.5,
+  "spoiled": 22,
+  "matched_field": true,
+  "rival_day1": [
+   [
+    "highst",
+    "h2",
+    6.5,
+    "cheap",
+    180,
+    52
+   ],
+   [
+    "highst",
+    "t_e2de7d",
+    10.75,
+    "standard",
+    52,
+    30
+   ],
+   [
+    "thompson",
+    "h3",
+    14.5,
+    "premium",
+    60,
+    15
+   ],
+   [
+    "union",
+    "h1",
+    10.5,
+    "standard",
+    110,
+    38
+   ]
+  ],
+  "took_s": 0.83
+ },
+ {
+  "seed": "tune-7",
+  "variant": "ladder@11.00",
+  "order": {
+   "spot": "highst",
+   "quality": "standard",
+   "price": 11.0,
+   "meals": 52
+  },
+  "profit": 124,
+  "sold": 29,
+  "revenue": 319,
+  "spoiled": 23,
+  "matched_field": true,
+  "rival_day1": [
+   [
+    "highst",
+    "h2",
+    6.5,
+    "cheap",
+    180,
+    52
+   ],
+   [
+    "highst",
+    "t_e2de7d",
+    11,
+    "standard",
+    52,
+    29
+   ],
+   [
+    "thompson",
+    "h3",
+    14.5,
+    "premium",
+    60,
+    15
+   ],
+   [
+    "union",
+    "h1",
+    10.5,
+    "standard",
+    110,
+    38
+   ]
+  ],
+  "took_s": 0.78
+ },
+ {
+  "seed": "tune-7",
+  "variant": "B rmse (price+meals)",
+  "order": {
+   "spot": "highst",
+   "quality": "standard",
+   "price": 10.5,
+   "meals": 50
+  },
+  "profit": 127.5,
+  "sold": 30,
+  "revenue": 315,
+  "spoiled": 20,
+  "matched_field": true,
+  "rival_day1": [
+   [
+    "highst",
+    "h2",
+    6.5,
+    "cheap",
+    180,
+    52
+   ],
+   [
+    "highst",
+    "t_e2de7d",
+    10.5,
+    "standard",
+    50,
+    30
+   ],
+   [
+    "thompson",
+    "h3",
+    14.5,
+    "premium",
+    60,
+    15
+   ],
+   [
+    "union",
+    "h1",
+    10.5,
+    "standard",
+    110,
+    38
+   ]
+  ],
+  "took_s": 0.86
+ },
+ {
+  "seed": "tune-7",
+  "variant": "C orig-price, rmse-meals",
+  "order": {
+   "spot": "highst",
+   "quality": "standard",
+   "price": 10.25,
+   "meals": 50
+  },
+  "profit": 325,
+  "sold": 50,
+  "revenue": 512.5,
+  "spoiled": 0,
+  "matched_field": true,
+  "rival_day1": [
+   [
+    "highst",
+    "h2",
+    6.5,
+    "cheap",
+    180,
+    23
+   ],
+   [
+    "highst",
+    "t_e2de7d",
+    10.25,
+    "standard",
+    50,
+    50
+   ],
+   [
+    "thompson",
+    "h3",
+    14.5,
+    "premium",
+    60,
+    15
+   ],
+   [
+    "union",
+    "h1",
+    10.5,
+    "standard",
+    110,
+    38
+   ]
+  ],
+  "took_s": 0.91
+ }
+]

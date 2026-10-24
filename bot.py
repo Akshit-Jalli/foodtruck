@@ -70,24 +70,78 @@ FITTED_SPOTS = {
     "stadium":  {"limit_mean": 13.50, "limit_sd": 2.63, "qmin": (0.34, 0.40, 0.27)},
 }
 
+# Both sets above, plus anything a calibration run registers, addressed by
+# name so one harness can compare them. decide() re-reads P["priors"] every
+# night, so `bench.py --ablate priors="'rmse'"` switches priors without an
+# edit. Registered as copies: use_priors() rebinds SPOTS and must not alias.
+# calibrate.py's decision-focused result: priors tuned to maximise realised
+# profit through the optimiser rather than to minimise demand RMSE. Found by
+# compass search over a 3-scalar family (blend toward the RMSE fit, a global
+# shift on limit_mean, a global scale on limit_sd) against the cal-* seeds
+# only, regularised toward "orig". theta = (alpha 0.125, delta +0.750, kappa 1.000):
+# almost all of the movement is the $0.75 global shift in limit_mean.
+# Train-seed cash $10595.35 against "orig"'s $10025.19 -- but that is the best of 24
+# noisy evaluations on 8 shared seeds, so treat it as a candidate, not a
+# result, until the hold-* gate says otherwise.
+DFL_SPOTS = {
+        "highst":    {"limit_mean": 12.77, "limit_sd": 3.02, "qmin": (0.5000, 0.3462, 0.1537)},
+        "oval":      {"limit_mean": 13.18, "limit_sd": 2.33, "qmin": (0.3038, 0.4975, 0.1988)},
+        "union":     {"limit_mean": 13.55, "limit_sd": 2.17, "qmin": (0.2275, 0.4625, 0.3100)},
+        "northres":  {"limit_mean": 11.78, "limit_sd": 2.14, "qmin": (0.4525, 0.4462, 0.1013)},
+        "thompson":  {"limit_mean": 12.75, "limit_sd": 2.37, "qmin": (0.4450, 0.4050, 0.1500)},
+        "stadium":   {"limit_mean": 13.81, "limit_sd": 2.60, "qmin": (0.2609, 0.4869, 0.2522)},
+}
+
+PRIOR_SETS = {
+    "orig": {s: dict(c) for s, c in SPOTS.items()},
+    "rmse": {s: dict(c) for s, c in FITTED_SPOTS.items()},
+    "dfl": {s: dict(c) for s, c in DFL_SPOTS.items()},
+}
+_ACTIVE_PRIORS = "orig"
+
+
+def use_priors(name):
+    """Make `name` the active customer priors. Returns the name."""
+    global SPOTS, _ACTIVE_PRIORS
+    if name not in PRIOR_SETS:
+        raise KeyError("unknown prior set %r (have: %s)"
+                       % (name, ", ".join(sorted(PRIOR_SETS))))
+    SPOTS = {s: dict(c) for s, c in PRIOR_SETS[name].items()}
+    _ACTIVE_PRIORS = name
+    return name
+
 P = {
+    # which PRIOR_SETS entry decide() uses; re-read every night
+    "priors": "orig",
     # risk
     "risk_lambda": 0.55,     # weight on the bad tail
     "risk_tail": 0.30,       # what counts as the bad tail
     # uncertainty
     "crowd_mults": ((0.70, 0.15), (0.85, 0.20), (1.00, 0.30), (1.15, 0.20), (1.35, 0.15)),
     "intruder_p": 0.45,      # chance an unpredicted rival shows up at our spot
+    # Night one has no history to predict from. Measured: every day-1 rival
+    # offer in the probe data sits at exactly this value at reputation 50.
+    # None restores the old flat $11.00/standard guess, for ablation.
+    "day1_iso_value": 1.50,
     # Rivals do not repeat their price to the cent, and winning the value
     # contest is a cliff: a rival shaving 25c can take every customer. So
     # carry a spread of rival prices and prefer a pitch that survives it.
     "rival_price_shifts": ((-0.60, 0.30), (0.0, 0.50), (0.45, 0.20)),
     # reputation
     "rep_revisit_floor": 0.25,
+    # Dollars of score charged for parking where we have already been parking,
+    # scaled by the fraction of the last ten days spent there. 0.0 = off, the
+    # default. Exists to test whether the bot's concentration on one spot
+    # (200 of 240 trading days at High Street) is costing it anything: the
+    # rep-value term rewards revisiting a spot *because* we revisit it, which
+    # is a feedback loop, and this is the knob that opposes it.
+    "spot_repeat_penalty": 0.0,
     "rep_max_horizon": 15,
     "rep_discount": 0.97,
     "rep_bonus": 5.0,        # only used when use_repvalue is off
     "rep_horizon": 12.0,
     # search
+    "time_budget_s": 1.0,    # the final allows 2s a night, including the round trip
     "price_step": 0.25,
     "shortlist": 18,
     "limit_cells": 18,
@@ -234,12 +288,20 @@ class Memory:
     def sync(self, state):
         """Called each night. Resets between markets, folds in the new day."""
         k = self._market_key(state)
-        if k != self.key:
-            self.reset()
-            self.key = k
         last = state.get("last_day") or {}
         day = last.get("day")
-        if day and day != getattr(self, "_last_seen", None):
+        seen = getattr(self, "_last_seen", None)
+        # Every practice market reports mode=practice, market=1, so the key
+        # alone cannot tell two of them apart and one market's rivals would
+        # leak into the next. A day that runs backwards, or a market with no
+        # history when we hold some, means this is somewhere new.
+        fresh = ((day is None and self.days > 0)
+                 or (day is not None and seen is not None and day < seen))
+        if k != self.key or fresh:
+            self.reset()
+            self.key = k
+            seen = None
+        if day and day != seen:
             self._last_seen = day
             self.observe_day(last, me=(state.get("you") or {}).get("id"))
 
@@ -276,6 +338,10 @@ class Memory:
 
 
 MEM = Memory()
+
+# Diagnostics only. Set to a dict and decide() fills it with every candidate
+# it scored; left None in play so the hot path stays allocation-free.
+TRACE = None
 
 
 def preload_memory(path="days.jsonl", mode="live", market=1):
@@ -426,12 +492,30 @@ def predict_rivals(state):
                 "probs": MEM.spot_probs(t["id"]),
             })
     if not out:
-        # Nothing observed yet. Assume the field spreads over the busy spots.
+        # Nothing observed yet: night one. The field spreads over the busy
+        # spots, and - measured, not assumed - every opening offer sits on an
+        # exact iso-value line. All 24 rival offers on day 1 of the eight
+        # harvested markets price to value +1.50 at reputation 50: cheap at
+        # $6.50, standard at $10.50, premium at $14.50.
+        #
+        # This matters more than it looks. value is a single scalar and
+        # beats() gives a tie to the cheaper truck, so a price that lands us
+        # *exactly* on the rivals' value line loses every contested cell
+        # rather than splitting them. Assuming $11.00/standard (value +1.00)
+        # told the old model it won comfortably anywhere below $11, and the
+        # true cliff is at $10.50. Measured cost of that one error: $246 on
+        # night one, which was the whole of the fitted-priors regression.
         others = [t for t in state.get("trucks", []) if t["id"] != me]
         ring = ["highst", "oval", "union", "northres", "thompson", "stadium"]
+        opening = QUALITIES if P["day1_iso_value"] is not None else None
         for i, t in enumerate(others):
-            out.append({"id": t["id"], "spot": ring[i % len(ring)], "price": 11.0,
-                        "quality": "standard", "rep": 50.0, "meals": 133.0, "probs": None})
+            if opening:
+                q = opening[i % len(opening)]
+                price = QVALUE[q] * repfactor(50.0) - float(P["day1_iso_value"])
+            else:
+                q, price = "standard", 11.0
+            out.append({"id": t["id"], "spot": ring[i % len(ring)], "price": price,
+                        "quality": q, "rep": 50.0, "meals": 133.0, "probs": None})
     return out
 
 
@@ -577,7 +661,17 @@ def best_at_rep(spot, cells, rbest_modal, n_modal, rep, budget, pmin, pmax):
 
 
 def decide(state):
-    """Pick tomorrow's spot, price, quality and meal count."""
+    """Pick tomorrow's spot, price, quality and meal count.
+
+    Runs to a deadline. Measured cost is ~0.2s even against 40 rivals, but in
+    the final a night is open for only 2 seconds and a missed night is a day
+    of zero profit, so an overrun returns the best option found so far rather
+    than the best option possible.
+    """
+    if P["priors"] != _ACTIVE_PRIORS:
+        use_priors(P["priors"])
+    t0 = time.time()
+    deadline = t0 + float(P["time_budget_s"])
     MEM.sync(state)
     rules = state["rules"]
     budget = float(rules.get("budget", 500))
@@ -602,6 +696,9 @@ def decide(state):
         n_base = float(expected.get(spot, 150))
         if n_base <= 0:
             continue
+        # Half the budget for screening; leave the rest for the real search.
+        if shortlist and time.time() > t0 + 0.5 * (deadline - t0):
+            break
         cells = cellcache.setdefault(spot, cells_for(spot, P["limit_cells"]))
         rep = float(myrep.get(spot, 50.0))
         rf = repfactor(rep)
@@ -633,6 +730,16 @@ def decide(state):
         return {"spot": "union", "price": 11.0, "quality": "standard", "meals": 133}
     shortlist.sort(key=lambda x: -x[0])
     shortlist = shortlist[:P["shortlist"]]
+    if TRACE is not None:
+        TRACE["priors"] = _ACTIVE_PRIORS
+        TRACE["magnet"] = magnet
+        TRACE["expected"] = dict(expected)
+        TRACE["myrep"] = {s: float(myrep.get(s, 50.0)) for s in spots}
+        TRACE["rivals"] = [{"id": r["id"], "spot": r["spot"], "price": r["price"],
+                            "quality": r["quality"], "rep": r["rep"]} for r in rivals]
+        TRACE["n_screened"] = len(shortlist)
+        TRACE["shortlist"] = [{"stage1_score": sc, "spot": sp, "quality": q, "price": pr}
+                              for sc, sp, q, pr in shortlist]
 
     # ---- how much is a day's reputation gain worth at each shortlisted spot?
     repvalue = {}
@@ -659,6 +766,8 @@ def decide(state):
     # ---- stage 2: full simulation with sell-outs, then choose the stock.
     best = None
     for _, spot, quality, price in shortlist:
+        if best is not None and time.time() > deadline:
+            break
         n_base = float(expected.get(spot, 150))
         cells = cellcache[spot]
         rep = float(myrep.get(spot, 50.0))
@@ -675,10 +784,26 @@ def decide(state):
         meals, score, mean = best_inventory(demands, price, cost, hardcap)
         if meals > 0:
             score += repvalue.get((spot, quality), 0.0)
+        if P["spot_repeat_penalty"]:
+            score -= P["spot_repeat_penalty"] * MEM.my_revisit_p(spot)
+        if TRACE is not None:
+            TRACE.setdefault("stage2", []).append({
+                "spot": spot, "quality": quality, "price": price, "meals": meals,
+                "score": score, "mean_profit": mean,
+                "repvalue": repvalue.get((spot, quality), 0.0),
+                "demand_mean": sum(w * d for d, w in demands),
+                "demand_p10": min(d for d, _ in demands),
+                "demand_p90": max(d for d, _ in demands),
+            })
         if best is None or score > best[0]:
             best = (score, mean, spot, quality, price, meals)
 
     _, mean, spot, quality, price, meals = best
+    if TRACE is not None:
+        TRACE["chosen"] = {"spot": spot, "quality": quality, "price": round(price, 2),
+                           "meals": int(meals), "mean_profit": mean,
+                           "sat_out": bool(mean < 0 and meals > 0)}
+        TRACE["n_stage2"] = len(TRACE.get("stage2") or [])
     if mean < 0 and meals > 0:
         # Every option loses money today; sitting out costs nothing.
         return {"spot": spot, "price": round(price, 2), "quality": quality, "meals": 0}
@@ -718,7 +843,7 @@ def log(rec):
 
 
 def play(base, quiet=False, history=None):
-    version, ordered_for, backoff, hangups = 0, None, 1, 0
+    version, ordered_for, backoff, hangups, errors = 0, None, 0.25, 0, 0
     seen_days = set()
     while True:
         try:
@@ -730,11 +855,20 @@ def play(base, quiet=False, history=None):
                 hangups += 1
                 time.sleep(min(0.1 * hangups, 1.0))
                 continue
-            print("network error (%s), retrying in %ds" % (e, backoff))
+            # Any other network fault - a DNS blip, the wifi dropping - gets
+            # the same treatment. An exponential back-off to 5s cost us a
+            # whole night once: the link returned and we were still asleep.
+            # We cannot reach the server at all here, so retrying hard is
+            # not hammering it, and a night is only open for 5 minutes.
+            errors += 1
+            if errors <= 3 or errors % 40 == 0:
+                print("network error (%s), retry %d" % (e, errors))
             time.sleep(backoff)
-            backoff = min(backoff * 2, 5)
+            backoff = min(backoff * 1.5, 1.5)
             continue
-        backoff, hangups = 1, 0
+        if errors:
+            print("network recovered after %d failed attempt(s)" % errors)
+        backoff, hangups, errors = 0.25, 0, 0
         if status == 429:
             time.sleep(2)
             continue
@@ -746,12 +880,18 @@ def play(base, quiet=False, history=None):
             continue
         version = state["version"]
         day_done = (state.get("last_day") or {}).get("day")
-        if history is not None and day_done and day_done not in seen_days:
+        if day_done and day_done not in seen_days:
             seen_days.add(day_done)
-            row = dict((state["last_day"].get("you") or {}))
-            row["day"] = day_done
-            row["cash"] = state["you"]["cash"]
-            history.append(row)
+            mine = state["last_day"].get("you") or {}
+            if history is not None:
+                row = dict(mine)
+                row["day"] = day_done
+                row["cash"] = state["you"]["cash"]
+                history.append(row)
+            # Sitting out is almost always a fault, not a choice: say so
+            # loudly rather than letting a silent zero slide past.
+            if mine.get("status") == "no_order" and not quiet:
+                print("!! MISSED DAY %s - no order reached the server" % day_done)
         if state["phase"] == "over" and state["mode"] == "practice":
             return state
         key = (state.get("mode"), state.get("market"), state.get("order_for_day"))
