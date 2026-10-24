@@ -112,7 +112,7 @@ def use_priors(name):
 
 P = {
     # which PRIOR_SETS entry decide() uses; re-read every night
-    "priors": "orig",
+    "priors": "dfl",
     # risk
     "risk_lambda": 0.55,     # weight on the bad tail
     "risk_tail": 0.30,       # what counts as the bad tail
