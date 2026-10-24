@@ -1,0 +1,109 @@
+bench v2_vs_base_tune: 8 seeds x 2 engines, 30-day practice markets, one at a time
+writing to C:\Users\pawan\OneDrive\Desktop\foodtruck\bench_results\v2_vs_base_tune.json
+  [baseline] tune-0 attempt 1 ...
+    cash $10037.50  rank 1/4  stockout 0.70  unused 5.0/day  19.1s
+  [bot] tune-0 attempt 1 ...
+    cash $10192.75  rank 1/4  stockout 0.67  unused 3.4/day  14.8s
+  [baseline] tune-1 attempt 1 ...
+    cash $8750.25  rank 1/4  stockout 0.43  unused 8.0/day  14.3s
+  [bot] tune-1 attempt 1 ...
+    cash $9059.75  rank 1/4  stockout 0.60  unused 5.9/day  15.9s
+  [baseline] tune-2 attempt 1 ...
+    cash $9755.25  rank 1/4  stockout 0.43  unused 5.7/day  17.2s
+  [bot] tune-2 attempt 1 ...
+    cash $9926.75  rank 1/4  stockout 0.53  unused 3.6/day  14.8s
+  [baseline] tune-3 attempt 1 ...
+    cash $10116.75  rank 1/4  stockout 0.43  unused 7.3/day  14.4s
+  [bot] tune-3 attempt 1 ...
+    cash $9516.50  rank 1/4  stockout 0.60  unused 5.8/day  18.5s
+  [baseline] tune-4 attempt 1 ...
+    cash $9319.50  rank 1/4  stockout 0.67  unused 4.2/day  14.2s
+  [bot] tune-4 attempt 1 ...
+    cash $9478.75  rank 1/4  stockout 0.67  unused 2.6/day  15.2s
+  [baseline] tune-5 attempt 1 ...
+    cash $9741.00  rank 1/4  stockout 0.67  unused 4.9/day  14.1s
+  [bot] tune-5 attempt 1 ...
+    cash $9886.00  rank 1/4  stockout 0.77  unused 3.0/day  14.4s
+  [baseline] tune-6 attempt 1 ...
+    cash $10234.00  rank 1/4  stockout 0.70  unused 4.4/day  14.2s
+  [bot] tune-6 attempt 1 ...
+    cash $10203.75  rank 1/4  stockout 0.73  unused 2.7/day  12.9s
+  [baseline] tune-7 attempt 1 ...
+    cash $10298.75  rank 1/4  stockout 0.47  unused 5.7/day  14.5s
+  [bot] tune-7 attempt 1 ...
+    cash $10157.25  rank 1/4  stockout 0.53  unused 4.1/day  12.6s
+
+==============================================================================================
+BENCH v2_vs_base_tune   seeds=tune n=8 days=30 rivals=3
+==============================================================================================
+engine        n      mean$    median$    wdec10$       min$   win%  rank stockout  unused waste$/d    dec_s
+-----------------------------------------------------------------------------------------------------------
+baseline      8    9781.62    9896.38    8750.25    8750.25    100  1.00   0.562     5.7     26.2    0.074
+bot           8    9802.69    9906.38    9059.75    9059.75    100  1.00   0.637     3.9     16.1    0.096
+  baseline p10=9148.73  max_decide_s=0.233  sell_through=0.913  trading_days=240  sat_out=0
+  bot      p10=9353.05  max_decide_s=0.172  sell_through=0.941  trading_days=240  sat_out=0
+
+per-seed final cash
+seed              baseline         bot
+--------------------------------------
+tune-0            10037.50    10192.75
+tune-1             8750.25     9059.75
+tune-2             9755.25     9926.75
+tune-3            10116.75     9516.50
+tune-4             9319.50     9478.75
+tune-5             9741.00     9886.00
+tune-6            10234.00    10203.75
+tune-7            10298.75    10157.25
+
+paired: baseline vs bot   (n=8 seeds run on both)
+seed               baseline          bot         diff
+----------------------------------------------------
+tune-0             10037.50     10192.75      -155.25
+tune-1              8750.25      9059.75      -309.50
+tune-2              9755.25      9926.75      -171.50
+tune-3             10116.75      9516.50      +600.25
+tune-4              9319.50      9478.75      -159.25
+tune-5              9741.00      9886.00      -145.00
+tune-6             10234.00     10203.75       +30.25
+tune-7             10298.75     10157.25      +141.50
+----------------------------------------------------
+mean diff -21.06   median diff -150.12   sd 286.20
+95% CI (paired t, df=7): [-260.37, +218.25]
+seeds won: baseline=3  bot=5  ties=0
+paired t = -0.208, df=7, two-sided p = 0.8410 ; sign test p = 0.7266
+Small n: read the per-seed diffs, not the p-value. Tests are paired, n=8 (8 non-tied).
+
+per-spot breakdown [baseline] (pooled over 8 runs)
+spot        visits      profit$      $/visit sell-thru  stockout
+----------------------------------------------------------------
+union          108     28913.00       267.71     0.935     0.556
+highst          44     26200.75       595.47     0.957     0.682
+oval            73     20317.25       278.32     0.875     0.616
+thompson        15      2822.00       188.13     0.739     0.000
+
+per-spot breakdown [bot] (pooled over 8 runs)
+spot        visits      profit$      $/visit sell-thru  stockout
+----------------------------------------------------------------
+highst         200     65594.75       327.97     0.955     0.685
+oval            13      5194.50       399.58     0.834     0.462
+union           13      4779.75       367.67     0.978     0.615
+thompson        14      2852.50       203.75     0.784     0.143
+
+mean profit per day [baseline]
+  d01    299.1  d02    256.4  d03    319.2  d04    321.5  d05    459.1
+  d06    389.9  d07    287.1  d08    320.7  d09    207.6  d10    284.0
+  d11    379.9  d12    361.0  d13    518.7  d14    311.8  d15    371.3
+  d16    242.8  d17    294.6  d18    305.6  d19    266.0  d20    396.6
+  d21    146.2  d22    418.2  d23    300.0  d24    228.6  d25    335.2
+  d26    285.6  d27    334.7  d28    468.9  d29    345.4  d30    325.9
+
+mean profit per day [bot]
+  d01    325.1  d02    272.1  d03    322.7  d04    257.1  d05    395.9
+  d06    372.0  d07    297.0  d08    312.4  d09    185.2  d10    257.4
+  d11    342.1  d12    345.6  d13    479.9  d14    287.2  d15    357.1
+  d16    258.9  d17    318.1  d18    276.1  d19    284.0  d20    392.2
+  d21    201.9  d22    448.9  d23    326.9  d24    276.2  d25    357.0
+  d26    328.7  d27    353.4  d28    459.6  d29    384.9  d30    327.2
+
+JSON summary: C:\Users\pawan\OneDrive\Desktop\foodtruck\bench_results\v2_vs_base_tune.json
+Per-run records: C:\Users\pawan\OneDrive\Desktop\foodtruck\bench_results\v2_vs_base_tune.runs.jsonl

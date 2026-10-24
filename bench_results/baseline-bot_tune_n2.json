@@ -1,0 +1,957 @@
+{
+  "label": "baseline-bot_tune_n2",
+  "generated_at": "2026-10-23T20:55:32",
+  "config": {
+    "engines": [
+      "baseline",
+      "bot"
+    ],
+    "n": 2,
+    "seed_set": "tune",
+    "seeds": [
+      "tune-0",
+      "tune-1"
+    ],
+    "days": 30,
+    "rivals": 3,
+    "ablate": {},
+    "ablate_applies_to": null,
+    "market_timeout_s": 900,
+    "worst_decile_definition": "mean of the worst max(1, round(0.10*n)) runs; p10 is the interpolated 10th percentile"
+  },
+  "engines": {
+    "baseline": {
+      "n": 2,
+      "final_cash_mean": 9393.875,
+      "final_cash_median": 9393.875,
+      "final_cash_sd": 910.2232040823833,
+      "final_cash_min": 8750.25,
+      "final_cash_max": 10037.5,
+      "final_cash_p10": 8878.975,
+      "final_cash_worst_decile_mean": 8750.25,
+      "win_rate": 1.0,
+      "wins": 2,
+      "mean_rank": 1.0,
+      "trading_days": 60,
+      "sat_out_days": 0,
+      "stockout_rate": 0.5666666666666667,
+      "unused_units_per_trading_day": 6.466666666666667,
+      "unused_units_per_run": 194.0,
+      "wasted_cost_per_trading_day": 29.5,
+      "wasted_cost_per_run": 885.0,
+      "sell_through": 0.898932013545194,
+      "decide_s_mean": 0.08478333333333334,
+      "decide_s_max": 0.165,
+      "per_spot": {
+        "union": {
+          "visits": 28,
+          "profit": 7546.5,
+          "sold": 1327.0,
+          "meals": 1375.0,
+          "stockouts": 17,
+          "revenue": 15109.0,
+          "profit_per_visit": 269.51785714285717,
+          "stockout_rate": 0.6071428571428571
+        },
+        "highst": {
+          "visits": 11,
+          "profit": 6452.25,
+          "sold": 1077.0,
+          "meals": 1142.0,
+          "stockouts": 8,
+          "revenue": 10734.75,
+          "profit_per_visit": 586.5681818181819,
+          "stockout_rate": 0.7272727272727273
+        },
+        "oval": {
+          "visits": 16,
+          "profit": 3685.75,
+          "sold": 799.0,
+          "meals": 1011.0,
+          "stockouts": 9,
+          "revenue": 8730.0,
+          "profit_per_visit": 230.359375,
+          "stockout_rate": 0.5625
+        },
+        "thompson": {
+          "visits": 5,
+          "profit": 1103.25,
+          "sold": 248.0,
+          "meals": 311.0,
+          "stockouts": 0,
+          "revenue": 2484.75,
+          "profit_per_visit": 220.65,
+          "stockout_rate": 0.0
+        }
+      },
+      "profit_curve": [
+        {
+          "day": 1,
+          "mean_profit": 302.5,
+          "median_profit": 302.5,
+          "n": 2
+        },
+        {
+          "day": 2,
+          "mean_profit": 134.75,
+          "median_profit": 134.75,
+          "n": 2
+        },
+        {
+          "day": 3,
+          "mean_profit": 256.875,
+          "median_profit": 256.875,
+          "n": 2
+        },
+        {
+          "day": 4,
+          "mean_profit": 258.0,
+          "median_profit": 258.0,
+          "n": 2
+        },
+        {
+          "day": 5,
+          "mean_profit": 435.0,
+          "median_profit": 435.0,
+          "n": 2
+        },
+        {
+          "day": 6,
+          "mean_profit": 453.75,
+          "median_profit": 453.75,
+          "n": 2
+        },
+        {
+          "day": 7,
+          "mean_profit": 112.75,
+          "median_profit": 112.75,
+          "n": 2
+        },
+        {
+          "day": 8,
+          "mean_profit": 276.0,
+          "median_profit": 276.0,
+          "n": 2
+        },
+        {
+          "day": 9,
+          "mean_profit": 264.0,
+          "median_profit": 264.0,
+          "n": 2
+        },
+        {
+          "day": 10,
+          "mean_profit": 250.75,
+          "median_profit": 250.75,
+          "n": 2
+        },
+        {
+          "day": 11,
+          "mean_profit": 275.0,
+          "median_profit": 275.0,
+          "n": 2
+        },
+        {
+          "day": 12,
+          "mean_profit": 246.25,
+          "median_profit": 246.25,
+          "n": 2
+        },
+        {
+          "day": 13,
+          "mean_profit": 529.875,
+          "median_profit": 529.875,
+          "n": 2
+        },
+        {
+          "day": 14,
+          "mean_profit": 273.25,
+          "median_profit": 273.25,
+          "n": 2
+        },
+        {
+          "day": 15,
+          "mean_profit": 426.0,
+          "median_profit": 426.0,
+          "n": 2
+        },
+        {
+          "day": 16,
+          "mean_profit": 260.5,
+          "median_profit": 260.5,
+          "n": 2
+        },
+        {
+          "day": 17,
+          "mean_profit": 289.25,
+          "median_profit": 289.25,
+          "n": 2
+        },
+        {
+          "day": 18,
+          "mean_profit": 279.0,
+          "median_profit": 279.0,
+          "n": 2
+        },
+        {
+          "day": 19,
+          "mean_profit": 222.25,
+          "median_profit": 222.25,
+          "n": 2
+        },
+        {
+          "day": 20,
+          "mean_profit": 262.5,
+          "median_profit": 262.5,
+          "n": 2
+        },
+        {
+          "day": 21,
+          "mean_profit": 215.375,
+          "median_profit": 215.375,
+          "n": 2
+        },
+        {
+          "day": 22,
+          "mean_profit": 590.625,
+          "median_profit": 590.625,
+          "n": 2
+        },
+        {
+          "day": 23,
+          "mean_profit": 420.0,
+          "median_profit": 420.0,
+          "n": 2
+        },
+        {
+          "day": 24,
+          "mean_profit": 257.5,
+          "median_profit": 257.5,
+          "n": 2
+        },
+        {
+          "day": 25,
+          "mean_profit": 368.5,
+          "median_profit": 368.5,
+          "n": 2
+        },
+        {
+          "day": 26,
+          "mean_profit": 154.0,
+          "median_profit": 154.0,
+          "n": 2
+        },
+        {
+          "day": 27,
+          "mean_profit": 320.5,
+          "median_profit": 320.5,
+          "n": 2
+        },
+        {
+          "day": 28,
+          "mean_profit": 452.25,
+          "median_profit": 452.25,
+          "n": 2
+        },
+        {
+          "day": 29,
+          "mean_profit": 383.75,
+          "median_profit": 383.75,
+          "n": 2
+        },
+        {
+          "day": 30,
+          "mean_profit": 423.125,
+          "median_profit": 423.125,
+          "n": 2
+        }
+      ],
+      "seeds": [
+        "tune-0",
+        "tune-1"
+      ],
+      "final_cash_by_seed": {
+        "tune-0": 10037.5,
+        "tune-1": 8750.25
+      }
+    },
+    "bot": {
+      "n": 2,
+      "final_cash_mean": 9626.25,
+      "final_cash_median": 9626.25,
+      "final_cash_sd": 801.1519830843583,
+      "final_cash_min": 9059.75,
+      "final_cash_max": 10192.75,
+      "final_cash_p10": 9173.05,
+      "final_cash_worst_decile_mean": 9059.75,
+      "win_rate": 1.0,
+      "wins": 2,
+      "mean_rank": 1.0,
+      "trading_days": 60,
+      "sat_out_days": 0,
+      "stockout_rate": 0.6333333333333333,
+      "unused_units_per_trading_day": 4.65,
+      "unused_units_per_run": 139.5,
+      "wasted_cost_per_trading_day": 18.8375,
+      "wasted_cost_per_run": 565.125,
+      "sell_through": 0.9295632416056552,
+      "decide_s_mean": 0.10236666666666666,
+      "decide_s_max": 0.2,
+      "per_spot": {
+        "highst": {
+          "visits": 50,
+          "profit": 16393.25,
+          "sold": 3118.0,
+          "meals": 3281.0,
+          "stockouts": 34,
+          "revenue": 29894.0,
+          "profit_per_visit": 327.865,
+          "stockout_rate": 0.68
+        },
+        "thompson": {
+          "visits": 5,
+          "profit": 1292.5,
+          "sold": 226.0,
+          "meals": 258.0,
+          "stockouts": 2,
+          "revenue": 2260.0,
+          "profit_per_visit": 258.5,
+          "stockout_rate": 0.4
+        },
+        "oval": {
+          "visits": 3,
+          "profit": 970.25,
+          "sold": 196.0,
+          "meals": 277.0,
+          "stockouts": 1,
+          "revenue": 2009.0,
+          "profit_per_visit": 323.4166666666667,
+          "stockout_rate": 0.3333333333333333
+        },
+        "union": {
+          "visits": 2,
+          "profit": 596.5,
+          "sold": 142.0,
+          "meals": 145.0,
+          "stockouts": 1,
+          "revenue": 1394.0,
+          "profit_per_visit": 298.25,
+          "stockout_rate": 0.5
+        }
+      },
+      "profit_curve": [
+        {
+          "day": 1,
+          "mean_profit": 324.5,
+          "median_profit": 324.5,
+          "n": 2
+        },
+        {
+          "day": 2,
+          "mean_profit": 251.25,
+          "median_profit": 251.25,
+          "n": 2
+        },
+        {
+          "day": 3,
+          "mean_profit": 288.25,
+          "median_profit": 288.25,
+          "n": 2
+        },
+        {
+          "day": 4,
+          "mean_profit": 155.375,
+          "median_profit": 155.375,
+          "n": 2
+        },
+        {
+          "day": 5,
+          "mean_profit": 387.375,
+          "median_profit": 387.375,
+          "n": 2
+        },
+        {
+          "day": 6,
+          "mean_profit": 409.375,
+          "median_profit": 409.375,
+          "n": 2
+        },
+        {
+          "day": 7,
+          "mean_profit": 221.0,
+          "median_profit": 221.0,
+          "n": 2
+        },
+        {
+          "day": 8,
+          "mean_profit": 257.875,
+          "median_profit": 257.875,
+          "n": 2
+        },
+        {
+          "day": 9,
+          "mean_profit": 264.5,
+          "median_profit": 264.5,
+          "n": 2
+        },
+        {
+          "day": 10,
+          "mean_profit": 250.625,
+          "median_profit": 250.625,
+          "n": 2
+        },
+        {
+          "day": 11,
+          "mean_profit": 281.75,
+          "median_profit": 281.75,
+          "n": 2
+        },
+        {
+          "day": 12,
+          "mean_profit": 281.75,
+          "median_profit": 281.75,
+          "n": 2
+        },
+        {
+          "day": 13,
+          "mean_profit": 485.125,
+          "median_profit": 485.125,
+          "n": 2
+        },
+        {
+          "day": 14,
+          "mean_profit": 270.75,
+          "median_profit": 270.75,
+          "n": 2
+        },
+        {
+          "day": 15,
+          "mean_profit": 394.25,
+          "median_profit": 394.25,
+          "n": 2
+        },
+        {
+          "day": 16,
+          "mean_profit": 223.875,
+          "median_profit": 223.875,
+          "n": 2
+        },
+        {
+          "day": 17,
+          "mean_profit": 282.375,
+          "median_profit": 282.375,
+          "n": 2
+        },
+        {
+          "day": 18,
+          "mean_profit": 283.0,
+          "median_profit": 283.0,
+          "n": 2
+        },
+        {
+          "day": 19,
+          "mean_profit": 245.75,
+          "median_profit": 245.75,
+          "n": 2
+        },
+        {
+          "day": 20,
+          "mean_profit": 286.875,
+          "median_profit": 286.875,
+          "n": 2
+        },
+        {
+          "day": 21,
+          "mean_profit": 273.125,
+          "median_profit": 273.125,
+          "n": 2
+        },
+        {
+          "day": 22,
+          "mean_profit": 605.375,
+          "median_profit": 605.375,
+          "n": 2
+        },
+        {
+          "day": 23,
+          "mean_profit": 393.75,
+          "median_profit": 393.75,
+          "n": 2
+        },
+        {
+          "day": 24,
+          "mean_profit": 269.75,
+          "median_profit": 269.75,
+          "n": 2
+        },
+        {
+          "day": 25,
+          "mean_profit": 429.0,
+          "median_profit": 429.0,
+          "n": 2
+        },
+        {
+          "day": 26,
+          "mean_profit": 243.25,
+          "median_profit": 243.25,
+          "n": 2
+        },
+        {
+          "day": 27,
+          "mean_profit": 329.0,
+          "median_profit": 329.0,
+          "n": 2
+        },
+        {
+          "day": 28,
+          "mean_profit": 459.25,
+          "median_profit": 459.25,
+          "n": 2
+        },
+        {
+          "day": 29,
+          "mean_profit": 389.625,
+          "median_profit": 389.625,
+          "n": 2
+        },
+        {
+          "day": 30,
+          "mean_profit": 388.5,
+          "median_profit": 388.5,
+          "n": 2
+        }
+      ],
+      "seeds": [
+        "tune-0",
+        "tune-1"
+      ],
+      "final_cash_by_seed": {
+        "tune-0": 10192.75,
+        "tune-1": 9059.75
+      }
+    }
+  },
+  "paired": [
+    {
+      "a": "baseline",
+      "b": "bot",
+      "n_paired": 2,
+      "per_seed": [
+        {
+          "seed": "tune-0",
+          "a_cash": 10037.5,
+          "b_cash": 10192.75,
+          "diff": -155.25
+        },
+        {
+          "seed": "tune-1",
+          "a_cash": 8750.25,
+          "b_cash": 9059.75,
+          "diff": -309.5
+        }
+      ],
+      "mean_diff": -232.375,
+      "median_diff": -232.375,
+      "sd_diff": 109.07122099802496,
+      "se_diff": 77.125,
+      "ci95_diff": [
+        -1212.3252499999999,
+        747.57525
+      ],
+      "wins_a": 0,
+      "wins_b": 2,
+      "ties": 0,
+      "paired_t": -3.012965964343598,
+      "paired_t_df": 1,
+      "paired_t_p": 0.20401052457207688,
+      "sign_test_p": 0.5,
+      "note": "Small n: read the per-seed diffs, not the p-value. Tests are paired, n=2 (2 non-tied)."
+    }
+  ],
+  "runs": {
+    "baseline": [
+      {
+        "engine": "baseline",
+        "seed": "tune-0",
+        "ok": true,
+        "final_cash": 10037.5,
+        "rank": 1,
+        "field_size": 4,
+        "best_rival_cash": -2358.0,
+        "days_recorded": 30,
+        "trading_days": 30,
+        "sat_out_days": 0,
+        "profit_from_history": 10037.5,
+        "stockout_days": 21,
+        "stockout_rate": 0.7,
+        "unused_units_total": 149.0,
+        "unused_units_per_trading_day": 4.966666666666667,
+        "wasted_cost_total": 698.75,
+        "wasted_cost_per_trading_day": 23.291666666666668,
+        "meals_total": 1945.0,
+        "sold_total": 1796.0,
+        "revenue_total": 19384.0,
+        "sell_through": 0.9233933161953728,
+        "profit_curve": [
+          313.5,
+          -11.0,
+          276.0,
+          286.0,
+          288.0,
+          666.0,
+          -38.5,
+          276.0,
+          275.0,
+          540.0,
+          302.5,
+          302.5,
+          441.75,
+          282.0,
+          276.0,
+          302.5,
+          302.5,
+          282.0,
+          147.5,
+          330.0,
+          261.0,
+          997.5,
+          288.0,
+          313.5,
+          173.0,
+          242.0,
+          275.0,
+          624.0,
+          465.0,
+          558.25
+        ],
+        "per_spot": {
+          "oval": {
+            "visits": 9,
+            "profit": 2345.75,
+            "sold": 462.0,
+            "meals": 522.0,
+            "stockouts": 7,
+            "revenue": 5082.0
+          },
+          "union": {
+            "visits": 13,
+            "profit": 3759.0,
+            "sold": 652.0,
+            "meals": 666.0,
+            "stockouts": 11,
+            "revenue": 7422.0
+          },
+          "highst": {
+            "visits": 5,
+            "profit": 3194.25,
+            "sold": 526.0,
+            "meals": 569.0,
+            "stockouts": 3,
+            "revenue": 5328.0
+          },
+          "thompson": {
+            "visits": 3,
+            "profit": 738.5,
+            "sold": 156.0,
+            "meals": 188.0,
+            "stockouts": 0,
+            "revenue": 1552.0
+          }
+        },
+        "decide_s_mean": 0.08946666666666667,
+        "decide_s_max": 0.165,
+        "decide_s_n": 30,
+        "wall_s": 18.48,
+        "log_path": "C:\\Users\\pawan\\OneDrive\\Desktop\\foodtruck\\bench_results\\logs\\baseline-bot_tune_n2\\baseline__tune-0.jsonl"
+      },
+      {
+        "engine": "baseline",
+        "seed": "tune-1",
+        "ok": true,
+        "final_cash": 8750.25,
+        "rank": 1,
+        "field_size": 4,
+        "best_rival_cash": -4912.0,
+        "days_recorded": 30,
+        "trading_days": 30,
+        "sat_out_days": 0,
+        "profit_from_history": 8750.25,
+        "stockout_days": 13,
+        "stockout_rate": 0.43333333333333335,
+        "unused_units_total": 239.0,
+        "unused_units_per_trading_day": 7.966666666666667,
+        "wasted_cost_total": 1071.25,
+        "wasted_cost_per_trading_day": 35.708333333333336,
+        "meals_total": 1894.0,
+        "sold_total": 1655.0,
+        "revenue_total": 17674.5,
+        "sell_through": 0.8738120380147836,
+        "profit_curve": [
+          291.5,
+          280.5,
+          237.75,
+          230.0,
+          582.0,
+          241.5,
+          264.0,
+          276.0,
+          253.0,
+          -38.5,
+          247.5,
+          190.0,
+          618.0,
+          264.5,
+          576.0,
+          218.5,
+          276.0,
+          276.0,
+          297.0,
+          195.0,
+          169.75,
+          183.75,
+          552.0,
+          201.5,
+          564.0,
+          66.0,
+          366.0,
+          280.5,
+          302.5,
+          288.0
+        ],
+        "per_spot": {
+          "oval": {
+            "visits": 7,
+            "profit": 1340.0,
+            "sold": 337.0,
+            "meals": 489.0,
+            "stockouts": 2,
+            "revenue": 3648.0
+          },
+          "union": {
+            "visits": 15,
+            "profit": 3787.5,
+            "sold": 675.0,
+            "meals": 709.0,
+            "stockouts": 6,
+            "revenue": 7687.0
+          },
+          "highst": {
+            "visits": 6,
+            "profit": 3258.0,
+            "sold": 551.0,
+            "meals": 573.0,
+            "stockouts": 5,
+            "revenue": 5406.75
+          },
+          "thompson": {
+            "visits": 2,
+            "profit": 364.75,
+            "sold": 92.0,
+            "meals": 123.0,
+            "stockouts": 0,
+            "revenue": 932.75
+          }
+        },
+        "decide_s_mean": 0.0801,
+        "decide_s_max": 0.139,
+        "decide_s_n": 30,
+        "wall_s": 24.03,
+        "log_path": "C:\\Users\\pawan\\OneDrive\\Desktop\\foodtruck\\bench_results\\logs\\baseline-bot_tune_n2\\baseline__tune-1.jsonl"
+      }
+    ],
+    "bot": [
+      {
+        "engine": "bot",
+        "seed": "tune-0",
+        "ok": true,
+        "final_cash": 10192.75,
+        "rank": 1,
+        "field_size": 4,
+        "best_rival_cash": 2514.0,
+        "days_recorded": 30,
+        "trading_days": 30,
+        "sat_out_days": 0,
+        "profit_from_history": 10192.75,
+        "stockout_days": 20,
+        "stockout_rate": 0.6666666666666666,
+        "unused_units_total": 103.0,
+        "unused_units_per_trading_day": 3.433333333333333,
+        "wasted_cost_total": 428.25,
+        "wasted_cost_per_trading_day": 14.275,
+        "meals_total": 1982.0,
+        "sold_total": 1879.0,
+        "revenue_total": 18370.75,
+        "sell_through": 0.9480322906155398,
+        "profit_curve": [
+          338.0,
+          238.5,
+          294.0,
+          119.25,
+          288.75,
+          603.25,
+          180.75,
+          253.25,
+          270.25,
+          405.0,
+          293.25,
+          293.25,
+          409.75,
+          275.5,
+          270.75,
+          299.25,
+          309.75,
+          274.5,
+          172.5,
+          325.0,
+          331.25,
+          997.5,
+          288.75,
+          256.0,
+          302.5,
+          265.5,
+          302.5,
+          610.5,
+          449.25,
+          474.5
+        ],
+        "per_spot": {
+          "highst": {
+            "visits": 25,
+            "profit": 8484.5,
+            "sold": 1575.0,
+            "meals": 1664.0,
+            "stockouts": 16,
+            "revenue": 15312.5
+          },
+          "union": {
+            "visits": 1,
+            "profit": 405.0,
+            "sold": 90.0,
+            "meals": 90.0,
+            "stockouts": 1,
+            "revenue": 900.0
+          },
+          "thompson": {
+            "visits": 3,
+            "profit": 828.75,
+            "sold": 141.0,
+            "meals": 155.0,
+            "stockouts": 2,
+            "revenue": 1410.0
+          },
+          "oval": {
+            "visits": 1,
+            "profit": 474.5,
+            "sold": 73.0,
+            "meals": 73.0,
+            "stockouts": 1,
+            "revenue": 748.25
+          }
+        },
+        "decide_s_mean": 0.10656666666666667,
+        "decide_s_max": 0.172,
+        "decide_s_n": 30,
+        "wall_s": 22.94,
+        "log_path": "C:\\Users\\pawan\\OneDrive\\Desktop\\foodtruck\\bench_results\\logs\\baseline-bot_tune_n2\\bot__tune-0.jsonl"
+      },
+      {
+        "engine": "bot",
+        "seed": "tune-1",
+        "ok": true,
+        "final_cash": 9059.75,
+        "rank": 1,
+        "field_size": 4,
+        "best_rival_cash": 57.0,
+        "days_recorded": 30,
+        "trading_days": 30,
+        "sat_out_days": 0,
+        "profit_from_history": 9059.75,
+        "stockout_days": 18,
+        "stockout_rate": 0.6,
+        "unused_units_total": 176.0,
+        "unused_units_per_trading_day": 5.866666666666666,
+        "wasted_cost_total": 702.0,
+        "wasted_cost_per_trading_day": 23.4,
+        "meals_total": 1979.0,
+        "sold_total": 1803.0,
+        "revenue_total": 17186.25,
+        "sell_through": 0.911066195048004,
+        "profit_curve": [
+          311.0,
+          264.0,
+          282.5,
+          191.5,
+          486.0,
+          215.5,
+          261.25,
+          262.5,
+          258.75,
+          96.25,
+          270.25,
+          270.25,
+          560.5,
+          266.0,
+          517.75,
+          148.5,
+          255.0,
+          291.5,
+          319.0,
+          248.75,
+          215.0,
+          213.25,
+          498.75,
+          283.5,
+          555.5,
+          221.0,
+          355.5,
+          308.0,
+          330.0,
+          302.5
+        ],
+        "per_spot": {
+          "highst": {
+            "visits": 25,
+            "profit": 7908.75,
+            "sold": 1543.0,
+            "meals": 1617.0,
+            "stockouts": 18,
+            "revenue": 14581.5
+          },
+          "oval": {
+            "visits": 2,
+            "profit": 495.75,
+            "sold": 123.0,
+            "meals": 204.0,
+            "stockouts": 0,
+            "revenue": 1260.75
+          },
+          "union": {
+            "visits": 1,
+            "profit": 191.5,
+            "sold": 52.0,
+            "meals": 55.0,
+            "stockouts": 0,
+            "revenue": 494.0
+          },
+          "thompson": {
+            "visits": 2,
+            "profit": 463.75,
+            "sold": 85.0,
+            "meals": 103.0,
+            "stockouts": 0,
+            "revenue": 850.0
+          }
+        },
+        "decide_s_mean": 0.09816666666666667,
+        "decide_s_max": 0.2,
+        "decide_s_n": 30,
+        "wall_s": 22.67,
+        "log_path": "C:\\Users\\pawan\\OneDrive\\Desktop\\foodtruck\\bench_results\\logs\\baseline-bot_tune_n2\\bot__tune-1.jsonl"
+      }
+    ]
+  },
+  "failures": [],
+  "output_path": "C:\\Users\\pawan\\OneDrive\\Desktop\\foodtruck\\bench_results\\baseline-bot_tune_n2.json",
+  "runs_path": "C:\\Users\\pawan\\OneDrive\\Desktop\\foodtruck\\bench_results\\baseline-bot_tune_n2.runs.jsonl",
+  "wall_s": 92.2
+}

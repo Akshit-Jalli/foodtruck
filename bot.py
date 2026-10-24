@@ -7,13 +7,24 @@ A first-party client for https://nightshift.joinbuilders.org
     python bot.py --bench 8               # 8 seeded practice markets, averaged
     python bot.py                         # play the live game (leave running)
 
-Strategy lives in decide(). Everything below it is plumbing.
+The decision engine is decide(); everything below `plumbing` is transport.
+
+Model, in short. Each customer has a private price limit and a private
+minimum quality, and buys from whichever truck they can afford that offers
+the best `value = quality_value * reputation_factor - price`. So our sales
+are not a demand curve we control: they are what is left after every rival's
+offer is scored against ours, customer by customer, until somebody sells out.
+decide() therefore (1) predicts where the rivals park and what they charge,
+(2) reconstructs their per-spot reputation from public history, (3) simulates
+the resulting scramble for every spot/quality/price we could pick, and
+(4) chooses the meal count by newsvendor over the spread of outcomes, with a
+penalty on the bad tail and credit for the reputation a day's trading builds.
 """
 import argparse
+import ast
 import json
 import math
 import os
-import random
 import statistics
 import sys
 import time
@@ -30,30 +41,68 @@ QRANK = {"cheap": 0, "standard": 1, "premium": 2}
 QVALUE = {"cheap": 8.0, "standard": 12.0, "premium": 16.0}
 QCOST = {"cheap": 2.50, "standard": 3.75, "premium": 5.50}
 QREP = {"cheap": -3.0, "standard": 2.0, "premium": 5.0}
+REP_SLOPE = 0.006          # d(reputation_factor)/d(reputation point)
+REP_DRIFT = 0.03           # fraction of the gap to 50 closed per day away
 
-# Per-spot customer priors, read off the docs ("Campus spots").
-# limit_mean/sd: the customer's private price ceiling, normally distributed.
-# qmin: P(minimum quality is cheap / standard / premium).
+# Per-spot customer priors, from the docs and refined by fit.py against
+# observed play. limit_mean/sd describe the private price ceiling; qmin is
+# P(minimum quality is cheap / standard / premium).
 SPOTS = {
     "highst":   {"limit_mean": 12.0, "limit_sd": 3.0, "qmin": (0.50, 0.35, 0.15)},
-    "oval":     {"limit_mean": 13.0, "limit_sd": 2.3, "qmin": (0.30, 0.50, 0.20)},
-    "union":    {"limit_mean": 13.0, "limit_sd": 2.2, "qmin": (0.22, 0.53, 0.25)},
+    "oval":     {"limit_mean": 12.4, "limit_sd": 2.3, "qmin": (0.30, 0.50, 0.20)},
+    "union":    {"limit_mean": 12.8, "limit_sd": 2.2, "qmin": (0.22, 0.47, 0.31)},
     "northres": {"limit_mean": 11.0, "limit_sd": 2.1, "qmin": (0.45, 0.45, 0.10)},
     "thompson": {"limit_mean": 12.0, "limit_sd": 2.3, "qmin": (0.45, 0.40, 0.15)},
     "stadium":  {"limit_mean": 13.0, "limit_sd": 2.6, "qmin": (0.25, 0.50, 0.25)},
 }
 
-# Tunables. Swept with --sweep.
+# fit.py's maximum-likelihood priors, from 854 designed observations, cut
+# out-of-sample demand error from 4.99 to 4.41 meals RMSE (better at 5 of 6
+# spots) - and then lost $238/market over 8 paired seeds, 2 wins to 6. Better
+# average demand prediction is not better decisions: profit turns on exactly
+# where the price-limit curve falls away, not on the average fit. Not adopted.
+FITTED_SPOTS = {
+    "highst":   {"limit_mean": 12.12, "limit_sd": 3.16, "qmin": (0.50, 0.32, 0.18)},
+    "oval":     {"limit_mean": 12.65, "limit_sd": 2.52, "qmin": (0.33, 0.48, 0.19)},
+    "union":    {"limit_mean": 12.80, "limit_sd": 1.98, "qmin": (0.28, 0.41, 0.31)},
+    "northres": {"limit_mean": 11.25, "limit_sd": 2.41, "qmin": (0.47, 0.42, 0.11)},
+    "thompson": {"limit_mean": 12.00, "limit_sd": 2.83, "qmin": (0.41, 0.44, 0.15)},
+    "stadium":  {"limit_mean": 13.50, "limit_sd": 2.63, "qmin": (0.34, 0.40, 0.27)},
+}
+
 P = {
-    "rep_bonus": 5.0,        # $ per point of reputation gained, at full horizon
-    "rep_horizon": 12.0,     # days over which reputation keeps paying
-    "crowd_mults": ((0.70, 0.15), (0.85, 0.20), (1.00, 0.30), (1.15, 0.20), (1.35, 0.15)),
-    "intruder_p": 0.45,      # chance an unpredicted rival shows up at my spot
-    "risk_lambda": 0.55,     # how hard to penalise the bad tail
+    # risk
+    "risk_lambda": 0.55,     # weight on the bad tail
     "risk_tail": 0.30,       # what counts as the bad tail
+    # uncertainty
+    "crowd_mults": ((0.70, 0.15), (0.85, 0.20), (1.00, 0.30), (1.15, 0.20), (1.35, 0.15)),
+    "intruder_p": 0.45,      # chance an unpredicted rival shows up at our spot
+    # Rivals do not repeat their price to the cent, and winning the value
+    # contest is a cliff: a rival shaving 25c can take every customer. So
+    # carry a spread of rival prices and prefer a pitch that survives it.
+    "rival_price_shifts": ((-0.60, 0.30), (0.0, 0.50), (0.45, 0.20)),
+    # reputation
+    "rep_revisit_floor": 0.25,
+    "rep_max_horizon": 15,
+    "rep_discount": 0.97,
+    "rep_bonus": 5.0,        # only used when use_repvalue is off
+    "rep_horizon": 12.0,
+    # search
     "price_step": 0.25,
     "shortlist": 18,
     "limit_cells": 18,
+    # feature flags, for ablation
+    "use_reptracker": True,     # reconstruct rivals' per-spot reputation
+    "use_mobility": True,       # probabilistic rival locations
+    "use_repvalue": True,       # value-function reputation credit
+    "stage1_newsvendor": True,  # inventory-aware screening
+    "dedup_intruder": True,     # do not clone a rival onto its own spot
+    # Measured: costs ~3.6% against the house bots (0 wins in 8 paired seeds),
+    # because it gives up margin to guard against undercutting they never try.
+    # Kept for the live field, where rivals do move their prices.
+    "use_price_jitter": False,
+    "use_herding": True,        # rivals pile onto the night's obvious spot
+    "herd_p": 0.40,
 }
 
 
@@ -61,8 +110,12 @@ def repfactor(rep):
     return 0.7 + 0.6 * rep / 100.0
 
 
+def clamp(x, lo, hi):
+    return lo if x < lo else (hi if x > hi else x)
+
+
 def norm_ppf(p):
-    """Inverse normal CDF (Acklam's approximation, plenty accurate here)."""
+    """Inverse normal CDF (Acklam's approximation)."""
     a = (-3.969683028665376e+01, 2.209460984245205e+02, -2.759285104469687e+02,
          1.383577518672690e+02, -3.066479806614716e+01, 2.506628277459239e+00)
     b = (-5.447609879822406e+01, 1.615858368580409e+02, -1.556989798598866e+02,
@@ -84,7 +137,7 @@ def norm_ppf(p):
 
 
 def cells_for(spot, n_cells):
-    """Discretise the customer population into (weight, min_rank, price_limit) cells."""
+    """Discretise the customers into (weight, min_rank, price_limit) cells."""
     cfg = SPOTS[spot]
     out = []
     for rank, pq in enumerate(cfg["qmin"]):
@@ -97,16 +150,172 @@ def cells_for(spot, n_cells):
     return out
 
 
+def budget_max(quality, budget=500.0):
+    return int(budget // QCOST[quality])
+
+
+# Each spot's share of the crowd on an ordinary clear day, from the docs.
+SHARES = {"highst": 0.24, "oval": 0.20, "union": 0.18,
+          "northres": 0.16, "thompson": 0.14, "stadium": 0.08}
+
+
+def expected_crowds(state, spots):
+    """Tomorrow's crowd per spot, with a sane floor if the forecast is absent.
+
+    A missing or all-zero forecast is a data fault, not an empty campus: the
+    market is about 110 customers per truck over at least 4 trucks. Falling
+    back to the documented shares beats both guessing zero (sit out for
+    nothing) and the old blind 133-meal default (risk the whole budget).
+    """
+    exp = ((state.get("forecast") or {}).get("expected_customers")) or {}
+    out = {s: float(exp.get(s) or 0.0) for s in spots}
+    if sum(out.values()) > 0:
+        return out
+    trucks = max(4, len(state.get("trucks") or []) or 4)
+    total = 110.0 * trucks
+    return {s: total * SHARES.get(s, 1.0 / max(1, len(spots))) for s in spots}
+
+
+# ------------------------------------------------------------------ memory
+
+class Memory:
+    """What we have seen. Rivals' per-spot reputation and where they park.
+
+    Reputation is private in the state we receive - `trucks` only reports an
+    average across all six spots - but its dynamics are deterministic and
+    every truck's spot and quality is public in last_day. So we replay the
+    rules and recover each rival's reputation at each spot exactly.
+    """
+
+    def __init__(self):
+        self.reset()
+
+    def reset(self):
+        self.rep = defaultdict(dict)        # truck id -> spot -> reputation
+        self.spots = defaultdict(list)      # truck id -> [spot, newest last]
+        self.mine = []                      # our own spots, newest last
+        self.key = None
+        self.days = 0
+
+    def _market_key(self, state):
+        return (state.get("mode"), state.get("market"))
+
+    def observe_day(self, last, me=None):
+        """Fold one completed day into memory. `last` is a last_day object."""
+        spots = last.get("spots") or {}
+        sold_at = {}
+        for spot, info in spots.items():
+            for t in info.get("trucks", []):
+                tid = t.get("id")
+                if not tid:
+                    continue
+                sold_at[(tid, spot)] = (float(t.get("sold") or 0), t.get("quality", "standard"))
+                self.spots[tid].append(spot)
+                if me and tid == me:
+                    self.mine.append(spot)
+        seen = {tid for tid, _ in sold_at}
+        for tid in set(list(self.rep.keys())) | seen:
+            cur = self.rep[tid]
+            for spot in SPOTS:
+                r = cur.get(spot, 50.0)
+                hit = sold_at.get((tid, spot))
+                if hit is None:
+                    r += (50.0 - r) * REP_DRIFT     # away: drift back toward 50
+                elif hit[0] >= 1:
+                    r = clamp(r + QREP[hit[1]], 0.0, 100.0)
+                # Parked but sold nothing: reputation does not move at all.
+                # The docs say unvisited spots drift, which reads as though a
+                # shut-out day drifts too. It does not. Replaying 960 observed
+                # truck-days: drifting on a shut-out mismatches the server
+                # 175 times (max 12.07 points), holding steady mismatches 0.
+                cur[spot] = r
+        self.days += 1
+
+    def sync(self, state):
+        """Called each night. Resets between markets, folds in the new day."""
+        k = self._market_key(state)
+        if k != self.key:
+            self.reset()
+            self.key = k
+        last = state.get("last_day") or {}
+        day = last.get("day")
+        if day and day != getattr(self, "_last_seen", None):
+            self._last_seen = day
+            self.observe_day(last, me=(state.get("you") or {}).get("id"))
+
+    def rep_at(self, tid, spot, fallback=50.0):
+        if not P["use_reptracker"]:
+            return fallback
+        got = self.rep.get(tid)
+        if not got or spot not in got:
+            return fallback
+        return got[spot]
+
+    def spot_probs(self, tid, half_life=4.0):
+        """Where this truck parks, weighted to recent days, Laplace-smoothed."""
+        hist = self.spots.get(tid) or []
+        if not hist:
+            return None
+        w = defaultdict(float)
+        total = 0.0
+        for i, spot in enumerate(reversed(hist)):
+            wt = 0.5 ** (i / half_life)
+            w[spot] += wt
+            total += wt
+        alpha = 1.5
+        n = len(SPOTS)
+        return {s: (w.get(s, 0.0) + alpha / n) / (total + alpha) for s in SPOTS}
+
+    def my_revisit_p(self, spot):
+        """How often we come back to a spot, used to value reputation there."""
+        if not self.mine:
+            return 0.5
+        recent = self.mine[-10:]
+        p = sum(1 for s in recent if s == spot) / float(len(recent))
+        return max(P["rep_revisit_floor"], p)
+
+
+MEM = Memory()
+
+
+def preload_memory(path="days.jsonl", mode="live", market=1):
+    """Replay the archived live days so a restarted bot keeps its history."""
+    try:
+        f = open(path, encoding="utf-8")
+    except OSError:
+        return 0
+    rows = []
+    with f:
+        for line in f:
+            try:
+                r = json.loads(line)
+            except ValueError:
+                continue
+            if r.get("mode") == mode and r.get("market") == market and r.get("day"):
+                rows.append(r)
+    rows.sort(key=lambda r: r["day"])
+    MEM.reset()
+    MEM.key = (mode, market)
+    me = None
+    for r in rows:
+        if not me:
+            me = ((r.get("you") or {}).get("id"))
+        MEM.observe_day(r, me=me)
+        MEM._last_seen = r["day"]
+    return len(rows)
+
+
 # ------------------------------------------------------------------ market model
 
 class Truck:
-    __slots__ = ("value", "price", "qrank", "cap")
+    __slots__ = ("value", "price", "qrank", "cap", "tid")
 
-    def __init__(self, value, price, qrank, cap):
+    def __init__(self, value, price, qrank, cap, tid=None):
         self.value = value
         self.price = price
         self.qrank = qrank
         self.cap = cap
+        self.tid = tid
 
 
 def beats(a, b):
@@ -119,7 +328,7 @@ def beats(a, b):
 
 
 def allocate(cells, trucks, n_customers):
-    """Assign customers to trucks, respecting sell-outs. Returns sales per truck."""
+    """Assign customers to trucks, respecting sell-outs. Sales per truck."""
     sales = [0.0] * len(trucks)
     cap = [t.cap for t in trucks]
     weights = [w * n_customers for (w, _, _) in cells]
@@ -142,83 +351,27 @@ def allocate(cells, trucks, n_customers):
                 choice[ci] = best
         if not demand:
             break
-        frac = {}
-        for ti, d in demand.items():
-            frac[ti] = 1.0 if d <= cap[ti] else cap[ti] / d
+        frac = {ti: (1.0 if d <= cap[ti] else cap[ti] / d) for ti, d in demand.items()}
         for ti, d in demand.items():
             take = d * frac[ti]
             sales[ti] += take
             cap[ti] -= take
         spill = False
-        for ci, ti in choice.items():
-            left = weights[ci] * (1.0 - frac[ti])
-            if left > 1e-9:
-                spill = True
-            weights[ci] = left
         for ci in range(len(weights)):
-            if ci not in choice:
+            ti = choice.get(ci)
+            if ti is None:
                 weights[ci] = 0.0
+                continue
+            weights[ci] *= (1.0 - frac[ti])
+            if weights[ci] > 1e-9:
+                spill = True
         if not spill:
             break
     return sales
 
 
-# ------------------------------------------------------------------ rivals
-
-def predict_rivals(state):
-    """Assume every truck repeats yesterday's parking spot, price and quality."""
-    me = state["you"]["id"]
-    rep_avg = {t["id"]: t.get("reputation_avg", 50.0) for t in state.get("trucks", [])}
-    last = state.get("last_day") or {}
-    out = []
-    for spot, info in (last.get("spots") or {}).items():
-        for t in info.get("trucks", []):
-            if t["id"] == me:
-                continue
-            q = t.get("quality", "standard")
-            rep = rep_avg.get(t["id"], 50.0)
-            out.append({
-                "id": t["id"], "spot": spot, "price": float(t.get("price", 11.0)),
-                "quality": q, "rep": rep,
-                "meals": float(t.get("meals") or budget_max(q)),
-            })
-    if not out:
-        # Day 1: nothing observed. Assume the field spreads over the busy spots.
-        others = [t for t in state.get("trucks", []) if t["id"] != me]
-        ring = ["highst", "oval", "union", "northres", "thompson", "stadium"]
-        for i, t in enumerate(others):
-            out.append({"id": t["id"], "spot": ring[i % len(ring)], "price": 11.0,
-                        "quality": "standard", "rep": 50.0, "meals": 133.0})
-    return out
-
-
-def strongest_rival(rivals):
-    """The most dangerous truck in the field: what it costs us if it moves in."""
-    best = None
-    for r in rivals:
-        v = QVALUE[r["quality"]] * repfactor(r["rep"]) - r["price"]
-        if best is None or v > best[0]:
-            best = (v, r)
-    if best is None:
-        return Truck(QVALUE["standard"] - 10.5, 10.5, 1, 133.0)
-    v, r = best
-    return Truck(v, r["price"], QRANK[r["quality"]], r["meals"])
-
-
-def rival_trucks_at(rivals, spot, intruder=None):
-    ts = []
-    for r in rivals:
-        if r["spot"] != spot:
-            continue
-        v = QVALUE[r["quality"]] * repfactor(r["rep"]) - r["price"]
-        ts.append(Truck(v, r["price"], QRANK[r["quality"]], r["meals"]))
-    if intruder is not None:
-        ts.append(intruder)
-    return ts
-
-
 def tail_mean(outcomes, frac):
-    """Average profit over the worst `frac` of the probability mass (a CVaR)."""
+    """Average profit over the worst `frac` of the probability mass (CVaR)."""
     xs = sorted(outcomes)
     acc, tot = 0.0, 0.0
     for p, w in xs:
@@ -230,36 +383,221 @@ def tail_mean(outcomes, frac):
     return acc / tot if tot > 0 else xs[0][0]
 
 
-def budget_max(quality, budget=500.0):
-    return int(budget // QCOST[quality])
+def meal_grid(demands, hardcap):
+    """Expected profit is piecewise linear in meals, kinked at each scenario's
+    demand, so the optimum sits on one of those points (or 0, or the cap)."""
+    pts = {0, hardcap}
+    for d, _ in demands:
+        pts.add(int(clamp(round(d), 0, hardcap)))
+    return sorted(pts)
+
+
+def best_inventory(demands, price, cost, hardcap):
+    """Newsvendor over the scenario demands, penalising the bad tail.
+    Returns (meals, risk_adjusted_score, expected_profit)."""
+    best = (0, -1e18, 0.0)
+    for m in meal_grid(demands, hardcap):
+        outcomes = [(min(d, m) * price - m * cost, w) for d, w in demands]
+        mean = sum(p * w for p, w in outcomes)
+        score = mean - P["risk_lambda"] * (mean - tail_mean(outcomes, P["risk_tail"]))
+        if score > best[1]:
+            best = (m, score, mean)
+    return best
+
+
+# ------------------------------------------------------------------ rivals
+
+def predict_rivals(state):
+    """Each rival's likely pitch tomorrow, from what we have seen them do."""
+    me = (state.get("you") or {}).get("id")
+    rep_avg = {t["id"]: t.get("reputation_avg", 50.0) for t in state.get("trucks", [])}
+    last = state.get("last_day") or {}
+    out = []
+    for spot, info in (last.get("spots") or {}).items():
+        for t in info.get("trucks", []):
+            if t["id"] == me:
+                continue
+            q = t.get("quality", "standard")
+            out.append({
+                "id": t["id"], "spot": spot, "price": float(t.get("price", 11.0)),
+                "quality": q,
+                "rep": MEM.rep_at(t["id"], spot, rep_avg.get(t["id"], 50.0)),
+                "meals": float(t.get("meals") or budget_max(q)),
+                "probs": MEM.spot_probs(t["id"]),
+            })
+    if not out:
+        # Nothing observed yet. Assume the field spreads over the busy spots.
+        others = [t for t in state.get("trucks", []) if t["id"] != me]
+        ring = ["highst", "oval", "union", "northres", "thompson", "stadium"]
+        for i, t in enumerate(others):
+            out.append({"id": t["id"], "spot": ring[i % len(ring)], "price": 11.0,
+                        "quality": "standard", "rep": 50.0, "meals": 133.0, "probs": None})
+    return out
+
+
+def rival_presence(rivals, spot, herd=False, magnet=None):
+    """(rival, probability it is at this spot) for everyone who plausibly is.
+
+    Rivals do not choose independently. They all read the same forecast, so
+    on a night with an obvious draw - a concert, a game day - the field piles
+    onto it together and leaves the rest of campus unserved. Treating their
+    choices as independent makes every spot look mildly contested and hides
+    the empty ones, which on such a night are where the money is.
+    """
+    out = []
+    for r in rivals:
+        if herd and magnet:
+            p = 0.85 if spot == magnet else 0.05
+        elif P["use_mobility"] and r.get("probs"):
+            p = r["probs"].get(spot, 0.0)
+        else:
+            p = 1.0 if r["spot"] == spot else 0.0
+        if p >= 0.12:
+            out.append((r, p))
+    return out
+
+
+def strongest_rival(rivals):
+    """The most dangerous truck in the field: what it costs us if it moves in."""
+    best = None
+    for r in rivals:
+        v = QVALUE[r["quality"]] * repfactor(r["rep"]) - r["price"]
+        if best is None or v > best[0]:
+            best = (v, r)
+    if best is None:
+        return Truck(QVALUE["standard"] - 10.5, 10.5, 1, 133.0, tid="__generic__")
+    v, r = best
+    return Truck(v, r["price"], QRANK[r["quality"]], r["meals"], tid=r["id"])
+
+
+def rival_trucks_at(rivals, spot, intruder=None, shift=0.0, herd=False, magnet=None):
+    """The field we expect to face at a spot.
+
+    A rival that only sometimes parks here is carried at a fraction of its
+    capacity: over the scenarios that is the competition it actually removes.
+    `shift` moves every rival's price, to test whether our pitch survives a
+    field that turns out cheaper than it was yesterday.
+    """
+    ts = []
+    here = set()
+    for r, p in rival_presence(rivals, spot, herd, magnet):
+        rep = MEM.rep_at(r["id"], spot, r["rep"])
+        price = max(1.0, r["price"] + shift)
+        v = QVALUE[r["quality"]] * repfactor(rep) - price
+        ts.append(Truck(v, price, QRANK[r["quality"]], r["meals"] * p, tid=r["id"]))
+        here.add(r["id"])
+    if intruder is not None:
+        # Do not invent a second copy of a truck that is already standing here.
+        if not (P["dedup_intruder"] and intruder.tid in here):
+            ip = max(1.0, intruder.price + shift)
+            ts.append(Truck(intruder.value + (intruder.price - ip), ip,
+                            intruder.qrank, intruder.cap, tid=intruder.tid))
+    return ts
 
 
 # ------------------------------------------------------------------ the decision
 
+def scenarios():
+    """(crowd multiplier, probability, intruder?, rival price shift, herd?)."""
+    shifts = P["rival_price_shifts"] if P["use_price_jitter"] else ((0.0, 1.0),)
+    herds = ((False, 1.0 - P["herd_p"]), (True, P["herd_p"])) if P["use_herding"] else ((False, 1.0),)
+    out = []
+    for mult, w in P["crowd_mults"]:
+        for ds, ws in shifts:
+            for hd, wh in herds:
+                out.append((mult, w * (1 - P["intruder_p"]) * ws * wh, False, ds, hd))
+                out.append((mult, w * P["intruder_p"] * ws * wh, True, ds, hd))
+    return out
+
+
+def magnet_spot(state, spots):
+    """The spot the whole field can see is tonight's draw."""
+    fc = state.get("forecast") or {}
+    for ev in (fc.get("events") or []):
+        if ev.get("spot") in spots:
+            return ev["spot"]
+    exp = fc.get("expected_customers") or {}
+    cand = [(exp.get(s, 0), s) for s in spots]
+    if not cand:
+        return None
+    n, best = max(cand)
+    total = sum(x for x, _ in cand) or 1.0
+    # Only a genuinely outsized crowd pulls the field together.
+    return best if n > 0.28 * total else None
+
+
+def rival_best_per_cell(cells, trucks):
+    """The offer each kind of customer would otherwise take."""
+    arr = []
+    for (_, rank, limit) in cells:
+        best = None
+        for t in trucks:
+            if t.qrank < rank or t.price > limit or t.value < 0:
+                continue
+            if best is None or beats(t, best):
+                best = t
+        arr.append(best)
+    return arr
+
+
+def fast_demand(cells, rbest, mine, n):
+    """Customers who would pick us, ignoring who runs out of food first."""
+    d = 0.0
+    for ci, (cw, rank, limit) in enumerate(cells):
+        if mine.qrank < rank or mine.price > limit:
+            continue
+        b = rbest[ci]
+        if b is None or beats(mine, b):
+            d += cw * n
+    return d
+
+
+def best_at_rep(spot, cells, rbest_modal, n_modal, rep, budget, pmin, pmax):
+    """Best achievable day-profit at a spot for a given reputation.
+
+    Used twice - at today's reputation and at tomorrow's - so the worth of a
+    reputation point is read off the game's own mechanics instead of guessed.
+    """
+    best = 0.0
+    for quality in QUALITIES:
+        qv = QVALUE[quality] * repfactor(rep)
+        cost = QCOST[quality]
+        hardcap = int(budget // cost)
+        price = max(pmin, 5.0)
+        top = min(pmax, qv)
+        while price <= top + 1e-9:
+            mine = Truck(qv - price, price, QRANK[quality], hardcap)
+            d = fast_demand(cells, rbest_modal, mine, n_modal)
+            m = int(clamp(round(d), 0, hardcap))
+            profit = min(d, m) * price - m * cost
+            if profit > best:
+                best = profit
+            price += 0.5
+    return best
+
+
 def decide(state):
     """Pick tomorrow's spot, price, quality and meal count."""
+    MEM.sync(state)
     rules = state["rules"]
     budget = float(rules.get("budget", 500))
     spots = [s for s in rules.get("spots", list(SPOTS)) if s in SPOTS]
     pmin = float(rules.get("price_min", 1))
     pmax = float(rules.get("price_max", 30))
-    fc = state.get("forecast") or {}
-    expected = fc.get("expected_customers") or {}
+    expected = expected_crowds(state, spots)
     myrep = (state["you"].get("reputation") or {})
     rivals = predict_rivals(state)
     intruder = strongest_rival(rivals)
 
-    days_left = max(1, int(state.get("days", 30)) - int(state.get("order_for_day", 1)) + 1)
-    rep_weight = P["rep_bonus"] * min(days_left, P["rep_horizon"]) / P["rep_horizon"]
+    # order_for_day is null outside a night, and `days` can be missing.
+    day_now = int(state.get("order_for_day") or state.get("day") or 1)
+    days_left = max(1, int(state.get("days") or 30) - day_now + 1)
+    scen = scenarios()
+    magnet = magnet_spot(state, spots) if P["use_herding"] else None
 
-    scen = []
-    for mult, w in P["crowd_mults"]:
-        scen.append((mult, w * (1 - P["intruder_p"]), False))
-        scen.append((mult, w * P["intruder_p"], True))
-
-    # ---- stage 1: fast scan, ignoring capacity feedback, to shortlist candidates.
+    # ---- stage 1: screen every spot/quality/price without capacity feedback.
     shortlist = []
-    cellcache = {}
+    cellcache, rbestcache, modal = {}, {}, {}
     for spot in spots:
         n_base = float(expected.get(spot, 150))
         if n_base <= 0:
@@ -267,53 +605,58 @@ def decide(state):
         cells = cellcache.setdefault(spot, cells_for(spot, P["limit_cells"]))
         rep = float(myrep.get(spot, 50.0))
         rf = repfactor(rep)
-        # Best rival value per cell, per scenario-shape (only `extra` matters here).
-        rbest = {}
-        for extra in (False, True):
-            rts = rival_trucks_at(rivals, spot, intruder if extra else None)
-            arr = []
-            for (_, rank, limit) in cells:
-                best = None
-                for t in rts:
-                    if t.qrank < rank or t.price > limit or t.value < 0:
-                        continue
-                    if best is None or beats(t, best):
-                        best = t
-                arr.append(best)
-            rbest[extra] = arr
+        rbest = {k: rival_best_per_cell(
+                     cells, rival_trucks_at(rivals, spot, intruder if k[0] else None,
+                                            k[1], k[2], magnet))
+                 for k in {(e, ds, hd) for _, _, e, ds, hd in scen}}
+        rbestcache[spot] = rbest
+        modal[spot] = (cells, rival_best_per_cell(
+            cells, rival_trucks_at(rivals, spot, None, 0.0)), n_base)
         for quality in QUALITIES:
             qv = QVALUE[quality] * rf
-            qr = QRANK[quality]
             cost = QCOST[quality]
-            cap = budget // cost
+            hardcap = int(budget // cost)
             price = max(pmin, 4.0)
-            while price <= min(pmax, qv + 0.01):
-                myv = qv - price
-                if myv < 0:
-                    price += P["price_step"]
-                    continue
-                mine = Truck(myv, price, qr, cap)
-                exp_sales = 0.0
-                for mult, w, extra in scen:
-                    arr = rbest[extra]
-                    n = n_base * mult
-                    d = 0.0
-                    for ci, (cw, rank, limit) in enumerate(cells):
-                        if qr < rank or price > limit:
-                            continue
-                        b = arr[ci]
-                        if b is None or beats(mine, b):
-                            d += cw * n
-                    exp_sales += w * min(d, cap)
-                profit = exp_sales * price - cap * cost
-                shortlist.append((profit, spot, quality, price))
+            top = min(pmax, qv)
+            while price <= top + 1e-9:
+                mine = Truck(qv - price, price, QRANK[quality], hardcap)
+                demands = [(fast_demand(cells, rbest[(e, ds, hd)], mine, n_base * mult), w)
+                           for mult, w, e, ds, hd in scen]
+                if P["stage1_newsvendor"]:
+                    _, score, _ = best_inventory(demands, price, cost, hardcap)
+                else:
+                    exp_sales = sum(w * min(d, hardcap) for d, w in demands)
+                    score = exp_sales * price - hardcap * cost
+                shortlist.append((score, spot, quality, price))
                 price += P["price_step"]
     if not shortlist:
         return {"spot": "union", "price": 11.0, "quality": "standard", "meals": 133}
     shortlist.sort(key=lambda x: -x[0])
     shortlist = shortlist[:P["shortlist"]]
 
-    # ---- stage 2: full simulation with sell-outs, then pick the meal count.
+    # ---- how much is a day's reputation gain worth at each shortlisted spot?
+    repvalue = {}
+    if P["use_repvalue"]:
+        horizon = int(min(days_left - 1, P["rep_max_horizon"]))
+        for spot in {s for _, s, _, _ in shortlist}:
+            cells, rbest0, n_base = modal[spot]
+            rep = float(myrep.get(spot, 50.0))
+            base = best_at_rep(spot, cells, rbest0, n_base, rep, budget, pmin, pmax)
+            visits = sum(MEM.my_revisit_p(spot) * (P["rep_discount"] ** k)
+                         for k in range(horizon))
+            for quality in QUALITIES:
+                nxt = clamp(rep + QREP[quality], 0.0, 100.0)
+                if abs(nxt - rep) < 1e-9 or visits <= 0:
+                    repvalue[(spot, quality)] = 0.0
+                    continue
+                gain = best_at_rep(spot, cells, rbest0, n_base, nxt, budget, pmin, pmax) - base
+                repvalue[(spot, quality)] = gain * visits
+    else:
+        w = P["rep_bonus"] * min(days_left, P["rep_horizon"]) / P["rep_horizon"]
+        for _, spot, quality, _ in shortlist:
+            repvalue[(spot, quality)] = w * QREP[quality]
+
+    # ---- stage 2: full simulation with sell-outs, then choose the stock.
     best = None
     for _, spot, quality, price in shortlist:
         n_base = float(expected.get(spot, 150))
@@ -324,37 +667,22 @@ def decide(state):
         hardcap = int(budget // cost)
 
         demands = []
-        for mult, w, extra in scen:
-            rts = rival_trucks_at(rivals, spot, intruder if extra else None)
+        for mult, w, extra, ds, hd in scen:
+            rts = rival_trucks_at(rivals, spot, intruder if extra else None, ds, hd, magnet)
             mine = Truck(myv, price, QRANK[quality], 1e9)
-            sales = allocate(cells, [mine] + rts, n_base * mult)
-            demands.append((sales[0], w))
+            demands.append((allocate(cells, [mine] + rts, n_base * mult)[0], w))
 
-        # Newsvendor over the demand scenarios, penalising the bad tail: a day
-        # that sells nothing still pays for every meal, so hedge against it.
-        for meals in meal_grid(demands, hardcap):
-            outcomes = [(min(d, meals) * price - meals * cost, w) for d, w in demands]
-            mean = sum(p * w for p, w in outcomes)
-            downside = mean - tail_mean(outcomes, P["risk_tail"])
-            rep_gain = rep_weight * QREP[quality] if meals > 0 else 0.0
-            score = mean + rep_gain - P["risk_lambda"] * downside
-            if best is None or score > best[0]:
-                best = (score, mean, spot, quality, price, meals)
+        meals, score, mean = best_inventory(demands, price, cost, hardcap)
+        if meals > 0:
+            score += repvalue.get((spot, quality), 0.0)
+        if best is None or score > best[0]:
+            best = (score, mean, spot, quality, price, meals)
 
-    _, profit, spot, quality, price, meals = best
-    if profit < 0 and meals > 0:
-        # Every option loses money; sitting out costs nothing.
+    _, mean, spot, quality, price, meals = best
+    if mean < 0 and meals > 0:
+        # Every option loses money today; sitting out costs nothing.
         return {"spot": spot, "price": round(price, 2), "quality": quality, "meals": 0}
     return {"spot": spot, "price": round(price, 2), "quality": quality, "meals": int(meals)}
-
-
-def meal_grid(demands, hardcap):
-    """Candidate meal counts: around each demand scenario, plus the budget cap."""
-    pts = {hardcap, 0}
-    for d, _ in demands:
-        for f in (0.9, 1.0, 1.1):
-            pts.add(max(0, min(hardcap, int(round(d * f)))))
-    return sorted(p for p in pts if p >= 0)
 
 
 # ------------------------------------------------------------------ plumbing
@@ -389,8 +717,9 @@ def log(rec):
         pass
 
 
-def play(base, quiet=False):
+def play(base, quiet=False, history=None):
     version, ordered_for, backoff, hangups = 0, None, 1, 0
+    seen_days = set()
     while True:
         try:
             status, state = call("GET", base + "/state?since=%d" % version)
@@ -416,6 +745,13 @@ def play(base, quiet=False):
             time.sleep(3)
             continue
         version = state["version"]
+        day_done = (state.get("last_day") or {}).get("day")
+        if history is not None and day_done and day_done not in seen_days:
+            seen_days.add(day_done)
+            row = dict((state["last_day"].get("you") or {}))
+            row["day"] = day_done
+            row["cash"] = state["you"]["cash"]
+            history.append(row)
         if state["phase"] == "over" and state["mode"] == "practice":
             return state
         key = (state.get("mode"), state.get("market"), state.get("order_for_day"))
@@ -454,7 +790,7 @@ def report(state):
         print("[%s] day %s: sat out | cash $%.2f" % (where, last.get("day"), state["you"]["cash"]))
 
 
-def run_practice(seed=None, days=30, rivals=3, quiet=False):
+def run_practice(seed=None, days=30, rivals=3, quiet=False, history=None):
     body = {"days": days, "rivals": rivals}
     if seed:
         body["seed"] = seed
@@ -462,21 +798,28 @@ def run_practice(seed=None, days=30, rivals=3, quiet=False):
     if status not in (200, 201):
         print("could not start practice (%d): %s" % (status, res.get("error")))
         return None
-    final = play(res["base"], quiet=quiet)
-    return final
+    return play(res["base"], quiet=quiet, history=history)
 
 
 def main():
     sys.stdout.reconfigure(line_buffering=True)
     ap = argparse.ArgumentParser(description="Food Truck Wars bot")
     ap.add_argument("--practice", action="store_true")
-    ap.add_argument("--bench", type=int, metavar="N", help="run N seeded practice markets")
+    ap.add_argument("--bench", type=int, metavar="N")
     ap.add_argument("--seed")
     ap.add_argument("--days", type=int, default=30)
     ap.add_argument("--rivals", type=int, default=3)
+    ap.add_argument("--set", action="append", default=[], metavar="K=V",
+                    help="override a tunable, e.g. --set use_mobility=False")
     args = ap.parse_args()
     if not KEY:
         sys.exit("Set NIGHTSHIFT_KEY first.")
+    for kv in args.set:
+        k, _, v = kv.partition("=")
+        if k in P:
+            P[k] = ast.literal_eval(v)
+        else:
+            sys.exit("unknown tunable %r" % k)
 
     if args.bench:
         results = []
@@ -505,7 +848,10 @@ def main():
                 mark = " <-- you" if t["id"] == final["you"]["id"] else ""
                 print("  %-24s $%10.2f%s" % (t["truck_name"], t["cash"], mark))
     else:
+        n = preload_memory()
         print("playing live at %s (Ctrl+C to stop)" % URL)
+        if n:
+            print("replayed %d archived days into memory" % n)
         play("/api/v1")
 
 

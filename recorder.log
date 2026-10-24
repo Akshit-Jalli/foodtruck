@@ -3,3 +3,8 @@ archived day 1 (clear): 6 spots, 469 customers, 293 hungry
 network error (<urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>), retry in 1s
 network error (<urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>), retry in 1s
 recorder started, 1 days already archived -> days.jsonl
+archived day 2 (rain): 6 spots, 385 customers, 177 hungry
+archived day 3 (clear): 6 spots, 722 customers, 556 hungry
+archived day 4 (cloudy): 6 spots, 631 customers, 357 hungry
+archived day 5 (clear): 6 spots, 599 customers, 334 hungry
+error 502: HTTP Error 502: Bad Gateway

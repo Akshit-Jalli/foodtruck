@@ -7,3 +7,22 @@ network error (<urlopen error [WinError 10054] An existing connection was forcib
 playing live at https://nightshift.joinbuilders.org (Ctrl+C to stop)
 [live] day 1: sat out | cash $0.00
   -> oval premium $11.00 x56  (0.05s)
+playing live at https://nightshift.joinbuilders.org (Ctrl+C to stop)
+replayed 2 archived days into memory
+[live] day 2: oval premium $11 sold 43/56 profit $165.00 | cash $165.00
+  -> union premium $9.75 x90  (0.09s)
+[live] day 3: union premium $9.75 sold 90/90 profit $382.50 | cash $547.50
+  -> union premium $10.25 x87  (0.10s)
+[21:11:18] supervisor: start #1
+playing live at https://nightshift.joinbuilders.org (Ctrl+C to stop)
+replayed 3 archived days into memory
+[live] day 3: union premium $9.75 sold 90/90 profit $382.50 | cash $547.50
+  -> union premium $10.25 x87  (0.18s)
+[live] day 4: union premium $10.25 sold 87/87 profit $413.25 | cash $960.75
+  -> union premium $10.75 x79  (0.27s)
+[21:26:35] supervisor: start #1
+playing live at https://nightshift.joinbuilders.org (Ctrl+C to stop)
+replayed 4 archived days into memory
+[live] day 4: union premium $10.25 sold 87/87 profit $413.25 | cash $960.75
+  -> highst premium $9.00 x90  (0.30s)
+network error (<urlopen error _ssl.c:1015: The handshake operation timed out>), retrying in 1s

@@ -1,0 +1,109 @@
+bench holdout_final: 8 seeds x 2 engines, 30-day practice markets, one at a time
+writing to C:\Users\pawan\OneDrive\Desktop\foodtruck\bench_results\holdout_final.json
+  [baseline] hold-0 attempt 1 ...
+    cash $8499.25  rank 1/4  stockout 0.57  unused 6.8/day  12.1s
+  [bot] hold-0 attempt 1 ...
+    cash $8802.75  rank 1/4  stockout 0.60  unused 5.5/day  15.1s
+  [baseline] hold-1 attempt 1 ...
+    cash $10195.25  rank 1/4  stockout 0.63  unused 6.0/day  13.1s
+  [bot] hold-1 attempt 1 ...
+    cash $10853.50  rank 1/4  stockout 0.80  unused 1.9/day  15.4s
+  [baseline] hold-2 attempt 1 ...
+    cash $10663.00  rank 1/4  stockout 0.70  unused 5.4/day  13.0s
+  [bot] hold-2 attempt 1 ...
+    cash $10321.00  rank 1/4  stockout 0.70  unused 4.0/day  14.3s
+  [baseline] hold-3 attempt 1 ...
+    cash $9406.00  rank 1/4  stockout 0.53  unused 10.5/day  11.7s
+  [bot] hold-3 attempt 1 ...
+    cash $10147.00  rank 1/4  stockout 0.53  unused 5.2/day  14.2s
+  [baseline] hold-4 attempt 1 ...
+    cash $10053.00  rank 1/4  stockout 0.60  unused 4.7/day  11.2s
+  [bot] hold-4 attempt 1 ...
+    cash $9820.50  rank 1/4  stockout 0.70  unused 3.3/day  13.9s
+  [baseline] hold-5 attempt 1 ...
+    cash $10106.50  rank 1/4  stockout 0.43  unused 5.0/day  12.0s
+  [bot] hold-5 attempt 1 ...
+    cash $10249.75  rank 1/4  stockout 0.80  unused 1.6/day  18.1s
+  [baseline] hold-6 attempt 1 ...
+    cash $9733.75  rank 1/4  stockout 0.47  unused 5.0/day  15.7s
+  [bot] hold-6 attempt 1 ...
+    cash $9875.50  rank 1/4  stockout 0.67  unused 3.3/day  18.1s
+  [baseline] hold-7 attempt 1 ...
+    cash $9669.00  rank 1/4  stockout 0.53  unused 7.4/day  13.3s
+  [bot] hold-7 attempt 1 ...
+    cash $9232.00  rank 1/4  stockout 0.53  unused 6.5/day  19.9s
+
+==============================================================================================
+BENCH holdout_final   seeds=hold n=8 days=30 rivals=3
+==============================================================================================
+engine        n      mean$    median$    wdec10$       min$   win%  rank stockout  unused waste$/d    dec_s
+-----------------------------------------------------------------------------------------------------------
+baseline      8    9790.72    9893.38    8499.25    8499.25    100  1.00   0.558     6.4     28.9    0.070
+bot           8    9912.75   10011.25    8802.75    8802.75    100  1.00   0.667     3.9     16.2    0.174
+  baseline p10=9133.98  max_decide_s=0.205  sell_through=0.903  trading_days=240  sat_out=0
+  bot      p10=9103.23  max_decide_s=0.445  sell_through=0.941  trading_days=240  sat_out=0
+
+per-seed final cash
+seed              baseline         bot
+--------------------------------------
+hold-0             8499.25     8802.75
+hold-1            10195.25    10853.50
+hold-2            10663.00    10321.00
+hold-3             9406.00    10147.00
+hold-4            10053.00     9820.50
+hold-5            10106.50    10249.75
+hold-6             9733.75     9875.50
+hold-7             9669.00     9232.00
+
+paired: baseline vs bot   (n=8 seeds run on both)
+seed               baseline          bot         diff
+----------------------------------------------------
+hold-0              8499.25      8802.75      -303.50
+hold-1             10195.25     10853.50      -658.25
+hold-2             10663.00     10321.00      +342.00
+hold-3              9406.00     10147.00      -741.00
+hold-4             10053.00      9820.50      +232.50
+hold-5             10106.50     10249.75      -143.25
+hold-6              9733.75      9875.50      -141.75
+hold-7              9669.00      9232.00      +437.00
+----------------------------------------------------
+mean diff -122.03   median diff -142.50   sd 440.45
+95% CI (paired t, df=7): [-490.31, +246.25]
+seeds won: baseline=3  bot=5  ties=0
+paired t = -0.784, df=7, two-sided p = 0.4589 ; sign test p = 0.7266
+Small n: read the per-seed diffs, not the p-value. Tests are paired, n=8 (8 non-tied).
+
+per-spot breakdown [baseline] (pooled over 8 runs)
+spot        visits      profit$      $/visit sell-thru  stockout
+----------------------------------------------------------------
+union          115     30472.00       264.97     0.908     0.513
+oval            72     22638.25       314.42     0.883     0.625
+highst          38     22066.25       580.69     0.949     0.763
+thompson        15      3149.25       209.95     0.778     0.067
+
+per-spot breakdown [bot] (pooled over 8 runs)
+spot        visits      profit$      $/visit sell-thru  stockout
+----------------------------------------------------------------
+highst         189     60444.25       319.81     0.951     0.672
+union           20      8266.25       413.31     0.996     0.950
+oval            18      7835.25       435.29     0.861     0.667
+thompson        13      2756.25       212.02     0.800     0.154
+
+mean profit per day [baseline]
+  d01    291.5  d02    282.2  d03    461.4  d04    372.9  d05    474.9
+  d06    330.0  d07    334.6  d08    318.5  d09    290.1  d10    226.4
+  d11    311.9  d12    441.8  d13    351.9  d14    234.8  d15    222.8
+  d16    278.1  d17    360.2  d18    278.7  d19    275.5  d20    478.0
+  d21    484.0  d22    319.4  d23    278.9  d24    326.4  d25    388.5
+  d26    258.4  d27    378.8  d28    349.3  d29    219.8  d30    170.9
+
+mean profit per day [bot]
+  d01    323.4  d02    312.0  d03    377.8  d04    325.3  d05    417.2
+  d06    315.9  d07    270.7  d08    303.1  d09    292.7  d10    248.0
+  d11    318.8  d12    444.6  d13    305.6  d14    253.4  d15    243.0
+  d16    253.3  d17    353.4  d18    295.9  d19    280.4  d20    437.2
+  d21    456.2  d22    342.9  d23    282.7  d24    321.9  d25    403.9
+  d26    280.1  d27    383.0  d28    383.6  d29    360.2  d30    326.5
+
+JSON summary: C:\Users\pawan\OneDrive\Desktop\foodtruck\bench_results\holdout_final.json
+Per-run records: C:\Users\pawan\OneDrive\Desktop\foodtruck\bench_results\holdout_final.runs.jsonl

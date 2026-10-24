@@ -1,0 +1,57 @@
+bench v6_repfix_tune: 8 seeds x 1 engines, 30-day practice markets, one at a time
+writing to C:\Users\pawan\OneDrive\Desktop\foodtruck\bench_results\v6_repfix_tune.json
+  [bot] tune-0 attempt 1 ...
+    cash $10224.75  rank 1/4  stockout 0.67  unused 3.4/day  24.4s
+  [bot] tune-1 attempt 1 ...
+    cash $9059.75  rank 1/4  stockout 0.60  unused 5.9/day  27.8s
+  [bot] tune-2 attempt 1 ...
+    cash $10029.00  rank 1/4  stockout 0.57  unused 3.4/day  23.6s
+  [bot] tune-3 attempt 1 ...
+    cash $9566.00  rank 1/4  stockout 0.60  unused 5.8/day  22.7s
+  [bot] tune-4 attempt 1 ...
+    cash $9499.75  rank 1/4  stockout 0.67  unused 2.6/day  24.0s
+  [bot] tune-5 attempt 1 ...
+    cash $9864.00  rank 1/4  stockout 0.77  unused 3.1/day  24.8s
+  [bot] tune-6 attempt 1 ...
+    cash $10203.75  rank 1/4  stockout 0.73  unused 2.7/day  21.9s
+  [bot] tune-7 attempt 1 ...
+    cash $10365.25  rank 1/4  stockout 0.57  unused 3.7/day  22.2s
+
+==============================================================================================
+BENCH v6_repfix_tune   seeds=tune n=8 days=30 rivals=3
+==============================================================================================
+engine        n      mean$    median$    wdec10$       min$   win%  rank stockout  unused waste$/d    dec_s
+-----------------------------------------------------------------------------------------------------------
+bot           8    9851.53    9946.50    9059.75    9059.75    100  1.00   0.646     3.8     15.8    0.238
+  bot      p10=9367.75  max_decide_s=0.396  sell_through=0.942  trading_days=240  sat_out=0
+
+per-seed final cash
+seed                   bot
+--------------------------
+tune-0            10224.75
+tune-1             9059.75
+tune-2            10029.00
+tune-3             9566.00
+tune-4             9499.75
+tune-5             9864.00
+tune-6            10203.75
+tune-7            10365.25
+
+per-spot breakdown [bot] (pooled over 8 runs)
+spot        visits      profit$      $/visit sell-thru  stockout
+----------------------------------------------------------------
+highst         200     65753.25       328.77     0.956     0.690
+oval            13      5194.50       399.58     0.834     0.462
+union           13      5012.00       385.54     0.978     0.692
+thompson        14      2852.50       203.75     0.784     0.143
+
+mean profit per day [bot]
+  d01    325.1  d02    272.1  d03    319.9  d04    269.9  d05    415.4
+  d06    372.0  d07    297.0  d08    312.4  d09    185.2  d10    261.4
+  d11    345.0  d12    345.6  d13    479.9  d14    287.2  d15    357.1
+  d16    258.9  d17    318.1  d18    276.1  d19    284.0  d20    392.2
+  d21    201.9  d22    448.9  d23    326.9  d24    276.2  d25    363.2
+  d26    328.7  d27    353.4  d28    465.8  d29    384.9  d30    327.2
+
+JSON summary: C:\Users\pawan\OneDrive\Desktop\foodtruck\bench_results\v6_repfix_tune.json
+Per-run records: C:\Users\pawan\OneDrive\Desktop\foodtruck\bench_results\v6_repfix_tune.runs.jsonl

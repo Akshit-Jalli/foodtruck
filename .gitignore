@@ -2,3 +2,5 @@ dashboard_history.json
 dashboard_history.json.tmp
 __pycache__/
 .env
+.env.*
+bench_results/logs/

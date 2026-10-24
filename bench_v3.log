@@ -1,0 +1,57 @@
+bench v3_jitter_tune: 8 seeds x 1 engines, 30-day practice markets, one at a time
+writing to C:\Users\pawan\OneDrive\Desktop\foodtruck\bench_results\v3_jitter_tune.json
+  [bot] tune-0 attempt 1 ...
+    cash $9828.00  rank 1/4  stockout 0.67  unused 3.4/day  20.4s
+  [bot] tune-1 attempt 1 ...
+    cash $8914.25  rank 1/4  stockout 0.63  unused 5.1/day  18.1s
+  [bot] tune-2 attempt 1 ...
+    cash $9549.50  rank 1/4  stockout 0.60  unused 3.7/day  17.9s
+  [bot] tune-3 attempt 1 ...
+    cash $9205.50  rank 1/4  stockout 0.60  unused 5.5/day  17.4s
+  [bot] tune-4 attempt 1 ...
+    cash $8950.75  rank 1/4  stockout 0.67  unused 3.0/day  18.6s
+  [bot] tune-5 attempt 1 ...
+    cash $9427.00  rank 1/4  stockout 0.73  unused 3.0/day  26.5s
+  [bot] tune-6 attempt 1 ...
+    cash $9802.25  rank 1/4  stockout 0.70  unused 2.6/day  18.0s
+  [bot] tune-7 attempt 1 ...
+    cash $9960.25  rank 1/4  stockout 0.67  unused 3.6/day  18.7s
+
+==============================================================================================
+BENCH v3_jitter_tune   seeds=tune n=8 days=30 rivals=3
+==============================================================================================
+engine        n      mean$    median$    wdec10$       min$   win%  rank stockout  unused waste$/d    dec_s
+-----------------------------------------------------------------------------------------------------------
+bot           8    9454.69    9488.25    8914.25    8914.25    100  1.00   0.658     3.7     15.6    0.250
+  bot      p10=8939.80  max_decide_s=0.805  sell_through=0.943  trading_days=240  sat_out=0
+
+per-seed final cash
+seed                   bot
+--------------------------
+tune-0             9828.00
+tune-1             8914.25
+tune-2             9549.50
+tune-3             9205.50
+tune-4             8950.75
+tune-5             9427.00
+tune-6             9802.25
+tune-7             9960.25
+
+per-spot breakdown [bot] (pooled over 8 runs)
+spot        visits      profit$      $/visit sell-thru  stockout
+----------------------------------------------------------------
+highst         200     62949.25       314.75     0.954     0.700
+oval            13      5137.75       395.21     0.869     0.538
+union           12      4421.75       368.48     0.990     0.750
+thompson        15      3128.75       208.58     0.794     0.133
+
+mean profit per day [bot]
+  d01    325.1  d02    266.6  d03    318.8  d04    279.6  d05    403.4
+  d06    367.5  d07    273.6  d08    304.3  d09    182.0  d10    256.0
+  d11    335.8  d12    345.7  d13    459.9  d14    275.5  d15    342.5
+  d16    245.5  d17    306.7  d18    264.5  d19    268.1  d20    377.5
+  d21    190.3  d22    425.2  d23    302.7  d24    258.8  d25    334.7
+  d26    305.2  d27    342.9  d28    427.1  d29    369.1  d30    299.9
+
+JSON summary: C:\Users\pawan\OneDrive\Desktop\foodtruck\bench_results\v3_jitter_tune.json
+Per-run records: C:\Users\pawan\OneDrive\Desktop\foodtruck\bench_results\v3_jitter_tune.runs.jsonl

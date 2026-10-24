@@ -1,0 +1,365 @@
+{
+  "generated_at": "2026-10-23T21:12:08",
+  "sources": {
+    "probe_rows": 854,
+    "live_rows": 9,
+    "markets": [
+      "harvest-0",
+      "harvest-1",
+      "harvest-2",
+      "harvest-3",
+      "harvest-4",
+      "harvest-5",
+      "harvest-6",
+      "harvest-7"
+    ]
+  },
+  "settings": {
+    "cells": 20,
+    "pseudo_n": 20.0,
+    "sigma2": 25.787,
+    "folds": 4
+  },
+  "spots": {
+    "highst": {
+      "n": 216,
+      "shrinkage": 0.0847,
+      "evals": 92,
+      "documented": {
+        "limit_mean": 12.0,
+        "limit_sd": 3.0,
+        "qmin": [
+          0.5,
+          0.35,
+          0.15
+        ]
+      },
+      "botpy_now": {
+        "limit_mean": 12.0,
+        "limit_sd": 3.0,
+        "qmin": [
+          0.5,
+          0.35,
+          0.15
+        ]
+      },
+      "fitted": {
+        "limit_mean": 12.125,
+        "limit_sd": 3.156,
+        "qmin": [
+          0.4962,
+          0.3238,
+          0.18
+        ]
+      },
+      "unshrunk": {
+        "limit_mean": 11.938,
+        "limit_sd": 3.5,
+        "qmin": [
+          0.4962,
+          0.335,
+          0.1687
+        ]
+      },
+      "rmse_in_sample_botpy": 4.693,
+      "rmse_in_sample_fitted": 4.554,
+      "holdout": {
+        "n": 214,
+        "rmse_documented": 4.699,
+        "rmse_botpy": 4.699,
+        "rmse_fitted": 4.716
+      }
+    },
+    "oval": {
+      "n": 57,
+      "shrinkage": 0.2597,
+      "evals": 83,
+      "documented": {
+        "limit_mean": 13.0,
+        "limit_sd": 2.3,
+        "qmin": [
+          0.3,
+          0.5,
+          0.2
+        ]
+      },
+      "botpy_now": {
+        "limit_mean": 12.4,
+        "limit_sd": 2.3,
+        "qmin": [
+          0.3,
+          0.5,
+          0.2
+        ]
+      },
+      "fitted": {
+        "limit_mean": 12.65,
+        "limit_sd": 2.519,
+        "qmin": [
+          0.33,
+          0.4775,
+          0.1925
+        ]
+      },
+      "unshrunk": {
+        "limit_mean": 12.9,
+        "limit_sd": 3.3,
+        "qmin": [
+          0.3487,
+          0.4925,
+          0.1588
+        ]
+      },
+      "rmse_in_sample_botpy": 5.926,
+      "rmse_in_sample_fitted": 4.592,
+      "holdout": {
+        "n": 55,
+        "rmse_documented": 5.45,
+        "rmse_botpy": 6.027,
+        "rmse_fitted": 5.445
+      }
+    },
+    "union": {
+      "n": 243,
+      "shrinkage": 0.076,
+      "evals": 69,
+      "documented": {
+        "limit_mean": 13.0,
+        "limit_sd": 2.2,
+        "qmin": [
+          0.22,
+          0.53,
+          0.25
+        ]
+      },
+      "botpy_now": {
+        "limit_mean": 12.8,
+        "limit_sd": 2.2,
+        "qmin": [
+          0.22,
+          0.47,
+          0.31
+        ]
+      },
+      "fitted": {
+        "limit_mean": 12.8,
+        "limit_sd": 1.981,
+        "qmin": [
+          0.2763,
+          0.41,
+          0.3138
+        ]
+      },
+      "unshrunk": {
+        "limit_mean": 12.8,
+        "limit_sd": 1.95,
+        "qmin": [
+          0.3738,
+          0.3125,
+          0.3138
+        ]
+      },
+      "rmse_in_sample_botpy": 5.136,
+      "rmse_in_sample_fitted": 4.657,
+      "holdout": {
+        "n": 240,
+        "rmse_documented": 4.918,
+        "rmse_botpy": 5.148,
+        "rmse_fitted": 4.721
+      }
+    },
+    "northres": {
+      "n": 49,
+      "shrinkage": 0.2899,
+      "evals": 76,
+      "documented": {
+        "limit_mean": 11.0,
+        "limit_sd": 2.1,
+        "qmin": [
+          0.45,
+          0.45,
+          0.1
+        ]
+      },
+      "botpy_now": {
+        "limit_mean": 11.0,
+        "limit_sd": 2.1,
+        "qmin": [
+          0.45,
+          0.45,
+          0.1
+        ]
+      },
+      "fitted": {
+        "limit_mean": 11.25,
+        "limit_sd": 2.413,
+        "qmin": [
+          0.4688,
+          0.4237,
+          0.1075
+        ]
+      },
+      "unshrunk": {
+        "limit_mean": 11.125,
+        "limit_sd": 2.6,
+        "qmin": [
+          0.5063,
+          0.3825,
+          0.1113
+        ]
+      },
+      "rmse_in_sample_botpy": 4.482,
+      "rmse_in_sample_fitted": 3.21,
+      "holdout": {
+        "n": 48,
+        "rmse_documented": 4.528,
+        "rmse_botpy": 4.528,
+        "rmse_fitted": 3.896
+      }
+    },
+    "thompson": {
+      "n": 240,
+      "shrinkage": 0.0769,
+      "evals": 70,
+      "documented": {
+        "limit_mean": 12.0,
+        "limit_sd": 2.3,
+        "qmin": [
+          0.45,
+          0.4,
+          0.15
+        ]
+      },
+      "botpy_now": {
+        "limit_mean": 12.0,
+        "limit_sd": 2.3,
+        "qmin": [
+          0.45,
+          0.4,
+          0.15
+        ]
+      },
+      "fitted": {
+        "limit_mean": 12.0,
+        "limit_sd": 2.831,
+        "qmin": [
+          0.405,
+          0.445,
+          0.15
+        ]
+      },
+      "unshrunk": {
+        "limit_mean": 12.875,
+        "limit_sd": 1.8,
+        "qmin": [
+          0.36,
+          0.3812,
+          0.2588
+        ]
+      },
+      "rmse_in_sample_botpy": 4.756,
+      "rmse_in_sample_fitted": 3.249,
+      "holdout": {
+        "n": 240,
+        "rmse_documented": 4.756,
+        "rmse_botpy": 4.756,
+        "rmse_fitted": 3.342
+      }
+    },
+    "stadium": {
+      "n": 58,
+      "shrinkage": 0.2564,
+      "evals": 74,
+      "documented": {
+        "limit_mean": 13.0,
+        "limit_sd": 2.6,
+        "qmin": [
+          0.25,
+          0.5,
+          0.25
+        ]
+      },
+      "botpy_now": {
+        "limit_mean": 13.0,
+        "limit_sd": 2.6,
+        "qmin": [
+          0.25,
+          0.5,
+          0.25
+        ]
+      },
+      "fitted": {
+        "limit_mean": 13.5,
+        "limit_sd": 2.631,
+        "qmin": [
+          0.3362,
+          0.395,
+          0.2688
+        ]
+      },
+      "unshrunk": {
+        "limit_mean": 14.5,
+        "limit_sd": 3.225,
+        "qmin": [
+          0.3812,
+          0.3275,
+          0.2913
+        ]
+      },
+      "rmse_in_sample_botpy": 6.79,
+      "rmse_in_sample_fitted": 4.019,
+      "holdout": {
+        "n": 57,
+        "rmse_documented": 6.848,
+        "rmse_botpy": 6.848,
+        "rmse_fitted": 5.082
+      }
+    }
+  },
+  "holdout_overall": {
+    "n": 854,
+    "rmse_documented": 4.988,
+    "rmse_botpy": 5.095,
+    "rmse_fitted": 4.412,
+    "folds": 4
+  },
+  "crowd_mults": [
+    [
+      0.701,
+      0.15
+    ],
+    [
+      0.863,
+      0.2
+    ],
+    [
+      1.004,
+      0.3
+    ],
+    [
+      1.145,
+      0.2
+    ],
+    [
+      1.312,
+      0.15
+    ]
+  ],
+  "crowd_stats": {
+    "n": 860,
+    "empirical_mean": 1.0047,
+    "empirical_sd": 0.1896,
+    "empirical_min": 0.467,
+    "empirical_max": 1.733,
+    "p05": 0.692,
+    "p50": 1.004,
+    "p95": 1.309,
+    "discretised_mean": 1.0048,
+    "variance_stretch": 1.1314,
+    "current_mean": 1.0075,
+    "current_sd": 0.202,
+    "discretised_sd": 0.1896
+  },
+  "spots_block": "SPOTS = {\n    \"highst\":    {\"limit_mean\": 12.12, \"limit_sd\": 3.16, \"qmin\": (0.50, 0.32, 0.18)},\n    \"oval\":      {\"limit_mean\": 12.65, \"limit_sd\": 2.52, \"qmin\": (0.33, 0.48, 0.19)},\n    \"union\":     {\"limit_mean\": 12.80, \"limit_sd\": 1.98, \"qmin\": (0.28, 0.41, 0.31)},\n    \"northres\":  {\"limit_mean\": 11.25, \"limit_sd\": 2.41, \"qmin\": (0.47, 0.42, 0.11)},\n    \"thompson\":  {\"limit_mean\": 12.00, \"limit_sd\": 2.83, \"qmin\": (0.41, 0.44, 0.15)},\n    \"stadium\":   {\"limit_mean\": 13.50, \"limit_sd\": 2.63, \"qmin\": (0.34, 0.40, 0.27)},\n}",
+  "verdict": "fitted priors are 13.4% better than bot.py current priors out of sample (5 of 6 spots improve)"
+}
